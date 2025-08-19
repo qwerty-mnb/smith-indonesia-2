@@ -1,0 +1,41 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "ES2015"
+    ],
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "skipLibCheck": true,
+    "module": "ES2022",
+    "target": "ES2022",
+  },
+  "include": [
+    "env.d.ts",
+    "vite.config.*",
+    "vitest.config.*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exlude": [
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

@@ -1,0 +1,974 @@
+/* Responsive  Styles */
+
+.mobile {
+    display: none !important;
+}
+
+.before-login .mobile button {
+    width: calc(50% - 8px);
+    height: 35px;
+    margin: 0 4px;
+}
+
+.after-login .mobile button {
+    width: calc(50% - 8px);
+    height: 35px;
+    margin: 0 4px;
+}
+
+.mypage-btn i {
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.mypage-btn.opened i {
+    transform: rotate(180deg);
+}
+
+.modal-title-mob {
+    display: none;
+    color: var(--white-yellow);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: -5px;
+}
+
+.sn-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 98;
+    background-color: rgba(11, 2, 16, 0.5);
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sn-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* - - - - - - - - - - Banner Queries - - - - - - - - - - */
+
+@media(max-width:1145px){
+    .main-menu li {
+        float: left !important;
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+}
+
+@media(max-width:1300px){
+
+    .partners-header {
+        height: 60px !important;
+        width: 100%;
+        background-color: #000;
+    }
+
+    .banner-section {
+        height: auto;
+        padding: 0;
+    }
+
+    .banner-section .banner-bg {
+        display: block;
+        width: 123.9%;
+        left: -11.95%;
+    }
+
+    .banner-section .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .logo {
+        width: 18.59%;
+    }
+
+    .banner-carousel {
+        margin-top: 1%;
+    }
+
+    .banner-carousel .text-panel {
+        padding: 1.5% 15px;
+        margin-bottom: 1.25%;
+    }
+
+    .banner-carousel .text-panel:before {
+        height: 92%;
+    }
+
+}
+
+@media(max-width:1140px){
+
+    .banner-section .banner-bg {
+        width: 140%;
+        left: -20%;
+    }
+
+    .sub-container .notes {
+        padding: 1em;
+        padding-left: 0.3em;
+        margin-left: 23% !important;
+        width: 41rem;
+    }
+}
+
+@media(max-width:100px){
+
+    .banner-carousel .text-panel {
+        margin-bottom: 1.75%;
+    }
+
+    .banner-carousel .text-panel h1 {
+        font-size: 3.4vw;
+    }
+
+    .banner-carousel .text-panel h2 {
+        font-size: 2.6vw;
+    }
+
+}
+
+@media(max-width:767px){
+
+    .logo {
+        width: 22%;
+    }
+
+    .banner-section .banner-bg {
+        width: 170%;
+        left: -35%;
+    }
+
+    .banner-carousel .text-panel {
+        padding: 3% 15px;
+        margin-bottom: 2.5%;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .logo {
+        width: 25%;
+        margin-top: 1%;
+    }
+
+    .carousel-indicators li {
+        width: 20px;
+        height: 4px;
+        margin: 0 2px;
+    }
+
+    .carousel-indicators li.active {
+        width: 30px;
+        height: 4px;
+    }
+
+    .banner-section .banner-bg {
+        width: 180%;
+        left: -40%;
+    }
+
+    .banner-background {
+        width: 120%;
+        left: -10%;
+    }
+
+}
+
+/*  - - - - - - - - - - Header Queries - - - - - - - - - - */
+
+@media(max-width:1320px){
+
+    .main-menu li a {
+        //padding: 0 20px;
+    }
+
+    .before-login .desktop button {
+        width: 100px;
+    }
+
+    .before-login .input-panel {
+        width: 150px;
+    }
+
+}
+
+@media(max-width:1120px){
+
+    .mobile {
+        display: block !important;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    .header-section .container {
+        padding: 0;
+    }
+
+    .main-menu {
+        width: 100%;
+        table-layout: fixed;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .main-menu li a {
+        height: 43px;
+        padding: 2px 0 0;
+    }
+
+    .main-menu li a:before {
+        height: calc(100% - 4px);
+    }
+
+    .bal-container {
+        width: 100%;
+        padding: 8px 5px 11px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin: 10px auto 0;
+        padding: 15px 10px;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: none;
+    }
+
+    .sidebar .al-inner {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+}
+
+@media(max-width:1900px){
+
+    .toggle-section .container {
+        padding: 0;
+    }
+
+    .toggle-btn {
+        height: 60px;
+        font-size: 18px;
+        margin-top: -1px;
+    }
+
+    .toggle-btn .indicator {
+        font-size: 24px;
+    }
+
+    .toggle-btn .btn-panel {
+        width: 100%;
+    }
+
+    .toggle-btn:first-child .icon-panel {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    .toggle-btn:last-child .icon-panel {
+        margin-right: 0;
+        margin-left: 15px;
+    }
+
+    .toggle-btn:first-child .btn-panel {
+        margin-right: 0;
+    }
+
+    .toggle-btn:last-child .btn-panel {
+        margin-left: 0;
+    }
+
+    .toggle-btn .icon-panel {
+        width: 100px;
+        height: 80px;
+    }
+
+    .toggle-btn .icon-panel img {
+        max-height: 60px;
+    }
+
+    .toggle-btn .btn-panel:before {
+        bottom: 3px;
+    }
+
+}
+
+@media(max-width:1300px){
+
+    .toggle-btn {
+        width: calc(50% - 30px);
+        font-size: 14px;
+    }
+
+    .toggle-btn .indicator {
+        font-size: 18px;
+        top: -2px;
+        position: relative;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .wrapper-img-container {
+        border: none !important;
+    }
+
+    .game-list .casino-section, .game-list .slot-section {
+        background-color: black;
+    }
+
+    .transaction-wrap .transaction-container {
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .sub-container .item-input {
+        flex-basis: 70%;
+        max-width: 70%;
+    }
+
+    .tabpanel .transaction-wrap {
+        justify-content: initial;
+        margin-left: 5px;
+    }
+
+    .sub-container .notes {
+        padding: 1em;
+        padding-left: 0.3em;
+        margin-left: 0 !important;
+    }
+
+    .btn-gradient-orange, .btn-gradient-blue {
+        height: 100%;
+        margin-left: -31px;
+    }
+
+    .main-menu li a {
+        font-size: 12px;
+    }
+
+    .main-menu li a i {
+        display: none;
+    }
+
+    .toggle-section {
+        padding: 0 5px;
+    }
+
+    .toggle-btn {
+        width: calc(50% - 8px);
+        height: 50px;
+        margin: 10px 4px 0;
+    }
+
+    .toggle-btn .btn-panel {
+        border-radius: 5px;
+    }
+
+    .toggle-btn .btn-panel:after {
+        display: none;
+    }
+
+    .toggle-btn .icon-panel {
+        width: 80px;
+        height: 50px;
+    }
+
+    .toggle-btn:first-child .icon-panel {
+        margin-left: -10px;
+        margin-right: 0;
+    }
+
+    .toggle-btn:last-child .icon-panel {
+        margin-right: -10px;
+        margin-left: 0;
+    }
+
+    .toggle-btn .icon-panel img {
+        max-height: 44px;
+    }
+
+    .toggle-btn {
+        font-size: 12px;
+    }
+
+    .toggle-btn .indicator {
+        font-size: 14px;
+    }
+
+}
+
+@media(max-width:414px){
+
+    .sidebar .al-inner {
+        flex-wrap:wrap;
+    }
+
+    .sidebar .al-cont{
+        width:50% !important;
+        height:40px;
+        margin:2px 0;
+        padding:5px 10px;
+    }
+
+    .sidebar .al-cont:nth-child(1) {
+        order: 1;
+    }
+
+    .sidebar .al-cont:nth-child(2) {
+        order: 3;
+    }
+
+    .sidebar .al-cont:nth-child(3) {
+        order: 5;
+    }
+
+    .sidebar .al-cont:nth-child(4) {
+        order: 2;
+    }
+
+    .sidebar .al-cont:nth-child(5) {
+        order: 4;
+    }
+
+    .sidebar .al-cont:nth-child(6) {
+        order: 6;
+    }
+
+    .sidebar .al-cont .labels {
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        margin: auto 0;
+    }
+
+    .sidebar .btn-group{
+        padding:0;
+        background-color:transparent;
+        background-image: none;
+        border:none;
+    }
+
+    .sidebar .btn-group button{
+        width: calc(50% - 8px);
+        height: 30px;
+        font-size: 12px;
+        margin: 0 4px;
+    }
+
+}
+
+/*  - - - - - - - - - - Responsive Queries - - - - - - - - - - */
+
+@media(max-width:1430px){
+
+    .board-section .row {
+        margin: 0;
+    }
+
+    .board-panel {
+        width: 100%;
+        max-width: 740px;
+        margin: 10px 0;
+    }
+
+    .board-panel:first-child {
+        order: 2;
+        margin-top: 100px;
+    }
+
+    .realtime-board {
+        width: 100%;
+        max-width: 740px;
+        margin: 10px 0;
+        order: 1;
+    }
+
+    .board-panel:last-child {
+        order: 3;
+    }
+
+    .board-section {
+        padding: 40px 0 15px;
+    }
+
+}
+
+@media (max-width: 1280px) {
+    .sc-btn {
+        width: calc(20% - 13px);
+    }
+}
+
+@media(max-width:1024px){
+    .sc-btn {
+        width: calc(25% - 13px);
+    }
+}
+
+@media(max-width:767px){
+
+    /*.sc-btn {
+        width: calc(18.6% - 15px);
+    }*/
+
+    .sc-btn { 
+        width: calc(33.33% - 13px);
+    }
+
+    .footer-section .provider-logo img {
+        max-width: 80px;
+        max-height: 34px;
+        margin: 8px 10px;
+    }
+
+    .sc-btn .g-info .g-name {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .m-card-body {
+        padding: 0.1em !important;
+    }
+    .app-partner .app-partner-content .search-container {
+        padding: 0.5em !important;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .page-content {
+        padding: 0;
+    }
+
+    .game-provider {
+        margin: 20px 0 0;
+    }
+
+
+    /*.sc-btn {
+        width: calc(33.3%);
+        margin: 0px 0px 1.6em 0px !important;
+        padding: 0px !important;
+        box-shadow: unset !important;
+    }*/
+
+    .casino-section .sc-btn, .slot-section .sc-btn { 
+        width: calc(50% - 20px);
+    }
+    
+    .sc-btn { 
+        width: calc(33.33% - 12px);
+        margin: 0 6px 14px;
+    }
+
+    .game-list .casino-section, .game-list .slot-section {
+        padding: 0 0 1em 0 !important;
+    }
+
+    .sc-btn .g-cont {
+        height: unset !important;
+    }
+
+    .sc-btn .g-panel {
+        padding: 6px 8px 8px;
+    }
+
+    .sc-btn .play-btn {
+        // width: 80px;
+        // height: 30px;
+        // font-size: 12px;
+    }
+
+    .board-panel .header .icon-panel img {
+        max-width: 70px;
+    }
+
+    .board-panel:last-child .header .icon-panel img {
+        max-width: 60px;
+    }
+
+    .board-panel .header .title-panel .title {
+        font-size: 18px;
+    }
+
+    .board-section .board-panel .content table td a {
+        max-width: 200px;
+        font-size: 12px;
+    }
+
+    .board-panel table tr td{
+        font-size: 12px;
+        padding-right: 0;
+    }
+
+    .realtime-board .rb-panel .rb-cont {
+        padding: 5px 8px;
+    }
+
+    .rolling-realtime ul li div {
+        font-size: 12px;
+    }
+
+    .rolling-realtime ul li div.amount {
+        font-size: 14px;
+        padding: 0;
+    }
+
+    .rolling-realtime ul li .crown-icon {
+        width: 30px;
+    }
+
+    .footer-section {
+        padding: 25px 0 35px;
+    }
+
+    .footer-section .provider-logo {
+        padding: 0 0 20px;
+    }
+
+    .footer-section .copyright {
+        padding: 15px 0 0;
+    }
+
+}
+
+/*  - - - - - - - - - - Modal Queries - - - - - - - - - - */
+
+@media(max-width:1024px){
+
+    .level-information .container{
+        width:25%;
+    }
+
+    .level-information .container:first-child{
+        width:20%;
+    }
+
+    .level-information .container span{
+        font-size:12px;
+    }
+
+    .level-information .container .labels{
+        margin-right:0;
+    }
+
+    .level-information .container .amount{
+        font-size:14px;
+    }
+
+    .level-information .point-form{
+        width:55%;
+        padding:0 5px;
+    }
+
+    .level-information .point-form input{
+        width:58%;
+        border-radius:5px 0 0 5px;
+    }
+
+    .level-information .points-btn{
+        width:40%;
+        position:relative;
+        right:0;
+        font-size:8px;
+        border-radius:0 5px 5px 0;
+    }
+
+    .gamelist-container {
+        min-height: initial;
+        max-height: initial;
+        margin: 0 0 -20px;
+        overflow-y: auto;
+        padding: 0;
+    }
+
+    .game-btn {
+        width: calc(20% - 16px);
+    }
+
+}
+
+
+@media(max-width:767px){
+
+    .app-partner-content {
+        width: 100% !important;
+    }
+
+    .search-container {
+        max-width: 100vw !important;
+    }
+
+    .hd_pops {
+        width: 99vw !important;
+        display: block !important;
+    }
+
+    .popup_window {
+        width: 100% !important;
+        position: absolute;
+        max-width: unset;
+    }
+
+    .hd_pops_con {
+        width: 99vw !important;
+    }
+
+    .modal-title {
+        margin: 0 0 -18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-title .modal-icon {
+        width: 70px;
+        height: 80px;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .modal-title .title-panel {
+        margin: 0 0 0 10px;
+        white-space: nowrap;
+    }
+
+    .modal-title .title {
+        width: auto;
+        font-size: 24px;
+        vertical-align:  baseline;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 1);
+    }
+
+    .modal-title .sub {
+        width: auto;
+        font-size: 12px;
+        vertical-align:  baseline;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 1);
+        margin-left: 5px;
+    }
+
+    .w-mob-title {
+        display: none !important;
+    }
+
+    .modal-title-mob {
+        display: inline-block;
+    }
+
+    .modal-head-panel {
+        width: 100%;
+        margin: 30px auto 10px;
+        padding: 0 30px;
+        min-height: initial;
+    }
+
+    .modal-head-panel .btn-grp {
+        width: 100%;
+        order: 1;
+        margin: 0;
+    }
+
+    .modal-head-panel .btn-grp button {
+        width: calc(50% - 8px);
+        margin: 0 4px;
+    }
+
+    .modal-head-panel .ask-link {
+        width: 100%;
+        text-align: center;
+        order: 2;
+        margin: 10px 0 0;
+    }
+
+    .game-btn {
+        width: calc(25% - 16px);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .game-list .game-slot {
+        display: block!important;
+        text-align: left;
+        height: auto;
+    }
+
+    .game-list .game-slot .btn-viewall {
+        top:-9px !important;
+    }
+
+    .modal-menu .bs-ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .modal-menu .bs-ul li {
+        width: 33.33%;
+        display: block;
+    }
+
+    .modal-menu .bs-ul li:nth-child(4n+0):before {
+        display: none;
+    }
+
+    .modal-menu li a {
+        height: 40px;
+    }
+
+    .modal-menu li a:before {
+        display: none;
+    }
+
+    .gamelist-container {
+        width: calc(100% + 10px);
+        margin: 0 -5px -20px;
+    }
+
+    .game-btn {
+        width: calc(33.33% - 10px);
+        margin: 0 5px 10px;
+    }
+
+    .game-btn .g-panel .g-footer {
+        height: 30px;
+    }
+
+    .game-btn .g-panel .g-footer .name-text {
+        font-size: 11px;
+    }
+
+    .game-btn .g-panel .play-btn {
+        top: 5px;
+        left: 5px;
+    }
+
+    .game-btn .g-panel .play-btn .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .modal-body {
+        padding-top: 10px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .modal-banner {
+        height: 70px;
+    }
+
+    .modal-banner .modal-logo {
+        width: 100px;
+        margin: 0 0 5px;
+    }
+
+    .modal-title .modal-icon {
+        width: 60px;
+        height: 65px;
+        font-size: 20px
+    }
+
+    .modal-title .modal-icon img {
+        max-width: 38px;
+    }
+
+    .modal-title .title-panel {
+        margin: -10px 0 0 10px;
+    }
+
+    .modal-title .title {
+        font-size: 18px;
+        line-height: 3em;
+    }
+
+    .modal-head-panel {
+        padding: 0 10px;
+    }
+
+    .modal-menu {
+        margin: 0 0 20px;
+    }
+
+    .modal-menu li a {
+        font-size: 12px;
+    }
+
+    .modal-menu li a .icon-panel {
+        width: 30px;
+        height: 22px;
+    }
+
+    .modal-body {
+        padding: 10px 10px 40px;
+    }
+
+    .bs-table tr td a {
+        max-width: 180px;
+    }
+
+    .bs-table tr .title-td {
+        max-width: 180px;
+        padding: 0 0 0 5px;
+    }
+
+    .bs-table tr .count-td {
+        width: auto;
+    }
+
+    .bs-table tr .date-td {
+        width: auto;
+        font-size: 12px;
+    }
+
+    .bs-table tr .nav-td {
+        width: auto;
+        padding: 0 4px;
+    }
+
+    .new-icon {
+        margin-left: 2px;
+    }
+
+    .bs-table tr .count-tag {
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0 5px;
+    }
+
+    .form-container .form-group {
+        margin: 0 0 15px;
+    }
+
+    .form-footer button {
+        height: 45px;
+        //margin: 0 4px;
+    }
+
+    .bs-table td .level-txt {
+        width: 100%;
+        text-align: center;
+    }
+
+}
