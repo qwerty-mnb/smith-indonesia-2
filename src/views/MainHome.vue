@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <!-- Gamelist -->
-    <GameList :games="games" v-if="appStore.activeModal != 'Partners'" />
+  <!-- Gamelist -->
+  <!-- <GameList :games="games" v-if="appStore.activeModal != 'Partners'" /> -->
+  <div class="max-w-[1170px] mx-auto">
+    <PopularGames />
+
+    <RecentGames />
   </div>
 </template>
 <script lang="ts">
@@ -11,6 +14,8 @@ import { useAppStore } from "@/stores/app";
 // Components
 import ApiService from "../services/ApiService";
 import GameList from "./site/GameList.vue";
+import PopularGames from "@/layouts/partials/PopularGames.vue";
+import RecentGames from "@/layouts/partials/RecentGames.vue";
 
 interface Game {
   code: string;
@@ -24,6 +29,8 @@ export default defineComponent({
   name: "MainHome",
   components: {
     GameList,
+    PopularGames,
+    RecentGames,
   },
   setup() {
     // vue
@@ -65,9 +72,7 @@ export default defineComponent({
         .catch(() => []);
 
       if (lobbies.length > 0) {
-        games.value.slotGames = lobbies.filter(
-          (r) => r.type === "SLOT"
-        );
+        games.value.slotGames = lobbies.filter((r) => r.type === "SLOT");
         games.value.casinoGames = lobbies.filter(
           (r) => r.type === "CASINO" || r.type === "HOTEL"
         );
