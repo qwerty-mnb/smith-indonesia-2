@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="slot-page-container">
 		<SiteHeader />
 		<div class="relative container mx-auto px-4">
-			<div class="py-6 main-content">
+			<div class="p-4 main-content">
 				<div class="responsive-game-grid">
 					<div
 						class="game-card-wrapper"
@@ -22,10 +22,10 @@
 								<i class="fas fa-play"></i>
 								PLAY
 							</button>
-							<button class="try-btn" @click="tryGame(game)">
+							<!-- <button class="try-btn" @click="tryGame(game)">
 								<i class="fas fa-play"></i>
 								TRY
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
@@ -192,8 +192,20 @@ export default defineComponent({
   padding: 0 1rem !important;
 }
 
+// Add background image to the entire page
+.slot-page-container {
+  min-height: 100vh;
+  background-image: url('/img/bg/slots-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 // Fix header overlap issue
 .main-content {
+	border: 1px solid #0c1740;
+	background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
   padding-top: 120px !important; // Adjust this value based on your header height
   
   @media (max-width: 768px) {
@@ -234,11 +246,11 @@ export default defineComponent({
 
 :deep(.game-thumb) {
   width: 100% !important;
-  height: 160px !important; // Fixed height for consistency
+  height: 200px !important; // Even taller images
   overflow: hidden !important;
   position: relative !important;
-  background: #000 !important;
-  border: 3px solid #8b5cf6 !important; // Purple border
+  background: #5b1699 !important;
+  padding: 7px !important;
   box-sizing: border-box !important;
 }
 
@@ -272,7 +284,6 @@ export default defineComponent({
 }
 
 :deep(.game-info) {
-  padding: 12px !important;
   background: linear-gradient(145deg, #2a2a3e 0%, #1e1e2e 100%) !important;
   text-align: center !important;
 }
@@ -281,13 +292,15 @@ export default defineComponent({
   font-size: 14px !important;
   font-weight: 600 !important;
   color: #ffffff !important;
-  margin: 0 0 8px 0 !important;
-  padding: 0 !important;
+  margin: 0 !important;
+  padding: 10px 12px !important;
   line-height: 1.3 !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
+  background: linear-gradient(to right, #170826 1%, #3a036e 53%, #170826 100%);
+  border-radius: 0 !important;
 }
 
 :deep(.game-info h4) {
