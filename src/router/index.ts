@@ -111,6 +111,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "KplaySlotLaunch",
     component: () => import("../views/game-launch/KplaySlotLaunch.vue"),
   },
+  // Desktop Slot Page
+  {
+    path: "/desktop/slots/:provider/:code",
+    name: "SlotPage",
+    component: () => import("../views/site/SlotPage.vue"),
+  },
   {
     path: "/bet-details/:provider/:id",
     name: "BetDetails",
@@ -145,6 +151,7 @@ router.beforeEach(async (to, from, next) => {
     case "main-page":
     case "CasinoGame":
     case "SlotGame":
+    case "SlotPage":
     case "MemberPopup":
       authStore.verifyAuth(true);
       next();
