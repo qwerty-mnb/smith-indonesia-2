@@ -111,7 +111,8 @@ export default defineComponent({
 	background: #e7ff1e; /* neon lime background like reference */
 	padding: 8px 42px; /* leave room for arrows */
 	max-height: 120px;
-	margin: 20px 0;
+	margin: 20px auto;
+	max-width: 1140px;
 	overflow: hidden;
 }
 

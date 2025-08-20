@@ -7,7 +7,7 @@
     </div>
 
     <!-- Search Header UI -->
-    <div class="search-header container mx-auto">
+    <div class="search-header">
       <div class="provider-title">
         <h1>{{ providerName }}</h1>
       </div>
@@ -325,7 +325,7 @@ export default defineComponent({
   
   // Large desktop: 6 columns (1280px+)
   @media (min-width: 1280px) {
-    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-columns: repeat(5, 1fr) !important;
   }
   
   // Force grid items to behave properly
@@ -358,11 +358,15 @@ export default defineComponent({
 .main-content {
 	border: 1px solid #0c1740;
 	background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
+  max-width: 1140px !important;
+  margin: 0 auto !important;
 }
 
 // Search Header UI Styling
 .search-header {
   margin-bottom: 30px;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
 
   .provider-title {
     text-align: center;
