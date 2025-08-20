@@ -1,10 +1,9 @@
 <template>
   <div class="slot-page-container">
 		<SiteHeader />
-		<div class="relative container mx-auto px-4">
-			<div class="p-4 main-content">
+
 				<!-- Search Header UI -->
-				<div class="search-header">
+				<div class="search-header container mx-auto">
 					<div class="provider-title">
 						<h1>{{ providerName }}</h1>
 					</div>
@@ -88,6 +87,12 @@
 						</div>
 					</div>
 				</div>
+
+
+
+
+		<div class="relative container mx-auto px-4">
+			<div class="p-4 main-content">
 				
 				<div class="responsive-game-grid">
 					<div
@@ -359,14 +364,14 @@ export default defineComponent({
 
 // Search Header UI Styling
 .search-header {
-  background: #5b1699;
+  //background: #5b1699;
   //padding: 20px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
+  //box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
 
   .provider-title {
     text-align: center;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
     background-color: #330460;
 
     h1 {
@@ -389,6 +394,7 @@ export default defineComponent({
     justify-content: space-between;
     gap: 15px;
     padding: 15px 20px;
+    background: #5b1699;
 
     .nav-buttons {
       display: flex;
@@ -412,7 +418,7 @@ export default defineComponent({
         }
 
         &.active {
-          background: rgba(0, 0, 0, 0.4);
+          background: linear-gradient(to right, #170826 1%, #3a036e 53%, #170826 100%);
           font-weight: bold;
         }
       }
