@@ -1,7 +1,11 @@
 <template>
   <div class="slot-page-container">
-		<SiteHeader />
-		
+    <SiteHeader />
+
+    <div class="container mx-auto px-4">
+      <JackpotCounter />
+    </div>
+
     <div class="container mx-auto px-4">
       <SlotCarousel />
     </div>
@@ -13,118 +17,73 @@
       </div>
       <div class="search-navigation">
         <div class="nav-buttons">
-          <button 
-            class="nav-btn" 
-            :class="{ active: activeFilter === 'All Games' }"
-            @click="setActiveFilter('All Games')"
-          >
+          <button class="nav-btn" :class="{ active: activeFilter === 'All Games' }"
+            @click="setActiveFilter('All Games')">
             All Games
           </button>
-          <button 
-            class="nav-btn" 
-            :class="{ active: activeFilter === 'Top 20' }"
-            @click="setActiveFilter('Top 20')"
-          >
+          <button class="nav-btn" :class="{ active: activeFilter === 'Top 20' }" @click="setActiveFilter('Top 20')">
             Top 20
           </button>
-          <button 
-            class="nav-btn" 
-            :class="{ active: activeFilter === 'New' }"
-            @click="setActiveFilter('New')"
-          >
+          <button class="nav-btn" :class="{ active: activeFilter === 'New' }" @click="setActiveFilter('New')">
             New
           </button>
-          <button 
-            class="nav-btn" 
-            :class="{ active: activeFilter === 'Classic' }"
-            @click="setActiveFilter('Classic')"
-          >
+          <button class="nav-btn" :class="{ active: activeFilter === 'Classic' }" @click="setActiveFilter('Classic')">
             Classic
           </button>
-          <button 
-            class="nav-btn" 
-            :class="{ active: activeFilter === 'Bonus Buy' }"
-            @click="setActiveFilter('Bonus Buy')"
-          >
+          <button class="nav-btn" :class="{ active: activeFilter === 'Bonus Buy' }"
+            @click="setActiveFilter('Bonus Buy')">
             Bonus Buy
           </button>
         </div>
         <div class="category-buttons">
-          <button 
-            class="category-btn" 
-            :class="{ active: activeFilter === 'Reel Kingdom' }"
-            @click="setActiveFilter('Reel Kingdom')"
-          >
+          <button class="category-btn" :class="{ active: activeFilter === 'Reel Kingdom' }"
+            @click="setActiveFilter('Reel Kingdom')">
             Reel Kingdom
           </button>
-          <button 
-            class="category-btn" 
-            :class="{ active: activeFilter === 'Megaways' }"
-            @click="setActiveFilter('Megaways')"
-          >
+          <button class="category-btn" :class="{ active: activeFilter === 'Megaways' }"
+            @click="setActiveFilter('Megaways')">
             Megaways
           </button>
-          <button 
-            class="category-btn" 
-            :class="{ active: activeFilter === 'Jackpot Play Games' }"
-            @click="setActiveFilter('Jackpot Play Games')"
-          >
+          <button class="category-btn" :class="{ active: activeFilter === 'Jackpot Play Games' }"
+            @click="setActiveFilter('Jackpot Play Games')">
             Jackpot Play Games
           </button>
-          <button 
-            class="category-btn" 
-            :class="{ active: activeFilter === 'Video Slots' }"
-            @click="setActiveFilter('Video Slots')"
-          >
+          <button class="category-btn" :class="{ active: activeFilter === 'Video Slots' }"
+            @click="setActiveFilter('Video Slots')">
             Video Slots
           </button>
         </div>
         <div class="search-box">
-          <input 
-            type="text" 
-            placeholder="Search Games" 
-            v-model="searchQuery"
-            @input="handleSearch"
-            class="search-input"
-          />
+          <input type="text" placeholder="Search Games" v-model="searchQuery" @input="handleSearch"
+            class="search-input" />
           <i class="fas fa-search search-icon"></i>
         </div>
       </div>
     </div>
 
-		<div class="relative container mx-auto px-4">
-			<div class="p-4 main-content">
-				
-				<div class="responsive-game-grid">
-					<div
-						class="game-card-wrapper"
-						v-for="(game, idx) in gameList"
-						:key="idx"
-					>
-						<GameBanner
-							:game="game"
-							tag="slot-th"
-							:code="code"
-							:provider="provider"
-							@select="openGame"
-						/>
-						<!-- Hover overlay buttons -->
-						<div class="hover-overlay">
-							<button class="play-btn" @click="openGame(game)">
-								<i class="fas fa-play"></i>
-								PLAY
-							</button>
-							<!-- <button class="try-btn" @click="tryGame(game)">
+    <div class="relative container mx-auto px-4">
+      <div class="p-4 main-content">
+
+        <div class="responsive-game-grid">
+          <div class="game-card-wrapper" v-for="(game, idx) in gameList" :key="idx">
+            <GameBanner :game="game" tag="slot-th" :code="code" :provider="provider" @select="openGame" />
+            <!-- Hover overlay buttons -->
+            <div class="hover-overlay">
+              <button class="play-btn" @click="openGame(game)">
+                <i class="fas fa-play"></i>
+                PLAY
+              </button>
+              <!-- <button class="try-btn" @click="tryGame(game)">
 								<i class="fas fa-play"></i>
 								TRY
 							</button> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	</div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -135,6 +94,7 @@ import ApiService from '@/services/ApiService';
 import GameBanner from "../site/GameBanner.vue";
 import SiteHeader from "@/layouts/partials/SiteHeader.vue";
 import SlotCarousel from "@/views/site/SlotCarousel.vue";
+import JackpotCounter from "@/views/site/JackpotCounter.vue";
 import Swal from 'sweetalert2';
 
 interface Game {
@@ -157,8 +117,9 @@ export default defineComponent({
   name: 'SlotPage',
   components: {
     GameBanner,
-		SiteHeader,
-		SlotCarousel
+    SiteHeader,
+    SlotCarousel,
+    JackpotCounter
   },
   setup() {
     const route = useRoute();
@@ -181,7 +142,7 @@ export default defineComponent({
     const getGameList = async () => {
       try {
         error.value = '';
-				        
+
         const response = await ApiService.get(
           `/site/gamelists/${provider.value}/${code.value}`
         );
@@ -283,8 +244,8 @@ export default defineComponent({
       searchQuery,
       activeFilter,
       getGameList,
-			openGame,
-			tryGame,
+      openGame,
+      tryGame,
       handleSearch,
       setActiveFilter,
       applyFilters
@@ -299,32 +260,32 @@ export default defineComponent({
   display: grid !important;
   gap: 1rem !important;
   width: 100% !important;
-  
+
   // Mobile: 2 columns (0-639px)
   grid-template-columns: repeat(2, 1fr) !important;
-  
+
   // Small tablets: 3 columns (640px+)
   @media (min-width: 640px) {
     grid-template-columns: repeat(3, 1fr) !important;
   }
-  
+
   // Tablets: 4 columns (768px+)
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr) !important;
   }
-  
+
   // Small desktop: 5 columns (1024px+)
   @media (min-width: 1024px) {
     grid-template-columns: repeat(5, 1fr) !important;
   }
-  
+
   // Large desktop: 6 columns (1280px+)
   @media (min-width: 1280px) {
     grid-template-columns: repeat(5, 1fr) !important;
   }
-  
+
   // Force grid items to behave properly
-  > .game-card-wrapper {
+  >.game-card-wrapper {
     display: block !important;
     width: 100% !important;
     min-width: 0 !important; // Important for grid items
@@ -351,8 +312,8 @@ export default defineComponent({
 
 // Fix header overlap issue
 .main-content {
-	border: 1px solid #0c1740;
-	background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
+  border: 1px solid #0c1740;
+  background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
   max-width: 1140px !important;
   margin: 0 auto !important;
 }
@@ -488,7 +449,7 @@ export default defineComponent({
 
       .nav-buttons {
         justify-content: center;
-        
+
         .nav-btn {
           min-width: 80px;
           padding: 8px 12px;
@@ -498,7 +459,7 @@ export default defineComponent({
 
       .category-buttons {
         justify-content: center;
-        
+
         .category-btn {
           padding: 6px 10px;
           font-size: 11px;
@@ -634,7 +595,8 @@ export default defineComponent({
   opacity: 1 !important;
 }
 
-.play-btn, .try-btn {
+.play-btn,
+.try-btn {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -677,5 +639,4 @@ export default defineComponent({
 // Alternative syntax (older Vue versions)
 // ::v-deep .game-info h3 {
 //   /* styles here */
-// }
-</style>
+// }</style>
