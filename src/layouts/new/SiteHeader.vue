@@ -29,7 +29,10 @@
               :key="menuItem.id"
               :data-active="menuItem.active"
             >
-              <a :href="menuItem.href">
+              <a 
+                :href="menuItem.onClick ? 'javascript:void(0)' : menuItem.href"
+                @click="menuItem.onClick ? menuItem.onClick() : null"
+              >
                 <img
                   :alt="menuItem.alt"
                   height="30"
@@ -50,12 +53,12 @@
                 style="--maintenance-text: 'Pemeliharaan'"
               >
                 <li v-for="game in menuItem.games" :key="game.id">
-                <!-- {{  game.code }} -->
+                {{  game.code }}
                   <a :href="`/slots/${game.code}`">
                     <div class="background" bis_skin_checked="1"></div>
                     <div
                       class="foreground"
-                      :style="`background-image: url(/img/new/slots/${game.code}.webp);`"
+                      :style="`background-image: url(/img/new/${game.type}/${game.code}.webp);`"
                       bis_skin_checked="1"
                     ></div>
                   </a>
@@ -72,19 +75,32 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useGamesStore } from '@/stores/games';
+import Swal from 'sweetalert2';
+
 const gamesStore = useGamesStore();
-    
-// Access games data
+
+// Get games from store
 const slotGames = computed(() => gamesStore.getSlotGames);
-const isLoading = computed(() => gamesStore.getIsLoading);
-    
-  // Fetch games if needed
-  onMounted(async () => {
-    // Fetch games if not already loaded
-    if (gamesStore.getAllGames.length === 0) {
-      await gamesStore.fetchGames();
-    }
+const casinoGames = computed(() => gamesStore.getCasinoGames);
+
+// Fetch games when component mounts
+onMounted(async () => {
+  // Fetch games if not already loaded
+  if (gamesStore.getAllGames.length === 0) {
+    await gamesStore.fetchGames();
+  }
+});
+
+// Function to show coming soon alert
+const showComingSoon = (menuName: string) => {
+  Swal.fire({
+    title: 'Coming Soon!',
+    text: `${menuName} will be available soon.`,
+    icon: 'info',
+    confirmButtonText: 'OK',
+    confirmButtonColor: '#3085d6'
   });
+};
 
 const headerMenu = ref([
   {
@@ -95,13 +111,16 @@ const headerMenu = ref([
     icon: "/img/new/icons/hot-games.svg",
     activeIcon: "/img/new/icons/hot-games-active.svg",
     active: false,
-    games: computed(() => slotGames.value.filter((game) => game.code === "H_PPS" || game.code === "H_JILI" || game.code === "H_PGS"))
+    games: computed(() => {
+      const allowedCodes = ["H_PPS", "H_JILI", "H_PGS"];
+      return slotGames.value.filter((game) => allowedCodes.includes(game.code));
+    })
   },
   {
-    id: "slots",
-    text: "Slots",
-    href: "/desktop/slots",
-    alt: "Slots",
+    id: "slot-games",
+    text: "Slot Games",
+    href: "/desktop/slot-games",
+    alt: "Slot Games",
     icon: "/img/new/icons/slots.svg",
     activeIcon: "/img/new/icons/slots-active.svg",
     active: false,
@@ -115,6 +134,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/casino.svg",
     activeIcon: "/img/new/icons/casino-active.svg",
     active: false,
+    games: casinoGames
   },
   {
     id: "togel",
@@ -124,6 +144,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/others.svg",
     activeIcon: "/img/new/icons/others-active.svg",
     active: false,
+    onClick: () => showComingSoon("Togel")
   },
   {
     id: "sports",
@@ -133,6 +154,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/sports.svg",
     activeIcon: "/img/new/icons/sports-active.svg",
     active: false,
+    onClick: () => showComingSoon("Olahraga")
   },
   {
     id: "crash-games",
@@ -142,6 +164,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/crash-game.svg",
     activeIcon: "/img/new/icons/crash-game-active.svg",
     active: false,
+    onClick: () => showComingSoon("Crash Game")
   },
   {
     id: "arcade",
@@ -151,6 +174,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/arcade.svg",
     activeIcon: "/img/new/icons/arcade-active.svg",
     active: false,
+    onClick: () => showComingSoon("Arcade")
   },
   {
     id: "poker",
@@ -160,6 +184,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/poker.svg",
     activeIcon: "/img/new/icons/poker-active.svg",
     active: false,
+    onClick: () => showComingSoon("Poker")
   },
   {
     id: "e-sports",
@@ -169,6 +194,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/e-sports.svg",
     activeIcon: "/img/new/icons/e-sports-active.svg",
     active: false,
+    onClick: () => showComingSoon("E-Sports")
   },
   {
     id: "cockfight",
@@ -178,6 +204,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/cockfight.svg",
     activeIcon: "/img/new/icons/cockfight-active.svg",
     active: false,
+    onClick: () => showComingSoon("Sabung Ayam")
   },
   {
     id: "promotion",
@@ -187,6 +214,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/promotion.svg",
     activeIcon: "/img/new/icons/promotion-active.svg",
     active: false,
+    onClick: () => showComingSoon("Promosi")
   },
 ]);
 </script>
