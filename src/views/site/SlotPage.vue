@@ -9,7 +9,7 @@
     <!-- Search Header UI -->
     <div class="search-header">
       <div class="provider-title">
-        <h1>{{ providerName }}</h1>
+        <h1>{{ $t(code) }}</h1>
       </div>
       <div class="search-navigation">
         <div class="nav-buttons">
@@ -131,8 +131,6 @@
 import { defineComponent, ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useAuthStore } from '@/stores/auth';
-import { useAppStore } from '@/stores/app';
 import ApiService from '@/services/ApiService';
 import GameBanner from "../site/GameBanner.vue";
 import SiteHeader from "@/layouts/partials/SiteHeader.vue";
@@ -164,10 +162,7 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
-    const router = useRouter();
     const { t } = useI18n();
-    const authStore = useAuthStore();
-    const appStore = useAppStore();
 
     // Reactive data
     const error = ref('');

@@ -1,38 +1,38 @@
 <template>
 	<div class="slot-carousel">
 		<button class="nav-btn nav-left" :class="{ disabled: currentIndex === 0 }" @click="prev" aria-label="Previous">
-			<span>‹</span>
+			<i class="bi bi-chevron-left"></i>
 		</button>
 		<div class="viewport">
 			<div class="track" :style="trackStyle" ref="trackRef">
-				<div v-for="item in items" :key="item.id" class="sc-item">
+				<div v-for="item in items" :key="item.id" class="sc-item" @click="goTo(item)">
 					<div class="card">
 						<div class="logo-wrap">
 							<!-- Dummy logo area -->
 							<div class="logo-text">{{ item.logo }}</div>
-							<div class="badge">7</div>
 						</div>
-						<div class="title">{{ item.name }}</div>
+						<div class="title">{{ $t(item.code) }}</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<button class="nav-btn nav-right" :class="{ disabled: currentIndex === maxIndex }" @click="next" aria-label="Next">
-			<span>›</span>
+			<i class="bi bi-chevron-right"></i>
 		</button>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 import ApiService from '@/services/ApiService';
 
 interface SlotItem {
 	id: number;
 	name: string;
 	logo: string; // Rendered as large text for now
-	code?: string;
-	provider?: string;
+	code: string;
+	provider: string;
 }
 
 interface Game {
@@ -86,8 +86,8 @@ export default defineComponent({
 				id: idx + 1,
 				name: prettifyName(g.provider || g.code),
 				logo: (g.code || g.provider || '').toUpperCase(),
-				code: g.code,
-				provider: g.provider,
+				code: g.code || '',
+				provider: g.provider || '',
 			}));
 		});
 
@@ -141,11 +141,18 @@ export default defineComponent({
 			currentIndex.value = Math.max(currentIndex.value - 1, 0);
 		};
 
+		// Navigate to the slot page when a card is clicked
+		const router = useRouter();
+		const goTo = (item: SlotItem) => {
+			if (!item.provider || !item.code) return;
+			router.push(`/desktop/slots/${item.provider}/${item.code}`);
+		};
+
 		const trackStyle = computed(() => ({
 			transform: `translateX(-${currentIndex.value * itemStepPx.value}px)`
 		}));
 
-		return { items, trackStyle, next, prev, currentIndex, maxIndex, trackRef };
+		return { items, trackStyle, next, prev, currentIndex, maxIndex, trackRef, goTo };
 	}
 });
 </script>
@@ -182,6 +189,7 @@ export default defineComponent({
 	flex: 0 0 168px;
 	height: 100%;
 	display: flex;
+	cursor: pointer;
 }
 
 .card {
@@ -208,7 +216,7 @@ export default defineComponent({
 .logo-text {
 	font-weight: 800;
 	letter-spacing: 1px;
-	font-size: 30px;
+	font-size: 20px;
 	background: linear-gradient(180deg, #ffffff 0%, #bbbbbb 100%);
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -247,25 +255,38 @@ export default defineComponent({
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 26px;
-	height: 26px;
-	border-radius: 50%;
-	border: 2px solid #6d2bd1;
-	background: #490e9f;
-	color: #ffffff;
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: transparent;
+	color: #490e9f;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	transition: filter 0.2s ease;
+	transition: all 0.2s ease;
 	z-index: 2;
 }
 
-.nav-btn:hover { filter: brightness(1.15); }
-.nav-btn.disabled { opacity: 0.5; cursor: default; }
+.nav-btn:hover { 
+	color: #6d2bd1;
+}
+.nav-btn.disabled { 
+	opacity: 0.4; 
+	cursor: default; 
+	color: #2a0a4a;
+}
 
-.nav-left { left: 6px; }
-.nav-right { right: 6px; }
+.nav-btn i {
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 1;
+	-webkit-text-stroke: 2px #490e9f;
+	text-stroke: 2px #490e9f;
+}
+
+.nav-left { left: 8px; }
+.nav-right { right: 8px; }
 
 @media (max-width: 1024px) {
 	.sc-item { flex-basis: 200px; }
