@@ -495,6 +495,7 @@ export default defineComponent({
   overflow: hidden !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
+  position: relative !important;
   //border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -544,8 +545,18 @@ export default defineComponent({
 }
 
 :deep(.game-info) {
-  background: linear-gradient(145deg, #2a2a3e 0%, #1e1e2e 100%) !important;
   text-align: center !important;
+  position: relative !important;
+  width: 100% !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  // background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: linear-gradient(to right, #170826 1%, #3a036e 53%, #170826 100%);
 }
 
 :deep(.game-info h3) {
@@ -553,14 +564,19 @@ export default defineComponent({
   font-weight: 600 !important;
   color: #ffffff !important;
   margin: 0 !important;
-  padding: 10px 12px !important;
+  padding: 8px 12px !important;
   line-height: 1.3 !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
-  background: linear-gradient(to right, #170826 1%, #3a036e 53%, #170826 100%);
+  // background: linear-gradient(to right, #170826 1%, #3a036e 53%, #170826 100%);
   border-radius: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 :deep(.game-info h4) {
