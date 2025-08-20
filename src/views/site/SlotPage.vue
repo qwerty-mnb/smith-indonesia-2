@@ -539,7 +539,7 @@ export default defineComponent({
   overflow: hidden !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  //border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 :deep(.game-box:hover) {

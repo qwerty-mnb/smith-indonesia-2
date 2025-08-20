@@ -25,28 +25,71 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import ApiService from '@/services/ApiService';
 
 interface SlotItem {
 	id: number;
 	name: string;
-	logo: string; // Using text placeholders for dummy logos
+	logo: string; // Rendered as large text for now
+	code?: string;
+	provider?: string;
+}
+
+interface Game {
+  code: string;
+  provider: string;
+  sort: number;
+  type: string;
 }
 
 export default defineComponent({
 	name: 'SlotCarousel',
 	setup() {
-		const items = ref<SlotItem[]>([
-			{ id: 1, name: 'Slot88 x PP', logo: 'Slot88' },
-			{ id: 2, name: 'Hacksaw', logo: 'HACKSAW' },
-			{ id: 3, name: 'Fat Panda', logo: 'FAT PANDA' },
-			{ id: 4, name: 'No Limit City', logo: 'NOLIMIT' },
-			{ id: 5, name: 'Jili', logo: 'JILI' },
-			{ id: 6, name: 'Habanero', logo: 'HABANERO' },
-			{ id: 7, name: 'Pragmatic Play', logo: 'PRAGMATIC' },
-			{ id: 8, name: 'PG Soft', logo: 'PG SOFT' },
-			{ id: 9, name: 'Spadegaming', logo: 'SPADE' },
-			{ id: 10, name: 'Booongo', logo: 'BOOONGO' }
-		]);
+
+		const games = ref({
+			slotGames: [] as Game[],
+			casinoGames: [] as Game[],
+		});
+
+		const lobbies = ref<Game[]>([])
+
+		// Function to fetch games
+		const getGames = async (): Promise<void> => {
+			try {
+				const response = await ApiService.get("/site/games")
+				lobbies.value = response.data
+
+				if (lobbies.value.length > 0) {
+					games.value.slotGames = lobbies.value.filter(g => g.type === 'SLOT')
+					games.value.casinoGames = lobbies.value.filter(g => g.type === 'CASINO' || g.type === "HOTEL")
+				}
+				
+			} catch (error) {
+				console.error('Failed to fetch games:', error)
+			}
+		}
+
+		// Helper to format provider/code into a readable name
+		const prettifyName = (raw?: string): string => {
+			if (!raw) return '';
+			const spaced = raw.replace(/[_-]+/g, ' ').trim();
+			return spaced
+				.split(' ')
+				.filter(Boolean)
+				.map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+				.join(' ');
+		};
+
+		const items = computed<SlotItem[]>(() => {
+			const slots = games.value.slotGames;
+			return (slots || []).slice(0, 10).map((g, idx) => ({
+				id: idx + 1,
+				name: prettifyName(g.provider || g.code),
+				logo: (g.code || g.provider || '').toUpperCase(),
+				code: g.code,
+				provider: g.provider,
+			}));
+		});
 
 		const currentIndex = ref(0);
 		const visibleCount = ref(6);
@@ -63,12 +106,14 @@ export default defineComponent({
 		};
 
 		onMounted(() => {
+			getGames().then(() => {
+				measureItemStep();
+			});
 			updateVisibleCount();
 			window.addEventListener('resize', () => {
 				updateVisibleCount();
 				measureItemStep();
 			});
-			measureItemStep();
 		});
 
 		onBeforeUnmount(() => {
@@ -110,7 +155,7 @@ export default defineComponent({
 	position: relative;
 	background: #e7ff1e; /* neon lime background like reference */
 	padding: 8px 42px; /* leave room for arrows */
-	max-height: 120px;
+	height: 115px; /* slightly taller */
 	margin: 20px auto;
 	max-width: 1140px;
 	overflow: hidden;
@@ -125,11 +170,18 @@ export default defineComponent({
 	display: flex;
 	gap: 8px;
 	transition: transform 0.35s ease;
+	height: 100%;
+	align-items: stretch;
 }
 
 .sc-item {
-	flex: 0 0 220px; /* keep in sync with step size */
+	/* enforce identical widths for every card */
+	width: 168px;
+	min-width: 168px;
+	max-width: 168px;
+	flex: 0 0 168px;
 	height: 100%;
+	display: flex;
 }
 
 .card {
@@ -140,6 +192,8 @@ export default defineComponent({
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .logo-wrap {
@@ -182,8 +236,8 @@ export default defineComponent({
 
 .title {
 	text-align: center;
-	height: 28px;
-	line-height: 28px;
+	height: 24px; /* slightly shorter title to reduce bottom space */
+	line-height: 24px;
 	padding: 0 6px;
 	font-size: 13px;
 	color: #ffffff;
