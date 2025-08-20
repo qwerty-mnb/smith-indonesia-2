@@ -30,8 +30,8 @@
               :data-active="menuItem.active"
             >
               <a 
-                :href="menuItem.onClick ? 'javascript:void(0)' : menuItem.href"
-                @click="menuItem.onClick ? menuItem.onClick() : null"
+                :href="getMenuHref(menuItem)"
+                @click="handleMenuClick(menuItem)"
               >
                 <img
                   :alt="menuItem.alt"
@@ -54,7 +54,7 @@
               >
                 <li v-for="game in menuItem.games" :key="game.id">
                 <!-- {{  game.provider }} {{  game.code }} -->
-                  <a :href="`/slots/${game.code}`">
+                  <a :href="`/desktop/slots/${game.provider}/${game.code}`">
                     <div class="background" bis_skin_checked="1"></div>
                     <div
                       class="foreground"
@@ -126,7 +126,14 @@ const headerMenu = ref([
     games: computed(() => {
       const allowedCodes = ["H_PPS", "H_JILI", "H_PGS"];
       return slotGames.value.filter((game) => allowedCodes.includes(game.code));
-    })
+    }),
+    onClick: () => {
+      // Redirect to hot games with provider and code
+      const hotGame = slotGames.value.find(game => ["H_PPS", "H_JILI", "H_PGS"].includes(game.code));
+      if (hotGame) {
+        window.location.href = `/desktop/slots/${hotGame.provider}/${hotGame.code}`;
+      }
+    }
   },
   {
     id: "slot-games",
@@ -136,7 +143,14 @@ const headerMenu = ref([
     icon: "/img/new/icons/slots.svg",
     activeIcon: "/img/new/icons/slots-active.svg",
     active: false,
-    games: slotGames
+    games: slotGames,
+    onClick: () => {
+      // Redirect to slot games with first available provider and code
+      if (slotGames.value.length > 0) {
+        const firstGame = slotGames.value[0];
+        window.location.href = `/desktop/slots/${firstGame.provider}/${firstGame.code}`;
+      }
+    }
   },
   {
     id: "live-casino",
@@ -146,7 +160,14 @@ const headerMenu = ref([
     icon: "/img/new/icons/casino.svg",
     activeIcon: "/img/new/icons/casino-active.svg",
     active: false,
-    games: casinoGames
+    games: casinoGames,
+    onClick: () => {
+      // Redirect to live casino with first available provider and code
+      if (casinoGames.value.length > 0) {
+        const firstGame = casinoGames.value[0];
+        window.location.href = `/desktop/slots/${firstGame.provider}/${firstGame.code}`;
+      }
+    }
   },
   {
     id: "togel",
@@ -229,6 +250,16 @@ const headerMenu = ref([
     onClick: () => showComingSoon("Promosi")
   },
 ]);
+
+const getMenuHref = (menuItem: any) => {
+  return menuItem.onClick ? 'javascript:void(0)' : menuItem.href;
+};
+
+const handleMenuClick = (menuItem: any) => {
+  if (menuItem.onClick && typeof menuItem.onClick === 'function') {
+    menuItem.onClick();
+  }
+};
 </script>
 
 <style lang="scss" scoped>
