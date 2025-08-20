@@ -369,12 +369,12 @@ export default defineComponent({
 
     h1 {
       color: white;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 15px 30px;
+      padding: 10px 30px;
       border-radius: 8px;
       display: inline-block;
     }
