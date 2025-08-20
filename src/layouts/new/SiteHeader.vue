@@ -4,7 +4,7 @@
       <div class="row" bis_skin_checked="1">
         <div class="col-sm-3 col-md-3" bis_skin_checked="1">
           <a
-            href="/desktop/home"
+            href="/"
             class="logo"
             style="
               background-image: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/layout/logo-background.png?v=20250529);
@@ -29,10 +29,7 @@
               :key="menuItem.id"
               :data-active="menuItem.active"
             >
-              <a 
-                :href="getMenuHref(menuItem)"
-                @click="handleMenuClick(menuItem)"
-              >
+              <a :href="getMenuHref(menuItem)" @click="handleMenuClick(menuItem)">
                 <img
                   :alt="menuItem.alt"
                   height="30"
@@ -53,8 +50,8 @@
                 style="--maintenance-text: 'Pemeliharaan'"
               >
                 <li v-for="game in menuItem.games" :key="game.id">
-                <!-- {{  game.provider }} {{  game.code }} -->
-                  <a :href="`/desktop/slots/${game.provider}/${game.code}`">
+                  <!-- {{  game.provider }} {{  game.code }} -->
+                  <a @click="handleGameClick(game)">
                     <div class="background" bis_skin_checked="1"></div>
                     <div
                       class="foreground"
@@ -73,9 +70,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import { useGamesStore } from '@/stores/games';
-import Swal from 'sweetalert2';
+import { ref, computed, onMounted } from "vue";
+import { useGamesStore } from "@/stores/games";
+import Swal from "sweetalert2";
 
 const gamesStore = useGamesStore();
 
@@ -94,23 +91,21 @@ onMounted(async () => {
 // Function to show coming soon alert
 const showComingSoon = (menuName: string) => {
   Swal.fire({
-    title: 'Coming Soon!',
+    title: "Coming Soon!",
     text: `${menuName} will be available soon.`,
-    icon: 'info',
-    confirmButtonText: 'OK',
-    confirmButtonColor: '#3085d6',
-    width: '60rem',        // 960px wide - much larger
-    padding: '4rem',       // 64px padding for better spacing
+    icon: "info",
+    confirmButtonText: "OK",
+    confirmButtonColor: "#3085d6",
     showClass: {
-      popup: 'animate__animated animate__fadeInDown'
+      popup: "animate__animated animate__fadeInDown",
     },
     hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
+      popup: "animate__animated animate__fadeOutUp",
     },
     customClass: {
-      title: 'swal-title-large',
-      popup: 'swal-popup-large'
-    }
+      title: "swal-title-large",
+      popup: "swal-popup-large",
+    },
   });
 };
 
@@ -127,13 +122,6 @@ const headerMenu = ref([
       const allowedCodes = ["H_PPS", "H_JILI", "H_PGS"];
       return slotGames.value.filter((game) => allowedCodes.includes(game.code));
     }),
-    onClick: () => {
-      // Redirect to hot games with provider and code
-      const hotGame = slotGames.value.find(game => ["H_PPS", "H_JILI", "H_PGS"].includes(game.code));
-      if (hotGame) {
-        window.location.href = `/desktop/slots/${hotGame.provider}/${hotGame.code}`;
-      }
-    }
   },
   {
     id: "slot-games",
@@ -144,13 +132,6 @@ const headerMenu = ref([
     activeIcon: "/img/new/icons/slots-active.svg",
     active: false,
     games: slotGames,
-    onClick: () => {
-      // Redirect to slot games with first available provider and code
-      if (slotGames.value.length > 0) {
-        const firstGame = slotGames.value[0];
-        window.location.href = `/desktop/slots/${firstGame.provider}/${firstGame.code}`;
-      }
-    }
   },
   {
     id: "live-casino",
@@ -161,13 +142,6 @@ const headerMenu = ref([
     activeIcon: "/img/new/icons/casino-active.svg",
     active: false,
     games: casinoGames,
-    onClick: () => {
-      // Redirect to live casino with first available provider and code
-      if (casinoGames.value.length > 0) {
-        const firstGame = casinoGames.value[0];
-        window.location.href = `/desktop/slots/${firstGame.provider}/${firstGame.code}`;
-      }
-    }
   },
   {
     id: "togel",
@@ -177,7 +151,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/others.svg",
     activeIcon: "/img/new/icons/others-active.svg",
     active: false,
-    onClick: () => showComingSoon("Togel")
+    onClick: () => showComingSoon("Togel"),
   },
   {
     id: "sports",
@@ -187,7 +161,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/sports.svg",
     activeIcon: "/img/new/icons/sports-active.svg",
     active: false,
-    onClick: () => showComingSoon("Olahraga")
+    onClick: () => showComingSoon("Olahraga"),
   },
   {
     id: "crash-games",
@@ -197,7 +171,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/crash-game.svg",
     activeIcon: "/img/new/icons/crash-game-active.svg",
     active: false,
-    onClick: () => showComingSoon("Crash Game")
+    onClick: () => showComingSoon("Crash Game"),
   },
   {
     id: "arcade",
@@ -207,7 +181,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/arcade.svg",
     activeIcon: "/img/new/icons/arcade-active.svg",
     active: false,
-    onClick: () => showComingSoon("Arcade")
+    onClick: () => showComingSoon("Arcade"),
   },
   {
     id: "poker",
@@ -217,7 +191,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/poker.svg",
     activeIcon: "/img/new/icons/poker-active.svg",
     active: false,
-    onClick: () => showComingSoon("Poker")
+    onClick: () => showComingSoon("Poker"),
   },
   {
     id: "e-sports",
@@ -227,7 +201,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/e-sports.svg",
     activeIcon: "/img/new/icons/e-sports-active.svg",
     active: false,
-    onClick: () => showComingSoon("E-Sports")
+    onClick: () => showComingSoon("E-Sports"),
   },
   {
     id: "cockfight",
@@ -237,7 +211,7 @@ const headerMenu = ref([
     icon: "/img/new/icons/cockfight.svg",
     activeIcon: "/img/new/icons/cockfight-active.svg",
     active: false,
-    onClick: () => showComingSoon("Sabung Ayam")
+    onClick: () => showComingSoon("Sabung Ayam"),
   },
   {
     id: "promotion",
@@ -247,43 +221,44 @@ const headerMenu = ref([
     icon: "/img/new/icons/promotion.svg",
     activeIcon: "/img/new/icons/promotion-active.svg",
     active: false,
-    onClick: () => showComingSoon("Promosi")
+    onClick: () => showComingSoon("Promosi"),
   },
 ]);
 
 const getMenuHref = (menuItem: any) => {
-  return menuItem.onClick ? 'javascript:void(0)' : menuItem.href;
+  return menuItem.onClick ? "javascript:void(0)" : menuItem.href;
 };
 
 const handleMenuClick = (menuItem: any) => {
-  if (menuItem.onClick && typeof menuItem.onClick === 'function') {
+  if (menuItem.onClick && typeof menuItem.onClick === "function") {
     menuItem.onClick();
+  }
+};
+
+const handleGameClick = (game: any) => {
+  if (game.type === "SLOT") {
+    // Redirect to slots route for casino games
+    window.location.href = `/desktop/slots/${game.provider}/${game.code}`;
+  } else {
+    window.open(
+      `/game/${game.provider}/${game.code}`,
+      "LiveWindow",
+      "height=400;width=600"
+    );
   }
 };
 </script>
 
 <style lang="scss" scoped>
-// Custom SweetAlert2 styles for larger modal
-:deep(.swal-title-large) {
-  font-size: 4rem !important; // 64px title - increased from 48px
-  font-weight: bold !important;
-  margin-bottom: 1.5rem !important; // Increased spacing
+.swal2-title {
+  font-size: 2.875em !important;
 }
 
-:deep(.swal-popup-large) {
-  min-height: 45rem !important; // 720px minimum height - increased from 640px
-  font-size: 2rem !important; // 32px text - increased from 24px
-  
-  .swal2-content {
-    font-size: 2rem !important; // 32px content text - increased from 24px
-    line-height: 1.8 !important; // Better line height for larger text
-  }
-  
-  .swal2-confirm {
-    font-size: 1.75rem !important; // 28px button text - increased from 20px
-    padding: 1.5rem 3rem !important; // Larger button padding
-    border-radius: 0.75rem !important; // More rounded corners
-    font-weight: bold !important; // Make button text bold
-  }
+.swal2-html-container {
+  font-size: 1.4em;
+}
+
+.swal2-styled.swal2-confirm {
+  font-size: 1.5em;
 }
 </style>

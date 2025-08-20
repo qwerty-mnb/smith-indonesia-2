@@ -81,7 +81,7 @@
               <a @click="openModal('Login')" class="login-button"> Masuk </a>
             </div>
             <div class="login-panel-item" bis_skin_checked="1">
-              <a href="/desktop/register" class="register-button"> Daftar </a>
+              <a @click="goToRegister" class="register-button"> Daftar </a>
             </div>
           </div>
           <div
@@ -468,6 +468,10 @@ export default defineComponent({
       }
     };
 
+    const goToRegister = () => {
+      router.push({ path: "/auth/register" });
+    };
+
     onMounted(() => {
       setTimeout(() => {
         let el = null;
@@ -493,6 +497,7 @@ export default defineComponent({
       user,
       setRouter,
       logout,
+      goToRegister,
     };
   },
 });

@@ -94,7 +94,18 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-
+  {
+    path: "/auth",
+    name: "auth-register",
+    component: () => import("../layouts/PageLayout.vue"),
+    children: [
+      {
+        path: "register",
+        name: "register-page",
+        component: () => import("../views/auth/Register.vue"),
+      },
+    ],
+  },
   {
     path: "/game/:provider/:code",
     name: "CasinoGame",
@@ -161,6 +172,13 @@ router.beforeEach(async (to, from, next) => {
       const authSuccess = await authStore.verifyAuth(false);
       if (authSuccess) next();
       else next({ name: "main-page" });
+      break;
+    // Auth routes that don't require verification
+    case "auth-register":
+      next();
+      break;
+    case "register-page":
+      next();
       break;
     case "Error404":
       next();
