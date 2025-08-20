@@ -160,9 +160,9 @@ export default defineComponent({
 <style scoped lang="scss">
 .slot-carousel {
 	position: relative;
-	background: #e7ff1e; /* neon lime background like reference */
-	padding: 8px 42px; /* leave room for arrows */
-	height: 115px; /* slightly taller */
+	background: #e7ff1e;
+	padding: 4px 42px;
+	height: 115px;
 	margin: 20px auto;
 	max-width: 1140px;
 	overflow: hidden;
@@ -175,7 +175,7 @@ export default defineComponent({
 
 .track {
 	display: flex;
-	gap: 8px;
+	gap: 4px;
 	transition: transform 0.35s ease;
 	height: 100%;
 	align-items: stretch;
@@ -183,10 +183,10 @@ export default defineComponent({
 
 .sc-item {
 	/* enforce identical widths for every card */
-	width: 168px;
-	min-width: 168px;
-	max-width: 168px;
-	flex: 0 0 168px;
+	width: 173px;
+	min-width: 173px;
+	max-width: 173px;
+	flex: 0 0 173px;
 	height: 100%;
 	display: flex;
 	cursor: pointer;
@@ -244,7 +244,7 @@ export default defineComponent({
 
 .title {
 	text-align: center;
-	height: 24px; /* slightly shorter title to reduce bottom space */
+	height: 24px;
 	line-height: 24px;
 	padding: 0 6px;
 	font-size: 13px;
