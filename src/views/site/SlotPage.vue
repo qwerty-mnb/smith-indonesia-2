@@ -3,6 +3,92 @@
 		<SiteHeader />
 		<div class="relative container mx-auto px-4">
 			<div class="p-4 main-content">
+				<!-- Search Header UI -->
+				<div class="search-header">
+					<div class="provider-title">
+						<h1>{{ providerName }}</h1>
+					</div>
+					<div class="search-navigation">
+						<div class="nav-buttons">
+							<button 
+								class="nav-btn" 
+								:class="{ active: activeFilter === 'All Games' }"
+								@click="setActiveFilter('All Games')"
+							>
+								All Games
+							</button>
+							<button 
+								class="nav-btn" 
+								:class="{ active: activeFilter === 'Top 20' }"
+								@click="setActiveFilter('Top 20')"
+							>
+								Top 20
+							</button>
+							<button 
+								class="nav-btn" 
+								:class="{ active: activeFilter === 'New' }"
+								@click="setActiveFilter('New')"
+							>
+								New
+							</button>
+							<button 
+								class="nav-btn" 
+								:class="{ active: activeFilter === 'Classic' }"
+								@click="setActiveFilter('Classic')"
+							>
+								Classic
+							</button>
+							<button 
+								class="nav-btn" 
+								:class="{ active: activeFilter === 'Bonus Buy' }"
+								@click="setActiveFilter('Bonus Buy')"
+							>
+								Bonus Buy
+							</button>
+						</div>
+						<div class="category-buttons">
+							<button 
+								class="category-btn" 
+								:class="{ active: activeFilter === 'Reel Kingdom' }"
+								@click="setActiveFilter('Reel Kingdom')"
+							>
+								Reel Kingdom
+							</button>
+							<button 
+								class="category-btn" 
+								:class="{ active: activeFilter === 'Megaways' }"
+								@click="setActiveFilter('Megaways')"
+							>
+								Megaways
+							</button>
+							<button 
+								class="category-btn" 
+								:class="{ active: activeFilter === 'Jackpot Play Games' }"
+								@click="setActiveFilter('Jackpot Play Games')"
+							>
+								Jackpot Play Games
+							</button>
+							<button 
+								class="category-btn" 
+								:class="{ active: activeFilter === 'Video Slots' }"
+								@click="setActiveFilter('Video Slots')"
+							>
+								Video Slots
+							</button>
+						</div>
+						<div class="search-box">
+							<input 
+								type="text" 
+								placeholder="Search Games" 
+								v-model="searchQuery"
+								@input="handleSearch"
+								class="search-input"
+							/>
+							<i class="fas fa-search search-icon"></i>
+						</div>
+					</div>
+				</div>
+				
 				<div class="responsive-game-grid">
 					<div
 						class="game-card-wrapper"
@@ -78,10 +164,14 @@ export default defineComponent({
     // Reactive data
     const error = ref('');
     const gameList = ref<Game[]>([]);
+    const searchQuery = ref('');
+    const activeFilter = ref('All Games');
+    const originalGameList = ref<Game[]>([]); // Store original list for filtering
 
     // Computed properties
     const provider = computed(() => route.params.provider as string);
     const code = computed(() => route.params.code as string);
+    const providerName = computed(() => provider.value.toUpperCase());
 
     // Methods
 
@@ -93,6 +183,7 @@ export default defineComponent({
           `/site/gamelists/${provider.value}/${code.value}`
         );
 
+        originalGameList.value = response.data;
         gameList.value = response.data;
 
       } catch (err: any) {
@@ -129,6 +220,53 @@ export default defineComponent({
       );
     };
 
+    const handleSearch = () => {
+      applyFilters();
+    };
+
+    const setActiveFilter = (filter: string) => {
+      activeFilter.value = filter;
+      applyFilters();
+    };
+
+    const applyFilters = () => {
+      let filteredGames = [...originalGameList.value];
+
+      // Apply search filter
+      if (searchQuery.value.trim()) {
+        const searchTerm = searchQuery.value.toLowerCase().trim();
+        filteredGames = filteredGames.filter(game => {
+          const gameName = (game.name || game.title || game.ko_title || '').toLowerCase();
+          return gameName.includes(searchTerm);
+        });
+      }
+
+      // Apply category filter
+      switch (activeFilter.value) {
+        case 'Top 20':
+          // Assuming games have a 'is_top' property or we can sort by some criteria
+          filteredGames = filteredGames.filter(game => game.is_top).slice(0, 20);
+          break;
+        case 'New':
+          filteredGames = filteredGames.filter(game => game.is_new);
+          break;
+        case 'Classic':
+          // Filter for classic games (you might need to adjust this based on your data)
+          filteredGames = filteredGames.filter(game => !game.is_new && !game.is_hot);
+          break;
+        case 'Bonus Buy':
+          // Filter for bonus buy games (you might need to adjust this based on your data)
+          filteredGames = filteredGames.filter(game => game.jackpot);
+          break;
+        case 'All Games':
+        default:
+          // No additional filtering needed
+          break;
+      }
+
+      gameList.value = filteredGames;
+    };
+
     onMounted(() => {
       getGameList();
     });
@@ -138,9 +276,15 @@ export default defineComponent({
       gameList,
       provider,
       code,
+      providerName,
+      searchQuery,
+      activeFilter,
       getGameList,
 			openGame,
-			tryGame
+			tryGame,
+      handleSearch,
+      setActiveFilter,
+      applyFilters
     };
   }
 });
@@ -206,10 +350,166 @@ export default defineComponent({
 .main-content {
 	border: 1px solid #0c1740;
 	background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
-  padding-top: 120px !important; // Adjust this value based on your header height
+  //padding-top: 120px !important; // Adjust this value based on your header height
   
+  // @media (max-width: 768px) {
+  //   padding-top: 100px !important; // Smaller padding on mobile
+  // }
+}
+
+// Search Header UI Styling
+.search-header {
+  background: #5b1699;
+  //padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
+
+  .provider-title {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #330460;
+
+    h1 {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 15px 30px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  }
+
+  .search-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 20px;
+
+    .nav-buttons {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+
+      .nav-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 0;
+        font-weight: 500;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 100px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        &.active {
+          background: rgba(0, 0, 0, 0.4);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .category-buttons {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+
+      .category-btn {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 0;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.25);
+        }
+
+        &.active {
+          background: rgba(0, 0, 0, 0.4);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .search-box {
+      display: flex;
+      position: relative;
+      max-width: 250px;
+      min-width: 200px;
+
+      .search-input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        background: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0;
+        color: white;
+        font-size: 14px;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: rgba(255, 255, 255, 0.5);
+          background: rgba(0, 0, 0, 0.6);
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.7);
+        pointer-events: none;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
-    padding-top: 100px !important; // Smaller padding on mobile
+    .search-navigation {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+
+      .nav-buttons {
+        justify-content: center;
+        
+        .nav-btn {
+          min-width: 80px;
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+      }
+
+      .category-buttons {
+        justify-content: center;
+        
+        .category-btn {
+          padding: 6px 10px;
+          font-size: 11px;
+        }
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+    }
   }
 }
 
