@@ -1,6 +1,8 @@
 
 
 
+
+
 /* NUGET: BEGIN LICENSE TEXT
  *
  * Microsoft grants you the right to use these script files for the sole
@@ -9109,12 +9111,6 @@ input,button {
   font-style: normal
 }
 
-@font-face {
-  font-family: 'Open24DisplaySt';
-  src: url('/fonts/Open24DisplaySt.woff2') format('woff2'),url('/fonts/Open24DisplaySt.woff') format('woff');
-  font-weight: normal;
-  font-style: normal
-}
 
 @font-face {
   font-family: 'gilroybold';
@@ -9522,7 +9518,7 @@ body.no-scroll {
 
 .top-menu .game-list {
   position: absolute;
-  top: 100%;
+  top: 84%;
   left: 0;
   right: 0;
   z-index: 16;

@@ -7,13 +7,16 @@
     <div class="home-info-container">
       <div class="container">
         <Announcement />
+
+        <Jackpot />
+
       </div>
     </div>
 
     <!-- Main Content Area -->
-    <!-- <main class="main-content">
+    <main class="main-content">
       <router-view />
-    </main> -->
+    </main>
 
     <!-- Footer -->
     <!-- <Footer /> -->
@@ -31,6 +34,7 @@ import TopBar from "@/layouts/new/TobBar.vue";
 import Banner from "./new/Banner.vue";
 import Announcement from "./new/Announcement.vue";
 import Login from "@/views/auth/Login.vue";
+import Jackpot from "./new/Jackpot.vue";
 
 export default defineComponent({
   name: "MainLayout",
@@ -40,7 +44,8 @@ export default defineComponent({
     Footer,
     Banner,
     Announcement,
-    Login
+    Login,
+    Jackpot
   },
   setup() {
     const store = useAppStore();

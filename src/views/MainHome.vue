@@ -10,6 +10,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, computed, ref } from "vue";
 import { useAppStore } from "@/stores/app";
+import { useGamesStore } from "@/stores/games";
 
 // Components
 import ApiService from "../services/ApiService";
@@ -35,6 +36,7 @@ export default defineComponent({
   setup() {
     // vue
     const appStore = useAppStore();
+    const gamesStore = useGamesStore();
     // page
     const settings = computed(() => appStore.settings);
     const selectedModal = computed(() => appStore.activeModal);
@@ -67,19 +69,8 @@ export default defineComponent({
     });
 
     async function getGames() {
-      let lobbies: Game[] = await ApiService.get("/site/games")
-        .then((res) => res.data)
-        .catch(() => []);
-
-      if (lobbies.length > 0) {
-        games.value.slotGames = lobbies.filter((r) => r.type === "SLOT");
-        games.value.casinoGames = lobbies.filter(
-          (r) => r.type === "CASINO" || r.type === "HOTEL"
-        );
-
-        games.value.slotGames = setAnimationSecs(games.value.slotGames);
-        games.value.casinoGames = setAnimationSecs(games.value.casinoGames);
-      }
+      // Use the global games store instead of local state
+      await gamesStore.fetchGames();
     }
 
     const setAnimationSecs = (data: any) => {
