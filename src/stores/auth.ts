@@ -170,12 +170,14 @@ export const useAuthStore = defineStore("auth", {
      */
     async connectSocket() {
       try {
-        // Get Socket Token
-        const { data: token } = await ApiService.get("/auth/s");
-        // Connect Socket
-        const rootDomain = window.location.hostname.split('.').reverse().splice(0, 2).reverse().join('.');
-        const socketURL = import.meta.env.DEV ? String(import.meta.env.VITE_APP_WS) : `https://adsc.${rootDomain}`;
-        SocketService.init(socketURL, String(token));
+        // Get Socket Token - only if we don't already have one
+        if (!SocketService.socket || !SocketService.socket.connected) {
+          const { data: token } = await ApiService.get("/auth/s");
+          // Connect Socket
+          const rootDomain = window.location.hostname.split('.').reverse().splice(0, 2).reverse().join('.');
+          const socketURL = import.meta.env.DEV ? String(import.meta.env.VITE_APP_WS) : `https://adsc.${rootDomain}`;
+          SocketService.init(socketURL, String(token));
+        }
 
         // Socket Events
 
@@ -253,9 +255,30 @@ export const useAuthStore = defineStore("auth", {
      * 
      */
     async logout() {
-      await ApiService.get("/auth/logout");
-      JwtService.destroyToken();
-      window.location.reload();
+      try {
+        await ApiService.get("/auth/logout");
+      } catch (e) {
+        // Ignore logout errors
+      } finally {
+        // Clear JWT token
+        JwtService.destroyToken();
+        
+        // Clear any existing cookies by setting them to expire
+        this.clearAuthCookies();
+        
+        // Reload page
+        window.location.reload();
+      }
+    },
+
+    /**
+     * Clear authentication cookies
+     * 
+     */
+    clearAuthCookies() {
+      // Clear any token cookies by setting them to expire
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     },
 
     /**

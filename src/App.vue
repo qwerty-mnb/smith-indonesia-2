@@ -13,7 +13,7 @@ $fa-font-path: "/webfonts";
 
 // Custom
 @import "./src/assets/scss/home.scss";
-@import "./src/assets/scss/input.scss";
+// @import "./src/assets/scss/input.scss";
 @import "./src/assets/scss/style.scss";
 @import "./src/assets/scss/theme-dark.scss";
 @import "./src/assets/scss/slick.scss";

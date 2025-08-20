@@ -17,16 +17,20 @@
 
     <!-- Footer -->
     <!-- <Footer /> -->
+    <!-- Login Modal -->
+    <Login v-if="activeModal === 'Login'" @close="closeModal" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useAppStore } from "@/stores/app";
 import SiteHeader from "@/layouts/new/SiteHeader.vue";
 import Footer from "@/layouts/partials/Footer.vue";
 import TopBar from "@/layouts/new/TobBar.vue";
 import Banner from "./new/Banner.vue";
 import Announcement from "./new/Announcement.vue";
+import Login from "@/views/auth/Login.vue";
 
 export default defineComponent({
   name: "MainLayout",
@@ -36,7 +40,19 @@ export default defineComponent({
     Footer,
     Banner,
     Announcement,
+    Login
   },
+  setup() {
+    const store = useAppStore();
+    
+    const activeModal = computed(() => store.activeModal);
+    const closeModal = () => store.openModal("");
+    
+    return {
+      activeModal,
+      closeModal
+    };
+  }
 });
 </script>
 
