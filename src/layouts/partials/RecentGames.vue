@@ -1,9 +1,9 @@
 <template>
   <div class="popular-game-title-container" bis_skin_checked="1">
-    <div class="container-title" bis_skin_checked="1">
+  <div class="container-title" bis_skin_checked="1">
       <span>Game Yang Baru Dimainkan</span>
-    </div>
-    <div class="container-content" bis_skin_checked="1">
+  </div>
+  <div class="container-content" bis_skin_checked="1">
       <div class="game-list" bis_skin_checked="1">
         <div class="games-group !flex flex-row" bis_skin_checked="1">
           <div
@@ -11,7 +11,7 @@
             data-game="Sweet Bonanza Super Scatter"
             bis_skin_checked="1"
           >
-            <div class="wrapper-container" bis_skin_checked="1">
+                  <div class="wrapper-container" bis_skin_checked="1">
               <picture
                 ><source
                   srcset="
@@ -30,20 +30,20 @@
                   src="//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PP/vs20swbonsup.jpg?v=20250529"
                   width="200"
               /></picture>
-              <div class="link-container" bis_skin_checked="1">
+                      <div class="link-container" bis_skin_checked="1">
                 <a
                   href="javascript:openPopup('/dispatch/game/PP/Desktop/vs20swbonsup', 'Slots')"
                   class="play-now"
                   data-game="Sweet Bonanza Super Scatter"
                 >
-                  MAIN
-                </a>
+                              MAIN
+                          </a>
+                      </div>
+                  </div>
+                  <div class="game-name" bis_skin_checked="1">Sweet Bonanza Super Scatter</div>
               </div>
-            </div>
-            <div class="game-name" bis_skin_checked="1">Sweet Bonanza Super Scatter</div>
-          </div>
           <div class="game-item" data-game="Mahjong Ways" bis_skin_checked="1">
-            <div class="wrapper-container" bis_skin_checked="1">
+                  <div class="wrapper-container" bis_skin_checked="1">
               <picture
                 ><source
                   srcset="
@@ -62,21 +62,21 @@
                   src="//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PGSOFT/PGSOFT_65.jpg?v=20250529"
                   width="200"
               /></picture>
-              <div class="link-container" bis_skin_checked="1">
+                      <div class="link-container" bis_skin_checked="1">
                 <a
                   href="javascript:openPopup('/dispatch/game/PGSOFT/Desktop/PGSOFT_65', 'Slots')"
                   class="play-now"
                   data-game="Mahjong Ways"
                 >
-                  MAIN
-                </a>
-              </div>
-            </div>
+                              MAIN
+                          </a>
+                      </div>
+                  </div>
             <div class="game-name" bis_skin_checked="1">Mahjong Ways</div>
-          </div>
-        </div>
+              </div>
       </div>
-    </div>
+  </div>
+</div>
   </div>
 </template>
 

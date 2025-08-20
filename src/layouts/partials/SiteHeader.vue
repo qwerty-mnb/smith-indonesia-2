@@ -14,7 +14,7 @@
               class="w-[14px] h-[14px]"
             />
           </div>
-        </div>
+      </div>
 
         <div class="ml-[5px] border-r border-r-dotted pr-[5px] border-[#ccc] h-[24px]">
           <div
@@ -34,7 +34,7 @@
           >
             <img src="/img/new/icons/mobile.svg" alt="mobile" class="w-[14px] h-[14px]" />
           </div>
-        </div>
+      </div>
 
         <div class="ml-[5px] border-r border-r-dotted pr-[5px] border-[#ccc] h-[24px]">
           <div
@@ -43,7 +43,7 @@
             <img src="/img/new/icons/search.svg" alt="search" class="w-[14px] h-[14px]" />
           </div>
         </div>
-      </div>
+        </div>
 
       <!-- Right Section -->
       <div class="flex flex-nowrap h-full w-full items-center">
@@ -67,8 +67,8 @@
                     class="progress loyalty_experience_progress bg-[#29ff00]"
                     style="width: 89%"
                   ></div>
-                </div>
-              </div>
+        </div>
+      </div>
             </a>
 
             <div class="flex flex-row items-center topbar-item mr-2">
@@ -96,16 +96,16 @@
                 </div>
                 <span class="loyalty_point text-[#ff9100]">129,727,653</span>
               </a>
-            </div>
+        </div>
 
             <div class="flex flex-row items-center topbar-item mr-2">
               <img src="/img/new/icons/chest-available.webp" class="w-[28px] h-[28px]" />
-            </div>
-          </div>
+        </div>
+        </div>
+        </div>
         </div>
       </div>
     </div>
-  </div>
 
   <!-- Navigation Bar - Dark Purple -->
   <div
@@ -184,8 +184,8 @@
                       </div>
                       <span class="text-[#8b9dc3] text-xs font-medium">Live Casino {{ i }}</span>
                     </div>
-                  </div> -->
-                </div>
+    </div> -->
+  </div>
               </div>
             </div>
           </li>
@@ -194,8 +194,8 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
+  
+  <script lang="ts">
 import { defineComponent, computed, ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
@@ -342,7 +342,7 @@ export default defineComponent({
       }
     };
 
-    async function logout() {
+     async function logout() {
       authStore.logout();
       router.push({ path: "/" });
     }

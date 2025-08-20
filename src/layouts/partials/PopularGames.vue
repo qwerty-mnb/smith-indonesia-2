@@ -1,9 +1,9 @@
 <template>
-  <div class="popular-game-title-container" bis_skin_checked="1">
-    <div class="container-title" bis_skin_checked="1">
+<div class="popular-game-title-container" bis_skin_checked="1">
+  <div class="container-title" bis_skin_checked="1">
       <span>Game Populer</span>
-    </div>
-    <div class="container-content" bis_skin_checked="1">
+  </div>
+  <div class="container-content" bis_skin_checked="1">
       <div class="game-list" bis_skin_checked="1" style="display: flex; flex-direction: column; gap: 20px;">
         <div 
           v-for="(row, rowIndex) in popularGames" 
@@ -18,7 +18,7 @@
             :data-game="game.name"
             bis_skin_checked="1"
           >
-            <div class="wrapper-container" bis_skin_checked="1">
+                      <div class="wrapper-container" bis_skin_checked="1">
               <picture>
                 <source
                   :srcset="game.imageSrc"
@@ -34,22 +34,22 @@
                   width="200"
                 />
               </picture>
-              <div class="link-container" bis_skin_checked="1">
+                          <div class="link-container" bis_skin_checked="1">
                 <a
                   :href="`javascript:openPopup('${game.gameUrl}', 'Slots')`"
                   class="play-now"
                   :data-game="game.name"
                 >
-                  MAIN
-                </a>
-              </div>
-            </div>
+                                  MAIN
+                              </a>
+                          </div>
+                      </div>
             <div class="game-name" bis_skin_checked="1">{{ game.name }}</div>
-          </div>
-        </div>
+                      </div>
+              </div>
       </div>
-    </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">
