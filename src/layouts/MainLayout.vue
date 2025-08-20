@@ -10,17 +10,21 @@
 
         <Jackpot />
 
+        <!-- Main Content Area -->
+        <main class="main-content">
+          <router-view />
+        </main>
+
+        <PopularGames />
       </div>
     </div>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-      <router-view />
-    </main>
+    <SportsPlatform />
 
-    <!-- Footer -->
-    <!-- <Footer /> -->
-    <!-- Login Modal -->
+    <DownloadApp />
+
+    <SiteFooter />
+
     <Login v-if="activeModal === 'Login'" @close="closeModal" />
   </div>
 </template>
@@ -29,35 +33,41 @@
 import { defineComponent, computed } from "vue";
 import { useAppStore } from "@/stores/app";
 import SiteHeader from "@/layouts/new/SiteHeader.vue";
-import Footer from "@/layouts/partials/Footer.vue";
 import TopBar from "@/layouts/new/TobBar.vue";
 import Banner from "./new/Banner.vue";
 import Announcement from "./new/Announcement.vue";
 import Login from "@/views/auth/Login.vue";
 import Jackpot from "./new/Jackpot.vue";
+import PopularGames from "./new/PopularGames.vue";
+import SportsPlatform from "./new/SportsPlatform.vue";
+import SiteFooter from "./new/SiteFooter.vue";
+import DownloadApp from "./new/DownloadApp.vue";
 
 export default defineComponent({
   name: "MainLayout",
   components: {
     TopBar,
     SiteHeader,
-    Footer,
     Banner,
     Announcement,
     Login,
-    Jackpot
+    Jackpot,
+    PopularGames,
+    SportsPlatform,
+    DownloadApp,
+    SiteFooter
   },
   setup() {
     const store = useAppStore();
-    
+
     const activeModal = computed(() => store.activeModal);
     const closeModal = () => store.openModal("");
-    
+
     return {
       activeModal,
-      closeModal
+      closeModal,
     };
-  }
+  },
 });
 </script>
 

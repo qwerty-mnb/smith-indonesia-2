@@ -53,7 +53,7 @@
                 style="--maintenance-text: 'Pemeliharaan'"
               >
                 <li v-for="game in menuItem.games" :key="game.id">
-                {{  game.code }}
+                <!-- {{  game.provider }} {{  game.code }} -->
                   <a :href="`/slots/${game.code}`">
                     <div class="background" bis_skin_checked="1"></div>
                     <div
@@ -98,7 +98,19 @@ const showComingSoon = (menuName: string) => {
     text: `${menuName} will be available soon.`,
     icon: 'info',
     confirmButtonText: 'OK',
-    confirmButtonColor: '#3085d6'
+    confirmButtonColor: '#3085d6',
+    width: '60rem',        // 960px wide - much larger
+    padding: '4rem',       // 64px padding for better spacing
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+      title: 'swal-title-large',
+      popup: 'swal-popup-large'
+    }
   });
 };
 
@@ -219,4 +231,28 @@ const headerMenu = ref([
 ]);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// Custom SweetAlert2 styles for larger modal
+:deep(.swal-title-large) {
+  font-size: 4rem !important; // 64px title - increased from 48px
+  font-weight: bold !important;
+  margin-bottom: 1.5rem !important; // Increased spacing
+}
+
+:deep(.swal-popup-large) {
+  min-height: 45rem !important; // 720px minimum height - increased from 640px
+  font-size: 2rem !important; // 32px text - increased from 24px
+  
+  .swal2-content {
+    font-size: 2rem !important; // 32px content text - increased from 24px
+    line-height: 1.8 !important; // Better line height for larger text
+  }
+  
+  .swal2-confirm {
+    font-size: 1.75rem !important; // 28px button text - increased from 20px
+    padding: 1.5rem 3rem !important; // Larger button padding
+    border-radius: 0.75rem !important; // More rounded corners
+    font-weight: bold !important; // Make button text bold
+  }
+}
+</style>
