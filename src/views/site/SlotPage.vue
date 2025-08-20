@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-
+    <SiteFooter />
   </div>
 </template>
 
@@ -94,6 +94,7 @@ import { useI18n } from 'vue-i18n';
 import ApiService from '@/services/ApiService';
 import GameBanner from "../site/GameBanner.vue";
 import SiteHeader from "@/layouts/new/SiteHeader.vue";
+import SiteFooter from "@/layouts/new/SiteFooter.vue";
 import TopBar from "@/layouts/new/TobBar.vue";
 import SlotCarousel from "@/views/site/SlotCarousel.vue";
 import JackpotCounter from "@/views/site/JackpotCounter.vue";
@@ -120,6 +121,7 @@ export default defineComponent({
   components: {
     GameBanner,
     SiteHeader,
+    SiteFooter,
     SlotCarousel,
     JackpotCounter,
     TopBar
