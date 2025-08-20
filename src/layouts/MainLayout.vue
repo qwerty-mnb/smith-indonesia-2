@@ -1,94 +1,76 @@
 <template>
-  <div>
+  <div id="app" class="main-layout">
+    <TopBar />
     <SiteHeader />
+    <Banner />
+
+    <div class="home-info-container">
+      <div class="container">
+        <Announcement />
+
+        <Jackpot />
+
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <router-view />
+    </main>
+
+    <!-- Footer -->
+    <!-- <Footer /> -->
+    <!-- Login Modal -->
+    <Login v-if="activeModal === 'Login'" @close="closeModal" />
   </div>
-
-  <MainBanner />
-
-  <div class="max-w-[1170px] mx-auto">
-    <div
-      class="h-[50px] bg-[#40027e] text-white rounded-[5px] my-[15px] mx-0 py-[10px] px-[20px] flex justify-between"
-    ></div>
-  </div>
-
-  <!-- <div class="wrapper"> -->
-  <!-- Header -->
-  <!-- <Header /> -->
-  <!-- <div class="wrap-content"> -->
-  <!-- <div class="wrapper-img"></div> -->
-
-  <!-- Site Header -->
-  <!-- <SiteHeader /> -->
-  <!-- Partners Header -->
-  <!-- <PartnerHeader />
-      <MainBanner/> -->
-
-  <!-- <div class="wrapper-img-container"> -->
-  <!-- Banner -->
-  <!-- <Banner /> -->
-  <!-- Content -->
-  <!-- <div id="page-content" :class="{ 'adjust-pagecnt': route.path != '/' }">
-          <router-view :key="$route.fullPath" />
-        </div> -->
-
-  <!-- </div> -->
-
-  <!-- Footer -->
-  <!-- <GameFooter /> -->
-  <!-- <Footer /> -->
-  <!-- </div>
-  </div> -->
-  <!-- Login Modal -->
-  <AuthLogin />
-  <!-- Notice Popup -->
-  <NoticePopup />
 </template>
+
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import { useAppStore } from "@/stores/app";
-import { useRoute } from "vue-router";
-
-import Header from "./partials/Header.vue";
-import SiteHeader from "./partials/SiteHeader.vue";
-import PartnerHeader from "./partials/PartnerHeader.vue";
-import Banner from "./partials/Banner.vue";
-import Footer from "./partials/Footer.vue";
-import AuthLogin from "@/views/auth/Login.vue";
-import NoticePopup from "@/views/popup/NoticePopup.vue";
-import GameFooter from "@/layouts/partials/GameFooter.vue";
-import MainBanner from "@/components/banner/MainBanner.vue";
+import SiteHeader from "@/layouts/new/SiteHeader.vue";
+import Footer from "@/layouts/partials/Footer.vue";
+import TopBar from "@/layouts/new/TobBar.vue";
+import Banner from "./new/Banner.vue";
+import Announcement from "./new/Announcement.vue";
+import Login from "@/views/auth/Login.vue";
+import Jackpot from "./new/Jackpot.vue";
 
 export default defineComponent({
   name: "MainLayout",
   components: {
-    Header,
+    TopBar,
     SiteHeader,
-    GameFooter,
     Footer,
-    AuthLogin,
-    NoticePopup,
-    PartnerHeader,
     Banner,
-    MainBanner,
+    Announcement,
+    Login,
+    Jackpot
   },
   setup() {
-    // vue
-    const appStore = useAppStore();
-    const selectedModal = computed(() => appStore.activeModal);
-    const route = useRoute();
-
+    const store = useAppStore();
+    
+    const activeModal = computed(() => store.activeModal);
+    const closeModal = () => store.openModal("");
+    
     return {
-      selectedModal,
-      route,
+      activeModal,
+      closeModal
     };
-  },
+  }
 });
 </script>
 
-<style>
-.adjust-pagecnt {
-  top: 10rem;
-  /* position: absolute; */
+<style lang="scss" scoped>
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000418;
+}
+
+.main-content {
+  flex: 1;
   width: 100%;
 }
 </style>

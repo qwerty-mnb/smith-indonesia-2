@@ -14,7 +14,7 @@
               class="w-[14px] h-[14px]"
             />
           </div>
-        </div>
+      </div>
 
         <div class="ml-[5px] border-r border-r-dotted pr-[5px] border-[#ccc] h-[24px]">
           <div
@@ -34,7 +34,7 @@
           >
             <img src="/img/new/icons/mobile.svg" alt="mobile" class="w-[14px] h-[14px]" />
           </div>
-        </div>
+      </div>
 
         <div class="ml-[5px] border-r border-r-dotted pr-[5px] border-[#ccc] h-[24px]">
           <div
@@ -43,7 +43,7 @@
             <img src="/img/new/icons/search.svg" alt="search" class="w-[14px] h-[14px]" />
           </div>
         </div>
-      </div>
+        </div>
 
       <!-- Right Section -->
       <div class="flex flex-nowrap h-full w-full items-center">
@@ -67,8 +67,8 @@
                     class="progress loyalty_experience_progress bg-[#29ff00]"
                     style="width: 89%"
                   ></div>
-                </div>
-              </div>
+        </div>
+      </div>
             </a>
 
             <div class="flex flex-row items-center topbar-item mr-2">
@@ -83,11 +83,29 @@
                 <span class="total_balance">352,514.40</span>
               </a>
             </div>
-          </div>
+
+            <div class="flex flex-row items-center topbar-item mr-2">
+              <a
+                href="/desktop/loyalty/rewards"
+                class="relative flex items-center gap-[4px] mx-[5px] text-[12px]"
+              >
+                <div
+                  class="lp-label bg-[#ffa200] text-white flex text-xs p-1 rounded justify-center items-center leading-none"
+                >
+                  LP
+                </div>
+                <span class="loyalty_point text-[#ff9100]">129,727,653</span>
+              </a>
+        </div>
+
+            <div class="flex flex-row items-center topbar-item mr-2">
+              <img src="/img/new/icons/chest-available.webp" class="w-[28px] h-[28px]" />
+        </div>
+        </div>
+        </div>
         </div>
       </div>
     </div>
-  </div>
 
   <!-- Navigation Bar - Dark Purple -->
   <div
@@ -110,7 +128,7 @@
 
       <!-- Navigation Menu -->
       <div class="w-3/4 flex items-center justify-center">
-        <ul class="flex flex-row items-center justify-center w-full m-0">
+        <ul class="flex flex-row items-center justify-center m-0 w-full">
           <li
             v-for="(item, index) in headerMenu"
             :key="index"
@@ -124,16 +142,18 @@
                 item.label
               }}</span>
             </a>
-            
+
             <!-- Dropdown Menu -->
-            <div 
+            <!-- v-if="hoveredMenu === item.label" -->
+            <!-- Dropdown Menu -->
+            <div
               v-if="hoveredMenu === item.label"
-              class="absolute top-full left-1/2 transform -translate-x-1/2 z-50 mt-2 w-[800px] bg-[#25013b] border border-[#460289] rounded-lg shadow-2xl"
-              style="border-top-color: #460289; background-color: rgba(23, 3, 36, .79); border-bottom-color: #e4ff23;"
+              class="fixed top-[144px] left-1/2 transform -translate-x-1/2 z-50 w-[1170px] border-[1px] bg-[#25013b] border-solid border-[#1130a5] rounded-none shadow-2xl"
+              style="background-color: rgba(23, 3, 36, 0.79)"
             >
               <div class="p-6">
                 <!-- Sample content based on menu item -->
-                <div v-if="item.label === 'HOT GAMES'" class="grid grid-cols-4 gap-4">
+                <!-- <div v-if="item.label === 'HOT GAMES'" class="grid grid-cols-4 gap-4">
                   <div v-for="i in 8" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
                     <div class="text-center">
                       <div class="w-16 h-16 bg-[#e4ff23] rounded-lg mx-auto mb-2 flex items-center justify-center">
@@ -142,9 +162,9 @@
                       <span class="text-[#8b9dc3] text-xs font-medium">Popular Game {{ i }}</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div v-else-if="item.label === 'SLOTS'" class="grid grid-cols-4 gap-4">
+                <!-- <div v-else-if="item.label === 'SLOTS'" class="grid grid-cols-4 gap-4">
                   <div v-for="i in 12" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
                     <div class="text-center">
                       <div class="w-16 h-16 bg-[#460289] rounded-lg mx-auto mb-2 flex items-center justify-center">
@@ -153,120 +173,19 @@
                       <span class="text-[#8b9dc3] text-xs font-medium">Slot Game {{ i }}</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <!-- border-top-color: #460289;
-  background-color: rgba(23, 3, 36, .79);
-  border-bottom-color: #e4ff23; -->
-
-                <div v-else-if="item.label === 'LIVE CASINO'" class="grid grid-cols-4 gap-4 bg-[rgba(23, 3, 36, .79)] border-[#1130a5]">
-                  
-                  
-                  <div v-for="i in 12" :key="i" class="">
-                    test
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'TOGEL'" class="grid grid-cols-3 gap-4">
-                  <div v-for="i in 6" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-20 h-20 bg-[#460289] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#8b9dc3] text-xs">TOGEL {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Togel Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'OLAHRAGA'" class="grid grid-cols-4 gap-4">
-                  <div v-for="i in 8" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
+                <div v-if="item.label === 'LIVE CASINO'" class="grid grid-cols-4 gap-4">
+                  dfgdfgfdg
+                  <!-- <div v-for="i in 12" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
                     <div class="text-center">
                       <div class="w-16 h-16 bg-[#e4ff23] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#000] text-xs font-bold">SPORT {{ i }}</span>
+                        <span class="text-[#000] text-xs font-bold">LIVE {{ i }}</span>
                       </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Sports Betting {{ i }}</span>
+                      <span class="text-[#8b9dc3] text-xs font-medium">Live Casino {{ i }}</span>
                     </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'CRASH GAME'" class="grid grid-cols-3 gap-4">
-                  <div v-for="i in 6" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-20 h-20 bg-[#e4ff23] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#000] text-xs font-bold">CRASH {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Crash Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'ARCADE'" class="grid grid-cols-4 gap-4">
-                  <div v-for="i in 8" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-16 h-16 bg-[#460289] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#8b9dc3] text-xs">ARCADE {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Arcade Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'POKER'" class="grid grid-cols-3 gap-4">
-                  <div v-for="i in 6" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-20 h-20 bg-[#e4ff23] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#000] text-xs font-bold">POKER {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Poker Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'E-SPORTS'" class="grid grid-cols-4 gap-4">
-                  <div v-for="i in 8" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-16 h-16 bg-[#460289] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#8b9dc3] text-xs">E-SPORT {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">E-Sports Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'SABUNG AYAM'" class="grid grid-cols-3 gap-4">
-                  <div v-for="i in 6" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-20 h-20 bg-[#e4ff23] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#000] text-xs font-bold">COCK {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">Cockfight {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else-if="item.label === 'PROMOSI'" class="grid grid-cols-2 gap-4">
-                  <div v-for="i in 4" :key="i" class="bg-[#1a0128] rounded-lg p-4 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-24 h-24 bg-[#e4ff23] rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <span class="text-[#000] text-sm font-bold">PROMO {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-sm font-medium">Promotion {{ i }}</span>
-                      <p class="text-[#8b9dc3] text-xs mt-1">Special offer for you!</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Default content for other menu items -->
-                <div v-else class="grid grid-cols-4 gap-4">
-                  <div v-for="i in 8" :key="i" class="bg-[#1a0128] rounded-lg p-3 border border-[#460289] hover:bg-[#2d0240] transition-colors cursor-pointer">
-                    <div class="text-center">
-                      <div class="w-16 h-16 bg-[#460289] rounded-lg mx-auto mb-2 flex items-center justify-center">
-                        <span class="text-[#8b9dc3] text-xs">GAME {{ i }}</span>
-                      </div>
-                      <span class="text-[#8b9dc3] text-xs font-medium">{{ item.label }} Game {{ i }}</span>
-                    </div>
-                  </div>
-                </div>
+    </div> -->
+  </div>
               </div>
             </div>
           </li>
@@ -275,8 +194,8 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
+  
+  <script lang="ts">
 import { defineComponent, computed, ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
@@ -423,7 +342,7 @@ export default defineComponent({
       }
     };
 
-    async function logout() {
+     async function logout() {
       authStore.logout();
       router.push({ path: "/" });
     }
@@ -990,12 +909,18 @@ li.active.navigation8:after {
   background-color: #320050;
 }
 
-.mission-container .mission-item[data-status="claimable"] .mission-action-container .action-button {
+.mission-container
+  .mission-item[data-status="claimable"]
+  .mission-action-container
+  .action-button {
   background: linear-gradient(to bottom, #d6ef20 0%, #899a10 100%);
   color: #fff;
 }
 
-.mission-container .mission-item[data-status="claimable"] .mission-action-container .action-button:hover {
+.mission-container
+  .mission-item[data-status="claimable"]
+  .mission-action-container
+  .action-button:hover {
   background: linear-gradient(to bottom, #899a10 0%, #d6ef20 100%);
   color: #fff;
 }
@@ -1090,7 +1015,11 @@ li.active.navigation8:after {
   background: #8f00e6;
 }
 
-.notification-list .notification-item .notification-title-container .notification-title-content h3 {
+.notification-list
+  .notification-item
+  .notification-title-container
+  .notification-title-content
+  h3 {
   color: #fff;
 }
 
@@ -1116,7 +1045,10 @@ li.active.navigation8:after {
   background: #273400;
 }
 
-.bonus-selection-list .bonus-selection-card.selected .bonus-selection-card-content .bonus-selected {
+.bonus-selection-list
+  .bonus-selection-card.selected
+  .bonus-selection-card-content
+  .bonus-selected {
   background: #e4ff23;
 }
 
@@ -1170,16 +1102,24 @@ li.active.navigation8:after {
   background: #1a0a27;
 }
 
-.loyalty-level-container .loyalty-level-item[data-selected="true"] .loyalty-level-badge-container {
+.loyalty-level-container
+  .loyalty-level-item[data-selected="true"]
+  .loyalty-level-badge-container {
   background: #3b2c49;
 }
 
-.loyalty-level-container .loyalty-level-item .loyalty-level-progress-container .loyalty-level-progress-point {
+.loyalty-level-container
+  .loyalty-level-item
+  .loyalty-level-progress-container
+  .loyalty-level-progress-point {
   background: #2f2539;
   border-color: #2f2539;
 }
 
-.loyalty-level-container .loyalty-level-item .loyalty-level-progress-container .loyalty-level-progress-bar {
+.loyalty-level-container
+  .loyalty-level-item
+  .loyalty-level-progress-container
+  .loyalty-level-progress-bar {
   background: #2f2539;
 }
 
@@ -1192,7 +1132,9 @@ li.active.navigation8:after {
   background: #26013d;
 }
 
-.loyalty-level-benefits-container .loyalty-level-benefits-list .loyalty-level-benefits-list-item {
+.loyalty-level-benefits-container
+  .loyalty-level-benefits-list
+  .loyalty-level-benefits-list-item {
   background: #351b50;
 }
 
@@ -1237,9 +1179,24 @@ li.active.navigation8:after {
   background-color: #2b0f44;
 }
 
-.loyalty-reward-container .flash-sale-container .item .item-detail-contaner .item-lp .item-lp-detail,
-.loyalty-reward-container .lucky-draw-container .item .item-detail-contaner .item-lp .item-lp-detail,
-.loyalty-reward-container .other-product-container .item .item-detail-contaner .item-lp .item-lp-detail {
+.loyalty-reward-container
+  .flash-sale-container
+  .item
+  .item-detail-contaner
+  .item-lp
+  .item-lp-detail,
+.loyalty-reward-container
+  .lucky-draw-container
+  .item
+  .item-detail-contaner
+  .item-lp
+  .item-lp-detail,
+.loyalty-reward-container
+  .other-product-container
+  .item
+  .item-detail-contaner
+  .item-lp
+  .item-lp-detail {
   background-color: #ffffff33;
 }
 
@@ -1256,7 +1213,8 @@ li.active.navigation8:after {
 
 /* Search header styles */
 .search-header .search-title img {
-  filter: invert(82%) sepia(81%) saturate(463%) hue-rotate(11deg) brightness(103%) contrast(103%);
+  filter: invert(82%) sepia(81%) saturate(463%) hue-rotate(11deg) brightness(103%)
+    contrast(103%);
 }
 
 /* Standard remark notification styles */
@@ -1277,7 +1235,8 @@ li.active.navigation8:after {
 }
 
 .add-new-payment-account-container a > img {
-  filter: invert(73%) sepia(54%) saturate(595%) hue-rotate(22deg) brightness(117%) contrast(105%);
+  filter: invert(73%) sepia(54%) saturate(595%) hue-rotate(22deg) brightness(117%)
+    contrast(105%);
 }
 
 /* Set as default button styles */
