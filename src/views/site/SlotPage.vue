@@ -1,95 +1,96 @@
 <template>
   <div class="slot-page-container">
 		<SiteHeader />
+		
+    <div class="container mx-auto px-4">
+      <SlotCarousel />
+    </div>
 
-				<!-- Search Header UI -->
-				<div class="search-header container mx-auto">
-					<div class="provider-title">
-						<h1>{{ providerName }}</h1>
-					</div>
-					<div class="search-navigation">
-						<div class="nav-buttons">
-							<button 
-								class="nav-btn" 
-								:class="{ active: activeFilter === 'All Games' }"
-								@click="setActiveFilter('All Games')"
-							>
-								All Games
-							</button>
-							<button 
-								class="nav-btn" 
-								:class="{ active: activeFilter === 'Top 20' }"
-								@click="setActiveFilter('Top 20')"
-							>
-								Top 20
-							</button>
-							<button 
-								class="nav-btn" 
-								:class="{ active: activeFilter === 'New' }"
-								@click="setActiveFilter('New')"
-							>
-								New
-							</button>
-							<button 
-								class="nav-btn" 
-								:class="{ active: activeFilter === 'Classic' }"
-								@click="setActiveFilter('Classic')"
-							>
-								Classic
-							</button>
-							<button 
-								class="nav-btn" 
-								:class="{ active: activeFilter === 'Bonus Buy' }"
-								@click="setActiveFilter('Bonus Buy')"
-							>
-								Bonus Buy
-							</button>
-						</div>
-						<div class="category-buttons">
-							<button 
-								class="category-btn" 
-								:class="{ active: activeFilter === 'Reel Kingdom' }"
-								@click="setActiveFilter('Reel Kingdom')"
-							>
-								Reel Kingdom
-							</button>
-							<button 
-								class="category-btn" 
-								:class="{ active: activeFilter === 'Megaways' }"
-								@click="setActiveFilter('Megaways')"
-							>
-								Megaways
-							</button>
-							<button 
-								class="category-btn" 
-								:class="{ active: activeFilter === 'Jackpot Play Games' }"
-								@click="setActiveFilter('Jackpot Play Games')"
-							>
-								Jackpot Play Games
-							</button>
-							<button 
-								class="category-btn" 
-								:class="{ active: activeFilter === 'Video Slots' }"
-								@click="setActiveFilter('Video Slots')"
-							>
-								Video Slots
-							</button>
-						</div>
-						<div class="search-box">
-							<input 
-								type="text" 
-								placeholder="Search Games" 
-								v-model="searchQuery"
-								@input="handleSearch"
-								class="search-input"
-							/>
-							<i class="fas fa-search search-icon"></i>
-						</div>
-					</div>
-				</div>
-
-
-
+    <!-- Search Header UI -->
+    <div class="search-header container mx-auto">
+      <div class="provider-title">
+        <h1>{{ providerName }}</h1>
+      </div>
+      <div class="search-navigation">
+        <div class="nav-buttons">
+          <button 
+            class="nav-btn" 
+            :class="{ active: activeFilter === 'All Games' }"
+            @click="setActiveFilter('All Games')"
+          >
+            All Games
+          </button>
+          <button 
+            class="nav-btn" 
+            :class="{ active: activeFilter === 'Top 20' }"
+            @click="setActiveFilter('Top 20')"
+          >
+            Top 20
+          </button>
+          <button 
+            class="nav-btn" 
+            :class="{ active: activeFilter === 'New' }"
+            @click="setActiveFilter('New')"
+          >
+            New
+          </button>
+          <button 
+            class="nav-btn" 
+            :class="{ active: activeFilter === 'Classic' }"
+            @click="setActiveFilter('Classic')"
+          >
+            Classic
+          </button>
+          <button 
+            class="nav-btn" 
+            :class="{ active: activeFilter === 'Bonus Buy' }"
+            @click="setActiveFilter('Bonus Buy')"
+          >
+            Bonus Buy
+          </button>
+        </div>
+        <div class="category-buttons">
+          <button 
+            class="category-btn" 
+            :class="{ active: activeFilter === 'Reel Kingdom' }"
+            @click="setActiveFilter('Reel Kingdom')"
+          >
+            Reel Kingdom
+          </button>
+          <button 
+            class="category-btn" 
+            :class="{ active: activeFilter === 'Megaways' }"
+            @click="setActiveFilter('Megaways')"
+          >
+            Megaways
+          </button>
+          <button 
+            class="category-btn" 
+            :class="{ active: activeFilter === 'Jackpot Play Games' }"
+            @click="setActiveFilter('Jackpot Play Games')"
+          >
+            Jackpot Play Games
+          </button>
+          <button 
+            class="category-btn" 
+            :class="{ active: activeFilter === 'Video Slots' }"
+            @click="setActiveFilter('Video Slots')"
+          >
+            Video Slots
+          </button>
+        </div>
+        <div class="search-box">
+          <input 
+            type="text" 
+            placeholder="Search Games" 
+            v-model="searchQuery"
+            @input="handleSearch"
+            class="search-input"
+          />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+    </div>
 
 		<div class="relative container mx-auto px-4">
 			<div class="p-4 main-content">
@@ -135,6 +136,7 @@ import { useAppStore } from '@/stores/app';
 import ApiService from '@/services/ApiService';
 import GameBanner from "../site/GameBanner.vue";
 import SiteHeader from "@/layouts/partials/SiteHeader.vue";
+import SlotCarousel from "@/views/site/SlotCarousel.vue";
 import Swal from 'sweetalert2';
 
 interface Game {
@@ -157,7 +159,8 @@ export default defineComponent({
   name: 'SlotPage',
   components: {
     GameBanner,
-		SiteHeader
+		SiteHeader,
+		SlotCarousel
   },
   setup() {
     const route = useRoute();
@@ -210,7 +213,7 @@ export default defineComponent({
         });*/
 
       window.open(
-        `/slot/${provider.value}/${code.value}/${game.game.code}`,
+        `/slot/${provider.value}/${code.value}/${game.code}`,
         "SlotWindow",
         "height=400;width=600"
       );
@@ -219,7 +222,7 @@ export default defineComponent({
     const tryGame = (game: any) => {
       // Open game in demo/try mode
       window.open(
-        `/slot/${provider.value}/${code.value}/${game.game.code}?mode=demo`,
+        `/slot/${provider.value}/${code.value}/${game.code}?mode=demo`,
         "SlotWindow",
         "height=400;width=600"
       );
@@ -355,23 +358,14 @@ export default defineComponent({
 .main-content {
 	border: 1px solid #0c1740;
 	background: rgba(2, 7, 28, 0.9); // Semi-transparent to show background
-  //padding-top: 120px !important; // Adjust this value based on your header height
-  
-  // @media (max-width: 768px) {
-  //   padding-top: 100px !important; // Smaller padding on mobile
-  // }
 }
 
 // Search Header UI Styling
 .search-header {
-  //background: #5b1699;
-  //padding: 20px;
   margin-bottom: 30px;
-  //box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
 
   .provider-title {
     text-align: center;
-    //margin-bottom: 20px;
     background-color: #330460;
 
     h1 {
