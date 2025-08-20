@@ -1,5 +1,6 @@
 <template>
   <div class="slot-page-container">
+    <TopBar />
     <SiteHeader />
 
     <div class="container mx-auto px-4">
@@ -92,7 +93,8 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import ApiService from '@/services/ApiService';
 import GameBanner from "../site/GameBanner.vue";
-import SiteHeader from "@/layouts/partials/SiteHeader.vue";
+import SiteHeader from "@/layouts/new/SiteHeader.vue";
+import TopBar from "@/layouts/new/TobBar.vue";
 import SlotCarousel from "@/views/site/SlotCarousel.vue";
 import JackpotCounter from "@/views/site/JackpotCounter.vue";
 import Swal from 'sweetalert2';
@@ -119,7 +121,8 @@ export default defineComponent({
     GameBanner,
     SiteHeader,
     SlotCarousel,
-    JackpotCounter
+    JackpotCounter,
+    TopBar
   },
   setup() {
     const route = useRoute();
