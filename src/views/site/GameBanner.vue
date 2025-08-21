@@ -61,13 +61,7 @@
 import { defineComponent, ref, computed } from "vue";
 import { useAuthStore } from "@/stores/auth";
 import { useAppStore } from "@/stores/app";
-import ApiService from "@/services/ApiService";
-
-interface Game {
-  code: string;
-  img_url: string;
-  img_url_2: string;
-}
+import { GameService, type Game } from "@/services/GameService";
 
 export default defineComponent({
   name: "GameBanner",
@@ -76,7 +70,7 @@ export default defineComponent({
   },
   props: {
     game: {
-      type: Object,
+      type: Object as () => Game,
       required: true,
     },
     provider: {
@@ -103,29 +97,10 @@ export default defineComponent({
      *
      */
     const openGame = async (provider: string, game: Game) => {
+      alert("test")
 
-      if (settings.value.ENABLE_MONEY_TRANSFER_GAME === "true") {
-        if (props.provider === "SNOW_SNOW2" || props.provider === "KH") {
-          if (Number(authStore.user.wallet) > 0) {
-            await ApiService.post(`/game/snow/money-transfer/deposit`,
-              {
-                amount: Number(authStore.user.wallet),
-              }
-            ).then((res: any) => res.data).catch(() => false);
-            authStore.user.wallet = 0;
-          }
-        } else {
-          const balance = await ApiService.get(`/game/snow/money-transfer/balance`).then((res) => res.data.balance);
-
-          if (balance > 0) {
-            // Withdraw
-            await ApiService.post(`/game/snow/money-transfer/withdrawal`, null).then((res) => res.data);
-            authStore.user.wallet_slot = 0;
-          }
-        }
-      }
-
-      emit("select", { provider, game, status: true });
+      const result = await GameService.openGame(provider, game, settings.value as any);
+      emit("select", result);
     }
 
 

@@ -110,7 +110,7 @@
                       src="//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/loyalty/badge/diamond.svg"
                     />
                     <div class="username-container" bis_skin_checked="1">
-                      <span>kenzo</span>
+                      <span>{{ authStore.user.username }}</span>
                       <div
                         class="loyalty-xp-progress"
                         id="loyalty_experience"

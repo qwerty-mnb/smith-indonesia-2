@@ -1,8 +1,3 @@
-
-
-
-
-
 /* NUGET: BEGIN LICENSE TEXT
  *
  * Microsoft grants you the right to use these script files for the sole
@@ -1601,7 +1596,7 @@ input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-in
 .form-control {
   display: block;
   width: 100%;
-  height: 34px;
+  // height: 34px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
@@ -14716,7 +14711,7 @@ i[data-icon="plus"]:after {
   width: 20px;
   margin-right: 5px;
   background: center no-repeat;
-  background-image: var(--play-icon-src);
+  background-image: url('/img/new/icons/play.png');
   background-size: contain
 }
 
@@ -14900,7 +14895,8 @@ i[data-icon="plus"]:after {
 
 .game-list .wrapper-container {
   position: relative;
-  padding-top: 100%
+  padding-top: 100%;
+  overflow: hidden;
 }
 
 .game-list .wrapper-container:hover {

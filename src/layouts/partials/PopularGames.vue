@@ -1,55 +1,58 @@
 <template>
-<div class="popular-game-title-container" bis_skin_checked="1">
-  <div class="container-title" bis_skin_checked="1">
+  <div class="popular-game-title-container" bis_skin_checked="1">
+    <div class="container-title" bis_skin_checked="1">
       <span>Game Populer</span>
-  </div>
-  <div class="container-content" bis_skin_checked="1">
-      <div class="game-list" bis_skin_checked="1" style="display: flex; flex-direction: column; gap: 20px;">
-        <div 
-          v-for="(row, rowIndex) in popularGames" 
+    </div>
+    <div class="container-content" bis_skin_checked="1">
+      <div
+        class="game-list"
+        bis_skin_checked="1"
+        style="display: flex; flex-direction: column; gap: 20px"
+      >
+        <div
+          v-for="(row, rowIndex) in popularGames"
           :key="rowIndex"
-          style="display: flex;"
+          style="display: flex"
           bis_skin_checked="1"
         >
-          <div 
-            v-for="game in row" 
-            :key="game.id"
-            class="game-item" 
-            :data-game="game.name"
+          <div
+            v-for="game in row"
+            :key="game.code"
+            class="game-item"
+            :data-game="game.eng_title"
             bis_skin_checked="1"
           >
-                      <div class="wrapper-container" bis_skin_checked="1">
+            <div class="wrapper-container" bis_skin_checked="1">
               <picture>
+                <source :srcset="game.img_url" type="image/webp" />
                 <source
-                  :srcset="game.imageSrc"
-                  type="image/webp" />
-                <source
-                  :srcset="game.imageSrc.replace('.webp', '.jpg')"
-                  type="image/jpeg" />
+                  :srcset="game.img_url"
+                  type="image/jpeg"
+                />
                 <img
-                  :alt="game.name"
+                  :alt="game.img_url"
                   height="200"
                   loading="lazy"
-                  :src="game.imageSrc"
+                  :src="game.img_url"
                   width="200"
                 />
               </picture>
-                          <div class="link-container" bis_skin_checked="1">
+              <div class="link-container" bis_skin_checked="1">
                 <a
-                  :href="`javascript:openPopup('${game.gameUrl}', 'Slots')`"
+                  href="javascript:void(0)"
                   class="play-now"
-                  :data-game="game.name"
+                  @click="openGame(game.provider, game)"
                 >
-                                  MAIN
-                              </a>
-                          </div>
-                      </div>
-            <div class="game-name" bis_skin_checked="1">{{ game.name }}</div>
-                      </div>
+                  MAIN
+                </a>
               </div>
+            </div>
+            <div class="game-name" bis_skin_checked="1">{{ game.eng_title }}</div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
@@ -62,132 +65,157 @@ export default defineComponent({
       // First Row - 10 games
       [
         {
-          id: 1,
-          name: 'Sweet Bonanza Super Scatter',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PP/vs20swbonsup.webp?v=20250529',
-          gameUrl: '/dispatch/game/PP/Desktop/vs20swbonsup'
+          code: "vs20swbonsup",
+          provider: "HONORLINK",
+          eng_title: "Sweet Bonanza - Super Scatter",
+          img_url: "/img/new/popular_games/vs20swbonsup.png",
+          gameUrl: "/slot/HONORLINK/H_PPS/vs20swbonsup",
         },
         {
-          id: 2,
-          name: 'Mahjong Ways',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PGSOFT/PGSOFT_65.webp?v=20250529',
-          gameUrl: '/dispatch/game/PGSOFT/Desktop/PGSOFT_65'
+          code: "vswaysmwss",
+          provider: "HONORLINK",
+          eng_title: "Mahjong Wins - Super Scatter",
+          img_url: "/img/new/popular_games/vswaysmwss.png",
+          gameUrl: "/slot/HONORLINK/H_PPS/vswaysmwss",
         },
         {
-          id: 3,
-          name: 'Mahjong Wins 3 – Black Scatter',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PP/vswaysmahwblck.webp?v=20250529',
-          gameUrl: '/dispatch/game/PP/Desktop/vswaysmahwblck'
+          code: "287",
+          provider: "HONORLINK",
+          eng_title: "Boom! Boom! Gold",
+          img_url: "/img/new/popular_games/287.jpg",
+          gameUrl: "/slot/HONORLINK/H_BOOONGO/287",
         },
         {
-          id: 4,
-          name: 'Wukong - Black Scatter',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/SLOT88/vswayswkngblck.webp?v=20250529',
-          gameUrl: '/dispatch/game/SLOT88/Desktop/vswayswkngblck'
+          code: "261",
+          provider: "HONORLINK",
+          eng_title: "Power Wilds and Multipliers",
+          img_url: "/img/new/popular_games/261.jpg",
+          gameUrl: "/slot/HONORLINK/H_BOOONGO/261",
         },
         {
-          id: 5,
-          name: 'Sticky Bandits Thunder Rail',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PLAYTECH/pop_001378cc_qsp.webp?v=20250529',
-          gameUrl: '/dispatch/game/PLAYTECH/Desktop/pop_001378cc_qsp'
+          code: "250",
+          provider: "HONORLINK",
+          eng_title: "Wild Blood",
+          img_url: "/img/new/popular_games/250.png",
+          gameUrl: "/slot/HONORLINK/H_PNG/250",
         },
         {
-          id: 6,
-          name: 'Bang Gacor 1000',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/SLOT88/vs20gacorx.webp?v=20250529',
-          gameUrl: '/dispatch/game/SLOT88/Desktop/vs20gacorx'
+          code: "293",
+          provider: "HONORLINK",
+          eng_title: "Easter Egg",
+          img_url: "/img/new/popular_games/293.png",
+          gameUrl: "/slot/HONORLINK/H_PNG/293",
         },
         {
-          id: 7,
-          name: 'Le Viking',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/HACKSAW/HACKSAW_1689.webp?v=20250529',
-          gameUrl: '/dispatch/game/HACKSAW/Desktop/HACKSAW_1689'
+          code: "320",
+          provider: "HONORLINK",
+          eng_title: "Matsuri",
+          img_url: "/img/new/popular_games/320.png",
+          gameUrl: "/slot/HONORLINK/H_PNG/320",
         },
         {
-          id: 8,
-          name: 'Fortune Gems',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/JILI/JILI_109.webp?v=20250529',
-          gameUrl: '/dispatch/game/JILI/Desktop/JILI_109'
+          code: "137",
+          provider: "HONORLINK",
+          eng_title: "Disco Night",
+          img_url: "/img/new/popular_games/137.png",
+          gameUrl: "/slot/HONORLINK/H_CQ9/137",
         },
         {
-          id: 9,
-          name: 'Mahjong Ways 2',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PGSOFT/PGSOFT_74.webp?v=20250529',
-          gameUrl: '/dispatch/game/PGSOFT/Desktop/PGSOFT_74'
+          code: "115",
+          provider: "HONORLINK",
+          eng_title: "Snow Queen",
+          img_url: "/img/new/popular_games/115.png",
+          gameUrl: "/slot/HONORLINK/H_CQ9/115",
         },
         {
-          id: 10,
-          name: 'Gates of Olympus Super Scatter',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PP/vs20olympgold.webp?v=20250529',
-          gameUrl: '/dispatch/game/PP/Desktop/vs20olympgold'
-        }
+          code: "209",
+          provider: "HONORLINK",
+          eng_title: "The Cupids",
+          img_url: "/img/new/popular_games/209.png",
+          gameUrl: "/slot/HONORLINK/H_CQ9/209",
+        },
       ],
       // Second Row - 10 games
       [
         {
-          id: 11,
-          name: 'Wild Bounty Showdown',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/PGSOFT/PGSOFT_135.webp?v=20250529',
-          gameUrl: '/dispatch/game/PGSOFT/Desktop/PGSOFT_135'
+          code: "bloodsuckers2000",
+          provider: "HONORLINK",
+          eng_title: "Blood Suckers 2",
+          img_url: "/img/new/popular_games/bloodsuckers2000.jpg",
+          gameUrl: "/slot/HONORLINK/H_NET/bloodsuckers2000",
         },
         {
-          id: 12,
-          name: 'Lucky Twins Nexus',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/MICROGAMING/SMG_luckyTwinsNexus.webp?v=20250529',
-          gameUrl: '/dispatch/game/MICROGAMING/Desktop/SMG_luckyTwinsNexus'
+          code: "codexoffortune00",
+          provider: "HONORLINK",
+          eng_title: "Codex Of Fortune",
+          img_url: "/img/new/popular_games/codexoffortune00.jpg",
+          gameUrl: "/slot/HONORLINK/H_NET/codexoffortune00",
         },
         {
-          id: 13,
-          name: 'Nexus Koi Gate',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/HABANERO/SGNexusKoiGate.webp?v=20250529',
-          gameUrl: '/dispatch/game/HABANERO/Desktop/SGNexusKoiGate'
+          code: "110003",
+          provider: "HONORLINK",
+          eng_title: "Talisman Of Fortune",
+          img_url: "/img/new/popular_games/110003.png",
+          gameUrl: "/slot/HONORLINK/H_EVOPLAY/110003",
         },
         {
-          id: 14,
-          name: 'The Crypt',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/NOLIMITCITY/thecrypt00000000.webp?v=20250529',
-          gameUrl: '/dispatch/game/NOLIMITCITY/Desktop/thecrypt00000000'
+          code: "110006",
+          provider: "HONORLINK",
+          eng_title: "Indiana Quest",
+          img_url: "/img/new/popular_games/110006.png",
+          gameUrl: "/slot/HONORLINK/H_EVOPLAY/110006",
         },
         {
-          id: 15,
-          name: 'Nexus Mahjong Jackpots',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/MICROGAMING/SMG_nexusMahjongJackpots.webp?v=20250529',
-          gameUrl: '/dispatch/game/MICROGAMING/Desktop/SMG_nexusMahjongJackpots'
+          code: "110059",
+          provider: "HONORLINK",
+          eng_title: "Rise Of Horus",
+          img_url: "/img/new/popular_games/110059.png",
+          gameUrl: "/slot/HONORLINK/H_EVOPLAY/110059",
         },
         {
-          id: 16,
-          name: 'Fire in the Hole 3',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/NOLIMITCITY/fireinthehole300.webp?v=20250529',
-          gameUrl: '/dispatch/game/NOLIMITCITY/Desktop/fireinthehole300'
+          code: "bp_wolflegendmegaways",
+          provider: "HONORLINK",
+          eng_title: "Wolf Legend Megaways",
+          img_url: "/img/new/popular_games/bp_wolflegendmegaways.png",
+          gameUrl: "/slot/HONORLINK/H_BLUE/bp_wolflegendmegaways",
         },
         {
-          id: 17,
-          name: '777 Rush',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/FATPANDA/vs5t8goldfp.webp?v=20250529',
-          gameUrl: '/dispatch/game/FATPANDA/Desktop/vs5t8goldfp'
+          code: "bp_riseofatlantis94",
+          provider: "HONORLINK",
+          eng_title: "Rise of Altlantis 94",
+          img_url: "/img/new/popular_games/bp_riseofatlantis94.png",
+          gameUrl: "/slot/HONORLINK/H_BLUE/bp_riseofatlantis94",
         },
         {
-          id: 18,
-          name: 'Hot Hot Nexus',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/HABANERO/SGHotHotNexus.webp?v=20250529',
-          gameUrl: '/dispatch/game/HABANERO/Desktop/SGHotHotNexus'
+          code: "bp_vikingsunleashedmegaway",
+          provider: "HONORLINK",
+          eng_title: "Vikings Unleashed Megaway",
+          img_url: "/img/new/popular_games/bp_vikingsunleashedmegaway.png",
+          gameUrl: "/slot/HONORLINK/H_BLUE/bp_vikingsunleashedmegaway",
         },
         {
-          id: 19,
-          name: 'Le Pharaoh',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/HACKSAW/HACKSAW_1562.webp?v=20250529',
-          gameUrl: '/dispatch/game/HACKSAW/Desktop/HACKSAW_1562'
+          code: "mysticspells",
+          provider: "HONORLINK",
+          eng_title: "Mystic Spells",
+          img_url: "/img/new/popular_games/mysticspells.png",
+          gameUrl: "/slot/HONORLINK/H_RELAX/mysticspells",
         },
         {
-          id: 20,
-          name: 'JetX',
-          imageSrc: '//d2rzzcn1jnr24x.cloudfront.net/Images/providers/SMARTSOFT/JetX_JetX.webp?v=20250529',
-          gameUrl: '/dispatch/game/SMARTSOFT/Desktop/JetX_JetX'
-        }
-      ]
+          code: "abrakadabra",
+          provider: "HONORLINK",
+          eng_title: "Abrakadabra",
+          img_url: "/img/new/popular_games/abrakadabra.png",
+          gameUrl: "/slot/HONORLINK/H_RELAX/abrakadabra",
+        },
+      ],
     ]);
 
+    const openGame = (provider: string, game: any) => {
+      console.log("test")
+    }
+
     return {
+      openGame,
       popularGames,
     };
   },
