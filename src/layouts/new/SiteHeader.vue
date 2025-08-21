@@ -17,8 +17,14 @@
             />
           </a>
         </div>
-        <div class="col-sm-9 col-md-9" bis_skin_checked="1">
-          <ul
+        <div
+          class="col-sm-9 col-md-9"
+          bis_skin_checked="1"
+        >
+          <!-- <i class="fas fa-angle-left"></i> -->
+          <div class="menu-slide" id="menu_slides" bis_skin_checked="1">
+            <i class="glyphicon glyphicon-chevron-left left_trigger"></i>
+<ul
             class="top-menu"
             style="
               --separator-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/layout/vertical-seperator.png?v=20250529);
@@ -43,14 +49,12 @@
                 {{ menuItem.text }}
               </a>
 
-              <!-- Game List Dropdown for Hot Games -->
               <ul
                 v-if="menuItem.games && menuItem.games.length > 0"
                 class="game-list"
                 style="--maintenance-text: 'Pemeliharaan'"
               >
                 <li v-for="game in menuItem.games" :key="game.id">
-                  <!-- {{  game.provider }} {{  game.code }} -->
                   <a @click="handleGameClick(game)">
                     <div class="background" bis_skin_checked="1"></div>
                     <div
@@ -61,8 +65,10 @@
                   </a>
                 </li>
               </ul>
-            </li>
-          </ul>
+              </li> 
+              </ul>
+            <i class="glyphicon glyphicon-chevron-right right_trigger"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +113,21 @@ const showComingSoon = (menuName: string) => {
       popup: "swal-popup-large",
     },
   });
+};
+
+// Navigation scroll functions
+const scrollLeft = () => {
+  const menu = document.querySelector(".top-menu");
+  if (menu) {
+    menu.scrollLeft -= 200;
+  }
+};
+
+const scrollRight = () => {
+  const menu = document.querySelector(".top-menu");
+  if (menu) {
+    menu.scrollLeft += 200;
+  }
 };
 
 const headerMenu = ref([

@@ -65,6 +65,28 @@
                 </div>
               </div>
             </div>
+            -<div class="form-group">
+                        <div class="labels w-ba">
+                          <span>{{ $t("auth.Captcha") }}</span>
+                        </div>
+                        <span class="mx-12" v-html="authStore.cvalue" />
+                        <div class="infos mt-4">
+                          <div class="input-container">
+                            <Field
+                              class="form-control form-control-solid"
+                              type="number"
+                              name="captcha"
+                              autocomplete="off"
+                            />
+                          </div>
+                          <div class="fv-plugins-message-container">
+                            <div class="fv-help-block text-danger">
+                              <ErrorMessage name="captcha" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
             <div class="form-group text-right hidden-xs" bis_skin_checked="1">
               <a href="#" class="forgot-password-link" id="forgot_password_link">
                 Lupa Kata Sandi?
@@ -162,6 +184,10 @@ export default defineComponent({
       // reload page
       // window.location.reload();
     }
+
+    onMounted(() => {
+      authStore.getCaptcha();
+    })
 
     return {
       authStore,

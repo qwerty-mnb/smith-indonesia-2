@@ -24,7 +24,7 @@ class ApiService {
       headers: {
         Accept: "application/json",
         "X-Requested-With": "XMLHttpRequest",
-        Gomo: import.meta.env.DEV ? "development" : "production",
+        Gomo: "development",
       },
     });
     ApiService.vueInstance = app;

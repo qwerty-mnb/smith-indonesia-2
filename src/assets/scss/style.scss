@@ -14800,14 +14800,6 @@ i[data-icon="plus"]:after {
   animation: fav-icon-bounce .65s linear
 }
 
-.game-list img {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  height: calc(100% - 20px);
-  width: calc(100% - 20px)
-}
-
 .game-list .game-name,.game-list .provider-name {
   font-size: 16px;
   padding: 10px 0;

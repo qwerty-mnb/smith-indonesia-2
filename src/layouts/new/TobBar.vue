@@ -150,7 +150,7 @@
                 <div class="balance" bis_skin_checked="1">
                   <a href="#" data-toggle="dropdown">
                     IDR
-                    <span class="total_balance">352,514.40</span>
+                    <span class="total_balance">{{ n(Number(user.wallet))  }}</span>
                   </a>
                   <div
                     class="dropdown-menu vendor-balances-container"
@@ -250,7 +250,7 @@
               </div>
             </div>
             <div class="user-info-item" bis_skin_checked="1">
-              <a href="/desktop/account-summary">
+              <a href="/account/summary">
                 <i
                   class="user-info-icon"
                   data-icon="profile"
@@ -261,7 +261,7 @@
               </a>
             </div>
             <div class="user-info-item" bis_skin_checked="1">
-              <a href="/desktop/deposit">
+              <a href="/deposit">
                 <i
                   class="user-info-icon"
                   data-icon="wallet"
@@ -372,7 +372,7 @@ export default defineComponent({
   name: "TopBar",
   setup() {
     // vue
-    const { t } = useI18n();
+    const { t, n } = useI18n();
     const store = useAppStore();
     const route = useRoute();
     const router = useRouter();
@@ -486,7 +486,7 @@ export default defineComponent({
     });
 
     return {
-      t,
+      t, n,
       router,
       requestAccount,
       activeTab,

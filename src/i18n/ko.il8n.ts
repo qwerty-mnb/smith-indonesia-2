@@ -1327,6 +1327,15 @@ const messages = {
   OpenAll: "모두 열기",
   CloseAll: "모두 닫기",
   Search: "검색",
+  New: {
+    AccountCenter: "Pusat Akun",
+    MyAccount: "Akun Saya",
+    AccountInformation: "Informasi Akun",
+    BankDetails: "Detail Perbankan",
+    Level: "Level",
+    Currency: "Currency",
+    ReferralCode: "Referral Code"
+  }
 };
 
 export default messages;

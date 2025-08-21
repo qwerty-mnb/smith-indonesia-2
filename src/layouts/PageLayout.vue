@@ -4,12 +4,9 @@
     <SiteHeader />
 
     <div class="home-info-container">
-      <div class="container">
-        <!-- Main Content Area -->
-        <main class="main-content">
+      <main class="main-content">
           <router-view />
         </main>
-      </div>
     </div>
 
     <!-- <SportsPlatform /> -->
