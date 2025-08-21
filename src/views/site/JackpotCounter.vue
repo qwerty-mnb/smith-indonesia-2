@@ -21,8 +21,7 @@
 									<div class="jackpot-inner-container">
 										<div class="jackpot-border-container">
 											<span class="jackpot-currency">IDR</span>
-											<span id="progressive_jackpot"
-												data-progressive-jackpot-url="https://jp-api.namesvr.dev">{{ formattedAmount }}</span>
+											<span id="progressive_jackpot" class="!text-white">{{ formattedAmount }}</span>
 										</div>
 									</div>
 								</div>

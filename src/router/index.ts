@@ -106,57 +106,47 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-
+  // {
+  //   path: "/account",
+  //   name: "AccountPage",
+  //   component: () => import("../layouts/PageLayout.vue"),
+  //   children: [
+  //     {
+  //       path: "summary",
+  //       name: "AccountSummary",
+  //       component: () => import("../views/new/AccountSummary.vue"),
+  //     },
+  //     {
+  //       path: "change-password",
+  //       name: "ChangePassword",
+  //       component: () => import("../views/new/AccountSummary.vue"),
+  //     },
+  //   ],
+  // },
   {
-    path: "/account",
+    path: "/account/:type",
     name: "AccountPage",
     component: () => import("../layouts/PageLayout.vue"),
     children: [
       {
-        path: "summary",
+        path: "",
         name: "AccountSummary",
-        component: () => import("../views/new/AccountSummary.vue"),
-      },
-      {
-        path: "change-password",
-        name: "ChangePassword",
         component: () => import("../views/new/AccountSummary.vue"),
       },
     ],
   },
-  // Desktop routes
-  // {
-  //   path: "/desktop",
-  //   name: "desktop-layout",
-  //   component: () => import("../layouts/PageLayout.vue"),
-  //   children: [
-  //     {
-  //       path: "account-summary",
-  //       name: "desktop-account-summary",
-  //       component: () => import("../views/new/AccountSummary.vue"),
-  //     },
-  //     {
-  //       path: "deposit",
-  //       name: "desktop-deposit",
-  //       component: () => import("../views/transaction/new/AccountSummary.vue"),
-  //     },
-  //     {
-  //       path: "withdrawal",
-  //       name: "desktop-withdrawal",
-  //       component: () => import("../views/transaction/new/AccountSummary.vue"),
-  //     },
-  //     {
-  //       path: "referral",
-  //       name: "desktop-referral",
-  //       component: () => import("../views/transaction/new/AccountSummary.vue"),
-  //     },
-  //     {
-  //       path: "password",
-  //       name: "desktop-password",
-  //       component: () => import("../views/transaction/new/AccountSummary.vue"),
-  //     },
-  //   ],
-  // },
+  {
+    path: "/transactions/:type",
+    name: "TransactionPage",
+    component: () => import("../layouts/PageLayout.vue"),
+    children: [
+      {
+        path: "",
+        name: "Transactions",
+        component: () => import("../views/new/Transactions.vue"),
+      },
+    ],
+  },
   {
     path: "/game/:provider/:code",
     name: "CasinoGame",
@@ -174,17 +164,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/game-launch/KplaySlotLaunch.vue"),
   },
   // Desktop Slot Page
-  // {
-  //   path: "/desktop/slots/:provider/:code",
-  //   name: "SlotPage",
-  //   component: () => import("../views/site/SlotPage.vue"),
-  // },
-  // Desktop Transaction Page
-  // {
-  //   path: "/desktop/:type",
-  //   name: "TransactionPage",
-  //   component: () => import("../views/site/TransactionPage.vue"),
-  // },
+  {
+    path: "/desktop/slots/:provider/:code",
+    name: "SlotPage",
+    component: () => import("../views/site/SlotPage.vue"),
+  },
 
   {
     path: "/bet-details/:provider/:id",
@@ -222,6 +206,7 @@ router.beforeEach(async (to, from, next) => {
     case "SlotGame":
     case "SlotPage":
     case "AccountSummary":
+    case "AccountPage":
     case "desktop-account-summary":
     case "desktop-deposit":
     case "desktop-withdrawal":

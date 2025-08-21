@@ -1,86 +1,34 @@
 <template>
-  <div
-    class="site-content-container"
-    style="
-      --image-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/backgrounds/general.jpg?v=20250528);
-    "
-  >
+  <div class="site-content-container" style="--image-src: url(/img/new/bg/general.jpg)">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="row profile-container standard-main-container">
-            <div class="standard-side-menu">
-              <div class="player-account-section">
-                <div class="username">{{ authStore.user.username }}</div>
-                <div class="last-login-date">
-                  {{ t("New.LastLogin") }}: {{ moment().format("DD-MMM-YYYY HH:mm:ss") }}
-                </div>
-              </div>
-              <div class="menu-section">
-                <div class="title">{{t("New.AccountCenter") }}</div>
-                <hr />
-                <a
-                  href="/account/summary"
-                  data-active="true"
-                >
-                  <i
-                    data-icon="profile"
-                    style="
-                      background-image: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/profile-active.svg?v=20250528);
-                    "
-                  ></i>
-                  <span>{{t("New.MyAccount") }}</span>
-                </a>
-                <a href="/desktop/deposit" data-active="false">
-                  <i
-                    data-icon="bank"
-                    style="
-                      background-image: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/bank-account-active.svg?v=20250528);
-                    "
-                  ></i>
-                  <span> Bank </span>
-                </a>
-              </div>
-            </div>
-
+            <Sidebar />
             <div class="standard-main-content">
               <div class="top-tab-container">
                 <router-link
-                  to="/account/summary"
-                  :class="{ 'active': !isChangePasswordRoute }"
-                  class="profile-link"
+                  v-for="item in menuItems"
+                  :key="item.link"
+                  :to="item.link"
+                  :class="[item.class, { active: item.link === route.path }]"
                 >
                   <i
-                    data-icon="profile"
-                    style="
-                      --image-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/profile.svg?v=20250528);
-                      --active-image-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/profile-active.svg?v=20250528);
-                    "
+                    :data-icon="item.icon"
+                    :style="{
+                      '--image-src': `url(${item.icon}.svg)`,
+                      '--active-image-src': `url(${item.icon}-active.svg)`,
+                    }"
                   ></i>
-                  {{t("New.MyAccount") }}
-                </router-link>
-                <router-link 
-                  to="/account/change-password" 
-                  :class="{ 'active': isChangePasswordRoute }"
-                  class="password-link"
-                >
-                  <i
-                    data-icon="password"
-                    style="
-                      --image-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/password.svg?v=20250528);
-                      --active-image-src: url(//d2rzzcn1jnr24x.cloudfront.net/Images/~normad-alpha/dark-purple/desktop/tabs/password-active.svg?v=20250528);
-                    "
-                  ></i>
-                  {{ t("password.ChangePassword") }}
+                  {{ item.label }}
                 </router-link>
               </div>
 
               <div class="tab-content-container">
                 <div v-if="!authStore.user" class="loading-message">
-                  Loading user data...
+                  Loading
                 </div>
-                <ChangePassword v-else-if="isChangePasswordRoute" />
-                <AccountInformation v-else />
+                <component :is="currentComponent" v-else />
               </div>
             </div>
           </div>
@@ -91,14 +39,14 @@
 </template>
 
 <script setup lang="ts">
-
-import { useI18n } from 'vue-i18n';
+import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/stores/auth";
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
-import AccountInformation from './AccountInformation.vue';
-import ChangePassword from './ChangePassword.vue';
-import moment from 'moment';
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+import AccountInformation from "./AccountInformation.vue";
+import ChangePassword from "./ChangePassword.vue";
+import DepositRequest from "./DepositRequest.vue";
+import Sidebar from "./Sidebar.vue";
 
 const { t } = useI18n();
 const authStore = useAuthStore();
@@ -106,20 +54,60 @@ const route = useRoute();
 
 // Check if we're on the change-password route
 const isChangePasswordRoute = computed(() => {
-  return route.path.includes('change-password');
+  return route.params.type === "change-password";
 });
 
+// Dynamic component mapping
+const componentMap = {
+  'summary': AccountInformation,
+  'change-password': ChangePassword,
+  'deposit': DepositRequest,
+};
+
+// Get current component based on route type
+const currentComponent = computed(() => {
+  const type = route.params.type as string;
+  return componentMap[type] || AccountInformation;
+});
+
+const menuItems = [
+  {
+    icon: "/img/new/icons/profile",
+    label: t("New.MyAccount"),
+    link: "/account/summary",
+    class: "profile-link",
+  },
+  {
+    icon: "/img/new/icons/password",
+    label: t("password.ChangePassword"),
+    link: "/account/change-password",
+    class: "password-link",
+  },
+  {
+    icon: "/img/new/icons/deposit",
+    label: t("New.Deposit"),
+    link: "/account/deposit",
+    class: "deposit-link",
+  },
+];
 </script>
 
-<style lang="scss" scoped>
-/* Essential styles for the current template */
-.standard-main-container {
+<style lang="scss">
+ .site-content-container {
+   background-image: var(--image-src);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   min-height: 100vh;
+ }
+
+ .standard-main-container {
   display: flex !important;
   flex-direction: row !important;
 }
 
 .standard-main-content {
-  flex: 1; /* Takes remaining space */
+  flex: 1;
 }
 
 .standard-content-info {
@@ -334,5 +322,26 @@ const isChangePasswordRoute = computed(() => {
   border: 1px solid #ff0000;
   border-radius: 4px;
 }
+.profile-link,
+.password-link,
+.deposit-link {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  border-bottom: none;
 
+  &.active {
+    color: #e4ff23 !important;
+
+    i {
+      background-image: var(--active-image-src) !important;
+    }
+  }
+}
 </style>

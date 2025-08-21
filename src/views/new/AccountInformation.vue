@@ -26,7 +26,7 @@
       </div>
     </section>
     <section class="deposit-field">
-      <a href="/desktop/deposit" bis_skin_checked="1">
+      <a href="/transactions/deposit" bis_skin_checked="1">
         <img
           alt="Deposit"
           loading="lazy"

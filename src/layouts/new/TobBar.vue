@@ -261,7 +261,7 @@
               </a>
             </div>
             <div class="user-info-item" bis_skin_checked="1">
-              <a href="/deposit">
+              <a href="/transactions/deposit">
                 <i
                   class="user-info-icon"
                   data-icon="wallet"
