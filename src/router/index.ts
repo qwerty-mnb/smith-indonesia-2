@@ -128,6 +128,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "SlotPage",
     component: () => import("../views/site/SlotPage.vue"),
   },
+  // Desktop Transaction Page
+  {
+    path: "/desktop/:type",
+    name: "TransactionPage",
+    component: () => import("../views/site/TransactionPage.vue"),
+  },
   {
     path: "/bet-details/:provider/:id",
     name: "BetDetails",
@@ -163,6 +169,7 @@ router.beforeEach(async (to, from, next) => {
     case "CasinoGame":
     case "SlotGame":
     case "SlotPage":
+    case "TransactionPage":
     case "MemberPopup":
       authStore.verifyAuth(true);
       next();
