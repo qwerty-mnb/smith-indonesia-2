@@ -42,6 +42,11 @@ const menuItems = [
     label: "Bank",
     link: "/transactions/deposit",
   },
+  {
+    icon: "/img/new/icons/message-active.svg",
+    label: "Message",
+    link: "/messages",
+  },
 ];
 
 </script>

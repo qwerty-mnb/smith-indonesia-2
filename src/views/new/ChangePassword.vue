@@ -1,10 +1,10 @@
 <template>
-  <div class="tab-content-container" bis_skin_checked="1">
-    <div class="standard-form-title" bis_skin_checked="1">
+  <div class="tab-content-container">
+    <div class="standard-form-title">
       {{ t("password.ChangePassword") }}
     </div>
-    <div class="standard-form-content" bis_skin_checked="1">
-      <div class="standard-form-note" bis_skin_checked="1">
+    <div class="standard-form-content">
+      <div class="standard-form-note">
         <span>Catatan:</span>
         <ol>
           <li>Kata Sandi harus terdiri dari 8-20 karakter.</li>
@@ -14,10 +14,10 @@
         </ol>
       </div>
       <Form class="form" @submit="onChangePass" :validation-schema="rules">
-        <div class="standard-inline-form-group" bis_skin_checked="1">
+        <div class="standard-inline-form-group">
           <label for="OldPassword">{{ t("password.CurrentPassword") }}</label>
-          <div data-section="asterisk" bis_skin_checked="1">*</div>
-          <div data-section="input" bis_skin_checked="1">
+          <div data-section="asterisk">*</div>
+          <div data-section="input">
             <Field
               class="form-control"
               type="password"
@@ -33,10 +33,10 @@
           </div>
         </div>
         <!-- New Password -->
-        <div class="standard-inline-form-group" bis_skin_checked="1">
+        <div class="standard-inline-form-group">
           <label for="OldPassword">{{ t("password.NewPassword") }}</label>
-          <div data-section="asterisk" bis_skin_checked="1">*</div>
-          <div data-section="input" bis_skin_checked="1">
+          <div data-section="asterisk">*</div>
+          <div data-section="input">
             <Field
               class="form-control"
               type="password"
@@ -53,10 +53,10 @@
         </div>
 
         <!-- New Password -->
-        <div class="standard-inline-form-group" bis_skin_checked="1">
+        <div class="standard-inline-form-group">
           <label for="OldPassword">{{ t("password.VerifyPassword") }}</label>
-          <div data-section="asterisk" bis_skin_checked="1">*</div>
-          <div data-section="input" bis_skin_checked="1">
+          <div data-section="asterisk">*</div>
+          <div data-section="input">
             <Field
               class="form-control"
               type="password"
@@ -74,7 +74,7 @@
 
         <hr class="otp-hr" />
 
-        <div class="standard-button-group" bis_skin_checked="1">
+        <div class="standard-button-group">
           <input type="submit" class="btn btn-primary" :value="t('password.ChangePassword')" />
         </div>
       </Form>

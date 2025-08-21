@@ -594,7 +594,7 @@ const messages = {
     AccountInformation: "Informasi Akun",
     BankDetails: "Detail Perbankan",
     Level: "Level",
-    Currency: "Currency",
+    Currency: "USD",
     ReferralCode: "Referral Code"
   }
 };

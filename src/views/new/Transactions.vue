@@ -44,10 +44,9 @@ import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/stores/auth";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
-import AccountInformation from "./AccountInformation.vue";
-import ChangePassword from "./ChangePassword.vue";
 import Sidebar from "./Sidebar.vue";
 import DepositRequest from "./DepositRequest.vue";
+import WithdrawalRequest from "./WithdrawalRequest.vue";
 
 const { t } = useI18n();
 const authStore = useAuthStore();

@@ -203,7 +203,7 @@ const messages = {
     WithdrawCheck: "출금금액은 3만원 이상이어야 합니다.",
     Success: "출금 신청이 완료 되었습니다.",
     WithdrawDivCheck: "출금금액은 1만단으로 해야합니다",
-    CheckRollingLastDep: "롤링금액확인:",
+    CheckRollingLastDep: "롤링금액확인 ",
     CheckRollingLastDep1: "(마지막입금기준)"
   },
   Status: {
@@ -1333,7 +1333,7 @@ const messages = {
     AccountInformation: "Informasi Akun",
     BankDetails: "Detail Perbankan",
     Level: "Level",
-    Currency: "Currency",
+    Currency: "KRW",
     ReferralCode: "Referral Code"
   }
 };

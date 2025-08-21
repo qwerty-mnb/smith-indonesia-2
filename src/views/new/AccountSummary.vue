@@ -83,12 +83,6 @@ const menuItems = [
     link: "/account/change-password",
     class: "password-link",
   },
-  {
-    icon: "/img/new/icons/deposit",
-    label: t("New.Deposit"),
-    link: "/account/deposit",
-    class: "deposit-link",
-  },
 ];
 </script>
 

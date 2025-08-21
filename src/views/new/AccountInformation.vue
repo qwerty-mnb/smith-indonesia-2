@@ -1,24 +1,24 @@
 <template>
-  <div class="standard-profile-bar" bis_skin_checked="1">
+  <div class="standard-profile-bar">
     <section class="user-field">
       <img
         alt="Diamond"
         loading="lazy"
         src="/img/new/icons/diamond.svg"
       />
-      <div bis_skin_checked="1">
+      <div>
         <span class="username">{{ authStore.user.username }}</span>
-        <div class="loyalty-info-container" bis_skin_checked="1">
-          <div class="xp-field" bis_skin_checked="1">
+        <div class="loyalty-info-container">
+          <div class="xp-field">
             <span class="xp-label">EXP</span>
             {{ n(Number(authStore.user.wallet)) }}
           </div>
-          <div class="lp-field" bis_skin_checked="1">
+          <div class="lp-field">
             <span class="lp-label">LP</span>
             {{ n(Number(authStore.user.wallet_point)) }}
           </div>
-          <!-- <div bis_skin_checked="1">
-            <a href="/desktop/loyalty/rewards" bis_skin_checked="1"
+          <!-- <div>
+            <a href="/desktop/loyalty/rewards"
               >Detail &gt;&gt;</a
             >
           </div> -->
@@ -26,7 +26,7 @@
       </div>
     </section>
     <section class="deposit-field">
-      <a href="/transactions/deposit" bis_skin_checked="1">
+      <a href="/transactions/deposit">
         <img
           alt="Deposit"
           loading="lazy"
@@ -36,7 +36,7 @@
       </a>
     </section>
     <section class="withdraw-field">
-      <a href="/desktop/withdrawal" bis_skin_checked="1">
+      <a href="/desktop/withdrawal">
         <img
           alt="Withdrawal"
           loading="lazy"
@@ -49,7 +49,6 @@
       <a
         href="/loyalty/redemption-store"
         target="_blank"
-        bis_skin_checked="1"
       >
         <img
           alt="Redemption"
@@ -60,23 +59,22 @@
       </a>
     </section>
     <section class="referral-field">
-      <div bis_skin_checked="1">{{ t("New.ReferralCode") }}:</div>
-      <a href="/desktop/referral" title="jbiGwV3" bis_skin_checked="1">
+      <div>{{ t("New.ReferralCode") }}:</div>
+      <a href="/desktop/referral" title="jbiGwV3">
         <div
           id="ReferralCode"
           class="referral-code-container"
-          bis_skin_checked="1"
         >
           {{ authStore.user.username }}
         </div>
       </a>
     </section>
   </div>
-  <div class="standard-form-title" bis_skin_checked="1">
+  <div class="standard-form-title">
     {{ t("New.AccountInformation") }}
   </div>
-  <div class="standard-content-info" bis_skin_checked="1">
-    <div class="standard-content-block" bis_skin_checked="1">
+  <div class="standard-content-info">
+    <div class="standard-content-block">
       <table class="table profile-summary-table">
         <tbody>
           <tr>
@@ -107,10 +105,10 @@
         </tbody>
       </table>
     </div>
-    <div class="standard-content-block" bis_skin_checked="1">
-      <div class="banking-details-header" bis_skin_checked="1">
+    <div class="standard-content-block">
+      <div class="banking-details-header">
         <label>{{t("New.BankDetails") }}</label>
-        <a href="javascript:void(0)" @click="showComingSoon" bis_skin_checked="1">
+        <a href="javascript:void(0)" @click="showComingSoon">
           <img
             alt="Edit"
             loading="lazy"
@@ -123,7 +121,6 @@
         class="carousel slide bank-info-container"
         data-interval="false"
         data-ride="carousel"
-        bis_skin_checked="1"
       >
         <ol class="carousel-indicators">
           <li
@@ -132,9 +129,9 @@
             class="active"
           ></li>
         </ol>
-        <div class="carousel-inner" bis_skin_checked="1">
-          <div class="bank-info-block item active" bis_skin_checked="1">
-            <div class="account-name" bis_skin_checked="1">
+        <div class="carousel-inner">
+          <div class="bank-info-block item active">
+            <div class="account-name">
               {{ authStore.user.bank_account_name }}
               <img
                 alt="BRI"
@@ -144,21 +141,21 @@
                 src="/img/new/icons/bri.svg"
               />
             </div>
-            <div class="account-number" bis_skin_checked="1">
+            <div class="account-number">
               033901001610560
             </div>
             <hr />
-            <div class="bank-name" bis_skin_checked="1">{{ authStore.user.bank_name }}</div>
+            <div class="bank-name">{{ authStore.user.bank_name }}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="standard-form-title" bis_skin_checked="1">
+  <div class="standard-form-title">
     DEPOSIT/WITHDRAW STATUS
   </div>
-  <div class="standard-content-info" bis_skin_checked="1">
-    <div bis_skin_checked="1">
+  <div class="standard-content-info">
+    <div>
       <h2>Last Deposit Status</h2>
       <table class="table last-transaction-table">
         <thead>
@@ -180,7 +177,7 @@
         </tbody>
       </table>
     </div>
-    <div bis_skin_checked="1">
+    <div>
       <h2>Last Withdrawal Status</h2>
       <table class="table last-transaction-table">
         <thead>

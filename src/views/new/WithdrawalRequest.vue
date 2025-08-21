@@ -11,16 +11,9 @@
           {{ t("withdraw.BankName") }}
           <span data-section="asterisk">*</span>
         </label>
-        <div
-          class="deposit-amount-container"
-          data-section="depo-amount"
-        >
+        <div class="deposit-amount-container" data-section="depo-amount">
           <div data-section="depo-input">
-            <div
-              data-field="amount"
-              class="deposit-amount"
-              data-currency="idr"
-            >
+            <div data-field="amount" class="deposit-amount" data-currency="idr">
               <input
                 type="text"
                 class="form-control !text-left"
@@ -38,16 +31,9 @@
           {{ t("withdraw.BankAccountName") }}
           <span data-section="asterisk">*</span>
         </label>
-        <div
-          class="deposit-amount-container"
-          data-section="depo-amount"
-        >
+        <div class="deposit-amount-container" data-section="depo-amount">
           <div data-section="depo-input">
-            <div
-              data-field="amount"
-              class="deposit-amount"
-              data-currency="idr"
-            >
+            <div data-field="amount" class="deposit-amount" data-currency="idr">
               <input
                 type="text"
                 class="form-control !text-left"
@@ -67,7 +53,7 @@
       </div>
 
       <!-- Bank Account Name -->
-      <div class="form-group deposit-form-group">
+      <div class="form-group deposit-form-group" bis_skin_checked="1">
         <label for="Amount">
           {{ t("withdraw.BankAccount") }}
           <span data-section="asterisk">*</span>
@@ -75,12 +61,14 @@
         <div
           class="deposit-amount-container"
           data-section="depo-amount"
+          bis_skin_checked="1"
         >
-          <div data-section="depo-input">
+          <div data-section="depo-input" bis_skin_checked="1">
             <div
               data-field="amount"
               class="deposit-amount"
               data-currency="idr"
+              bis_skin_checked="1"
             >
               <input
                 type="text"
@@ -93,56 +81,89 @@
         </div>
       </div>
 
-      <!-- Bank Account Name -->
-      <div class="form-group deposit-form-group">
+      <!-- Balance -->
+      <div class="form-group deposit-form-group" bis_skin_checked="1">
         <label for="Amount">
-          {{ t("withdraw.BankAccount") }}
+          {{ t("withdraw.Balance") }}
           <span data-section="asterisk">*</span>
         </label>
         <div
           class="deposit-amount-container"
           data-section="depo-amount"
+          bis_skin_checked="1"
         >
-          <div data-section="depo-input">
+          <div data-section="depo-input" bis_skin_checked="1">
             <div
               data-field="amount"
               class="deposit-amount"
               data-currency="idr"
+              bis_skin_checked="1"
             >
               <input
                 type="text"
                 class="form-control !text-left"
                 readonly
-                :value="user.bank_account"
+                :value="n(Number(user.wallet))"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Deposit Amount -->
-      <div class="form-group deposit-form-group">
+      <!-- Rolling -->
+      <div class="form-group deposit-form-group" bis_skin_checked="1">
         <label for="Amount">
-          {{ t("deposit.Amount") }}
+          {{ t("withdraw.CheckRollingLastDep") }}
+          <span class="text-xs text-gray-500 mx-2">{{
+            t("withdraw.CheckRollingLastDep1")
+          }}</span>
           <span data-section="asterisk">*</span>
         </label>
         <div
           class="deposit-amount-container"
           data-section="depo-amount"
+          bis_skin_checked="1"
         >
-          <div data-section="depo-input">
+          <div data-section="depo-input" bis_skin_checked="1">
             <div
               data-field="amount"
               class="deposit-amount"
               data-currency="idr"
+              bis_skin_checked="1"
             >
+              <input
+                type="text"
+                class="form-control !text-left"
+                readonly
+                :value="`${n(Number(rolling?.rolling || 0))}(${n(
+                  Number(rolling?.percentage || 0)
+                )}%)`"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Withdraw Amount -->
+      <div class="form-group deposit-form-group" bis_skin_checked="1">
+        <label for="Amount">
+          {{ t("withdraw.Amount") }}
+          <span data-section="asterisk">*</span>
+        </label>
+        <div
+          class="deposit-amount-container"
+          data-section="depo-amount"
+          bis_skin_checked="1"
+        >
+          <div data-section="depo-input" bis_skin_checked="1">
+            <div data-field="amount" class="deposit-amount" data-currency="idr">
               <div class="currency-label">
                 {{ t("New.Currency") }}
               </div>
               <CurrencyInput
                 class="form-control form-control-solid text-right"
                 name="amount"
-                :placeholder="$t('deposit.AmountCheck')"
+                :placeholder="$t('withdraw.AmountCheck')"
                 v-model="amount"
               />
               <div class="currency-suffix">.00,-</div>
@@ -215,193 +236,156 @@
     </Form>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted } from "vue";
-import { ErrorMessage, Form } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import { ErrorMessage, Form } from "vee-validate";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
-import { useAppStore } from "@/stores/app";
 import { useAuthStore } from "@/stores/auth";
+import { useAppStore } from "@/stores/app";
 import CurrencyInput from "@/components/CurrencyInput.vue";
+import PopupModal from "../popup/PopupModal.vue";
+import CloseModal from "@/components/CloseModal.vue";
 import ApiService from "@/services/ApiService";
 
 export default defineComponent({
-  name: "DepositRequest",
+  name: "WithdrawalRequest",
   components: {
     Form,
     ErrorMessage,
+    PopupModal,
+    CloseModal,
     CurrencyInput,
   },
   setup() {
     // vue variables
     const authStore = useAuthStore();
     const appStore = useAppStore();
-    const { t } = useI18n();
-
+    const { t, n } = useI18n();
     // page variables
+    const user = computed(() => authStore.user);
+    const settings = computed(() => appStore.settings);
     const rules = Yup.object().shape({
       amount: Yup.number()
-        .typeError(t("deposit.AmountCheck"))
+        .typeError(t("withdraw.WithdrawCheck"))
         .positive()
+        .required()
         .transform((o, v) => parseFloat(v.replace(/,/g, "")))
-        .required(t("deposit.AmountCheck"))
-        .min(10000, t("deposit.DepositCheck"))
-        .test("", t("deposit.DepositDivCheck"), (value) => value % 10000 === 0),
+        .min(10000, t("withdraw.WithdrawCheck"))
+        .test("", t("withdraw.WithdrawDivCheck"), (value) => value % 10000 === 0),
     });
-
-    const user = computed(() => authStore.user);
     const amount = ref(0);
-    const setAmount = (amt: number) =>
-      amt > 0 ? (amount.value = Number(amount.value) + Number(amt)) : (amount.value = 0);
-
-    const couponList = ref([]);
-    const selectedCoupon = ref("");
-
-    /**
-     * Get Coupons
-     *
-     */
-    const getCoupons = async () => {
-      couponList.value = await ApiService.get("/tran/coupons/active")
-        .then((res) => res.data)
-        .catch(() => []);
-    };
 
     const closeModal = () => appStore.openModal("");
     const isLoading = ref(false);
+    const rolling = ref({ rolling: 0, percentage: 0 });
 
+    const setAmount = (amt: number) => {
+      amount.value =
+        amt === -1 || amt == 0
+          ? 0
+          : amt + amount.value < Number(user.value.wallet)
+          ? amount.value + amt
+          : Math.floor(Number(user.value.wallet) / 10000) * 10000;
+    };
     /**
-     * Submit Deposit
+     * Submit Withdraw
      *
      */
-    async function onDeposit() {
-      let payload: any = {
-        amount: amount.value,
-      };
+    async function onWithdraw() {
+      try {
+        if (amount.value > Number(user.value.wallet))
+          return Swal.fire({
+            icon: "error",
+            title: t("header.WithdrawRequest"),
+            text: t("notif.AMOUNT_GT_WALLET"),
+            confirmButtonColor: "#FF0000",
+            confirmButtonText: t("notif.Close"),
+          });
 
-      isLoading.value = true;
+        isLoading.value = true;
 
-      if (selectedCoupon.value) {
-        payload = {
+        const resp = await ApiService.post("/tran/withdraw", {
           amount: amount.value,
-          couponId: selectedCoupon.value,
-        };
-      }
-
-      await ApiService.post("/tran/deposit", payload)
-        .then(() => {
-          Swal.fire(t("header.DepositRequest"), t("deposit.Success"), "success");
-          appStore.openModal("widephistory");
         })
-        .catch((e) =>
-          Swal.fire(
-            t("header.DepositRequest"),
-            t("notif." + e.response.data.message),
-            "error"
-          )
-        );
-      // reset fields
-      setAmount(0);
-      isLoading.value = false;
+          .then((res) => res.data)
+          .catch((e) => e.response.data);
+
+        if (resp.message !== "WITHDRAW_CREATED") {
+          isLoading.value = false;
+          return Swal.fire({
+            icon: "error",
+            title: t("header.WithdrawRequest"),
+            text: t("notif." + resp.message),
+            confirmButtonColor: "#FF0000",
+            confirmButtonText: t("notif.Close"),
+          });
+        }
+
+        Swal.fire({
+          icon: "success",
+          title: t("header.WithdrawRequest"),
+          text: t("withdraw.Success"),
+          confirmButtonColor: "#FF0000",
+          confirmButtonText: t("notif.Close"),
+        });
+        // reset fields
+        setAmount(0);
+        isLoading.value = false;
+      } catch (e) {
+        Swal.fire({
+          icon: "error",
+          title: t("header.WithdrawRequest"),
+          text: t("notif.ErrorOccured"),
+          confirmButtonColor: "#FF0000",
+          confirmButtonText: t("notif.Close"),
+        });
+        isLoading.value = false;
+      }
     }
 
-    onMounted(() => getCoupons());
+    const checkRolling = async () => {
+      try {
+        const response = await ApiService.get("/tran/check-rolling");
+        rolling.value = response.data || { rolling: 0, percentage: 0 };
+      } catch (error) {
+        rolling.value = { rolling: 0, percentage: 0 };
+      }
+    };
+
+    const withdrawGameMoney = async () => {
+      const balance = await ApiService.get(`/game/snow/money-transfer/balance`).then(
+        (res) => res.data.balance
+      );
+
+      if (balance > 0) {
+        // Withdraw
+        await ApiService.post(`/game/snow/money-transfer/withdrawal`, null).then(
+          (res) => res.data
+        );
+      }
+    };
+
+    onMounted(() => {
+      checkRolling();
+      if (settings.value.ENABLE_MONEY_TRANSFER_GAME === "true") {
+        withdrawGameMoney();
+      }
+    });
 
     return {
       t,
+      n,
       amount,
       user,
       rules,
       isLoading,
-      onDeposit,
       setAmount,
+      onWithdraw,
       closeModal,
-      couponList,
-      selectedCoupon,
+      rolling,
     };
   },
 });
 </script>
-
-<style lang="scss">
-.deposit-container {
-  .deposit-form-group {
-    background-color: transparent;
-    padding: 10px 0;
-    margin-bottom: 0;
-    border-radius: 5px;
-  }
-
-  .deposit-gap {
-    margin: 20px 0 5px 0;
-    height: 1px;
-    border: none;
-    background: linear-gradient(to right, transparent, #fff, transparent);
-  }
-
-  .deposit-amount-container {
-    background-color: transparent;
-    color: #fff;
-    border-radius: 5px;
-
-    [data-section="depo-input"] {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"] {
-      background-color: #12021e;
-      color: inherit;
-      border-radius: 5px;
-      border: 1px solid #320050;
-    }
-
-    [data-field="amount"] {
-      flex-basis: 100%;
-    }
-
-    input {
-      width: 100%;
-    }
-  }
-
-  .deposit-amount {
-    position: relative;
-    display: flex;
-    align-items: center;
-    line-height: normal;
-
-    input.form-control {
-      font-size: inherit;
-      text-align: right;
-      padding-right: 18px;
-    }
-
-    &[data-currency="idr"] input.form-control {
-      padding-right: 45px;
-    }
-
-    .currency-label {
-      position: absolute;
-      left: 12px;
-    }
-
-    .currency-suffix {
-      position: absolute;
-      right: 12px;
-      pointer-events: none;
-    }
-  }
-
-  .standard-button-group {
-    margin-top: 15px;
-
-    .btn-primary {
-      width: 300px;
-    }
-  }
-}
-</style>
