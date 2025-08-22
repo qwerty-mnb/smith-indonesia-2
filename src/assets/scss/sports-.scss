@@ -1,0 +1,6117 @@
+@charset "utf-8";#sportsbook {
+    display: flex;
+    position: relative;
+    width: 1110px;
+    min-height: 555px
+}
+
+#bet_list {
+    outline: 10px solid #181818;
+    width: 835px;
+    display: table-cell;
+    min-height: 555px;
+    margin-top: 10px
+}
+
+.bet_list_line {
+}
+
+.sports_betting_type {
+    float: right;
+    margin-top: 11px;
+    overflow: hidden
+}
+
+.invisible {
+    opacity: 0;
+    pointer-events: none
+}
+
+.sports_betting_type>ul {
+}
+
+.sports_betting_type>ul>li {
+    float: left;
+    width: 75px;
+    margin-left: 7px;
+    padding: 2px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 13px;
+    color: #999;
+    border: 2px solid #999;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .2
+}
+
+.sports_betting_type>ul.sbtw>li {
+    width: 70px;
+    margin-left: 4px;
+    padding: 2px 0
+}
+
+.sports_betting_type>ul>li:first-child {
+    margin-left: 0
+}
+
+.sports_betting_type>ul>li:last-child {
+}
+
+.sports_betting_type>ul>li:hover {
+    opacity: .75
+}
+
+.sports_betting_type>ul>li.active {
+    color: #0483bd;
+    border: 2px solid #0483bd
+}
+
+.sports_betting_type>ul>li>var {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #4fa6ff;
+    box-sizing: border-box
+}
+
+.sports_betting_type>ul>li.active>var {
+    display: block
+}
+
+.sports_category {
+    overflow: hidden
+}
+
+.sports_category>h1 {
+    height: 54px;
+    font-size: 14px;
+    line-height: 53px;
+    overflow: hidden;
+    float: left
+}
+
+.sports_category>h1>span {
+    color: #878787;
+    cursor: pointer
+}
+
+.sports_category>h1>span:hover {
+    text-decoration: underline
+}
+
+.sports_category>h1>var {
+    margin: 0 10px
+}
+
+.sports_category>h1>code {
+    color: #878787;
+    cursor: pointer
+}
+
+.sports_category>h1>code:hover {
+    text-decoration: underline
+}
+
+.br-sep {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #dadada;
+    float: left
+}
+
+.no-results-wrap {
+    background-color: rgba(0,0,0,.7);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 99.5%;
+    text-align: center;
+    color: #fff
+}
+
+.sports_category>ul {
+    border-top: 1px solid #393939;
+    border-bottom: 1px solid #393939;
+    width: 100%;
+    display: flex;
+    float: left;
+    padding-bottom: 2px;
+    position: relative
+}
+
+.sports_category>ul li {
+    display: inline-block;
+    float: left;
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    background-color: #181818;
+    border: 1px solid #333;
+    border-right: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.sports_category>ul li:first-child {
+    border-left: none
+}
+
+.sports_category>ul li:last-child {
+    border-right: none
+}
+
+.sports_category>ul li.active {
+    color: #fff;
+    background-color: #423612
+}
+
+.sports_category>ul li:hover {
+    opacity: .75
+}
+
+.sports_category>ul li>span {
+    float: left;
+    font-weight: 500;
+    color: #abaaaa;
+    transition: .3s
+}
+
+.sports_category>ul li:hover>span {
+    color: #FFF
+}
+
+.sports_category>ul>li>a>span,.sports_category>ul>li>a>code {
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    color: #fff
+}
+
+.sports_category>ul>li.active>a>code {
+    background-color: #ceb758;
+    color: #fff
+}
+
+.sports_category>ul>li.active>a>span {
+    color: #fff
+}
+
+.sports_category>ul>li>a>span {
+    padding: 32px 0 0
+}
+
+.sports_category>ul>li>a>img {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    left: 50%;
+    top: 7px
+}
+
+.sports_category>ul>li[data-name="Mixed Martial Arts"]>a>img {
+    width: 50px;
+    height: 20px;
+    margin: 3px 0 0;
+    transform: translateX(-50%)
+}
+
+.sports_category>ul>li>a>strong {
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px 0 0
+}
+
+.sports_category>ul>li.active>a>strong {
+    color: #fff
+}
+
+.sports_category>ul>li>a>code {
+    background-color: #212121;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    float: none;
+    padding: 0;
+    font-size: 12px;
+    line-height: 15px;
+    width: 47px;
+    height: 15px;
+    margin: 0 auto
+}
+
+.sports_category>ul>li>a>span>span {
+    position: absolute;
+    left: 50%;
+    margin-left: -12.5px;
+    top: 40px;
+    opacity: .65
+}
+
+.results_wrap .sports_category>ul>li>a>span>span {
+    top: 3px
+}
+
+.sports_category>ul li>span>img {
+    margin: -3px 3px 0 0
+}
+
+.sports_category>ul li>code {
+    float: right;
+    font-weight: 500;
+    color: #FFF
+}
+
+.sports_category>ul li>var {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 120px;
+    height: 2px;
+    background: #daa915
+}
+
+.sports_category>ul li.active>var {
+    display: block
+}
+
+.sort_btn_wrap {
+    width: 100%;
+    margin-bottom: 1px
+}
+
+.sort_btn {
+    float: right;
+    margin-top: 15px
+}
+
+.sort_btn>.sort-sportsbook-events {
+    float: left;
+    width: 80px;
+    font-size: 12px;
+    height: 25px;
+    margin-left: 7px;
+    text-align: center;
+    color: #666;
+    line-height: 21px;
+    border: 2px solid #999;
+    border-radius: 15px;
+    box-sizing: border-box;
+    cursor: pointer
+}
+
+.sort_btn>.sort-sportsbook-events.active {
+    color: #0483bd;
+    border: 2px solid #0483bd
+}
+
+#betting_cart_bg {
+    display: table-cell;
+    width: 254px;
+    background: #141519;
+    display: none
+}
+
+table td[data-title] {
+    position: relative
+}
+
+table td[data-title]:hover:after {
+    background-color: #191919;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    color: #fff;
+    content: attr(data-title);
+    left: 5px;
+    font-size: 12px;
+    min-width: 250px;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    line-height: 18px;
+    bottom: 120%;
+    z-index: 99
+}
+
+.sports_score.result {
+    width: 1100px;
+    margin: 0 auto
+}
+
+.sports_score.result.board {
+    width: 1100px;
+    margin: 0 auto
+}
+
+.sports_score.video {
+    width: 1100px;
+    margin: 0 auto
+}
+
+.sports_score.result.hide {
+    display: none
+}
+
+div#sportsbook-container.sports_score {
+    border-bottom: 1px solid #181818
+}
+
+.sports_score>dl>h1 {
+    padding: 20px;
+    background: #FFF;
+    border-top: 1px solid #e7e7e7
+}
+
+.sports_score>dl>h1>ul {
+    display: table;
+    width: 100%;
+    height: 70px;
+    background: #f0f0f0;
+    border-radius: 10px
+}
+
+.sports_score>dl>h1>ul>li {
+    display: table-cell;
+    color: #666;
+    line-height: 175%
+}
+
+.sports_score>dl>h1>ul>li:first-child {
+    width: 80px;
+    text-align: center
+}
+
+.sports_score>dl>h1>ul>li:last-child {
+    width: 300px;
+    text-align: right;
+    padding-right: 10px
+}
+
+.sports_score>dl>h1>ul>li>label {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    background: #FFF;
+    border: 2px solid #0483bd;
+    border-radius: 23px
+}
+
+.sports_score>dl>h1>ul>li input[type="checkbox"]+label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none
+}
+
+.sports_score>dl>h1>ul>li input[type="checkbox"]+label:before {
+    content: ' ';
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    margin: -2px 8px 0 0;
+    text-align: center;
+    vertical-align: middle
+}
+
+.sports_score>dl>h1>ul>li input[type="checkbox"]:checked+label:before {
+    content: '\2714';
+    font-size: 18px;
+    color: #0483bd
+}
+
+.sports_score>dl>h1>ul>li>b {
+    color: #0583bd
+}
+
+.sports_score>dl>h1>ul>li>a {
+    display: inline-block;
+    width: 85px;
+    margin: 0 2px;
+    padding: 4px 0;
+    text-align: center;
+    color: #FFF;
+    background: #9b9b9b;
+    border-radius: 15px;
+    cursor: pointer
+}
+
+.sports_score>dl>h1>ul>li>a:hover {
+    opacity: .75
+}
+
+.sports_score>dl>h1>ul>li>a.blue_btn {
+    background: #0583bd
+}
+
+table.sports_score_title {
+    background: transparent;
+    border: none;
+    table-layout: fixed;
+    width: 100%
+}
+
+table.sports_score_title.result {
+}
+
+table.sports_score_title.video {
+}
+
+.sports_score_title .table-head-top {
+    border-left: none
+}
+
+table.sports_score_title>tbody>tr>td {
+    height: 40px;
+    text-align: center;
+    font-weight: 400;
+    color: #000;
+    font-size: 13px
+}
+
+table.sports_score_title>tbody>tr>td.type1 {
+    width: 80px
+}
+
+table.sports_score_title>tbody>tr>td.type2 {
+    width: 60px
+}
+
+table.sports_score_title>tbody>tr>td.type3 {
+    width: 40px
+}
+
+table.sports_score_title.popup_style>tbody>tr>td.score {
+    width: 50px
+}
+
+span.push-right.outype.over {
+    position: absolute;
+    border-bottom: 8px solid #fe3131;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    background: transparent;
+    padding: 0;
+    width: 0;
+    right: 50px;
+    font-size: 10px;
+    height: 0;
+    line-height: 9px;
+    top: 15px;
+    overflow: hidden;
+    text-indent: -9999px;
+    display: inline-block
+}
+
+span.push-left.outype.under {
+    position: absolute;
+    border-top: 8px solid #317efe;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    background: transparent;
+    padding: 0;
+    width: 0;
+    left: 50px;
+    font-size: 10px;
+    height: 0;
+    line-height: 9px;
+    top: 15px;
+    overflow: hidden;
+    text-indent: -9999px;
+    display: inline-block
+}
+
+.sports_score>dl,.sports_score>.bet-history>dl {
+}
+
+.sports_score>dl.js-sportsbook-event {
+    margin-top: -25px
+}
+
+.sports_score.result>dl {
+    margin: 0
+}
+
+.sports_score>dl>dt,.sports_score>.bet-history>dl>dt {
+    height: 38px;
+    padding-left: 12px;
+    line-height: 38px;
+    background: #181818;
+    border: none;
+    overflow: hidden
+}
+
+.sports_score>dl>dt.sportsbook-filter-cell {
+    background-color: transparent;
+    border-top: 2px solid #181818;
+    overflow: initial
+}
+
+.sports_score>dl>dt>div.sportsbook-filter-wrap {
+    padding: 5px;
+    float: right;
+    height: 28px;
+    line-height: normal;
+    position: relative;
+    overflow: initial
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-btn,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-btn {
+    background: linear-gradient(0deg,#b49445,#fff6a5,#e2c365);
+    border: 1px solid #ab9446;
+    border-radius: 5px;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 35px 0 15px;
+    position: relative;
+    width: auto
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-btn:before,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-btn:before {
+    content: '';
+    border-top: 5px solid #000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #fbbe50;
+    border-radius: 6px;
+    position: absolute;
+    overflow: hidden;
+    visibility: visible;
+    top: 100%;
+    right: 5px;
+    width: 155px;
+    z-index: 1
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle {
+    right: auto;
+    left: -150px;
+    width: 300px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle.active,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle.active {
+    display: block
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-country-options,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-league-options {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 5px 0
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-country-options .sportsbook-filter-row,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-league-options .sportsbook-league-filter-row {
+    padding: 0 5px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-country-options .sportsbook-filter-row:last-child,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-league-options .sportsbook-league-filter-row:last-child {
+    padding-bottom: 10px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-filter-row input[type="checkbox"],.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-league-filter-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    background-size: 24px;
+    background-position: -5px -5px;
+    border-color: #c7c7c7;
+    border-width: 1px;
+    border-radius: 2px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-filter-row.dark,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-filter-row.dark {
+    background-color: #181818;
+    padding: 10px 0;
+    width: auto;
+    text-align: center;
+    white-space: nowrap
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-filter-row.dark {
+    text-align: left;
+    padding: 10px 5px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-filter-row.dark input,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-filter-row.dark input {
+    background-color: #5d5d5d;
+    border: 1px solid #5d5d5d;
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 5px
+}
+
+.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-country-toggle .sportsbook-filter-row.dark input.active,.sports_score>dl>dt>.sportsbook-filter-wrap .sportsbook-league-toggle .sportsbook-filter-row.dark input.active {
+    background: linear-gradient(0deg,#b49445,#fff6a5,#e2c365);
+    border: 1px solid #ab9446;
+    color: #000
+}
+
+.sports_score>dl>dt,.sports_score>.bet-history>dl>dt.left {
+    padding-left: 10px
+}
+
+.sports_score>dl.table-special-event-header>dt,.sports_score>.bet-history>dl.table-special-event-header>dt {
+    background: linear-gradient(#422525,#3c331a);
+    border-bottom: 1px solid #423612
+}
+
+.sports_score>dl.table-special-event-header>dt>code {
+    color: #fff;
+    display: inline-block;
+    height: auto;
+    margin-top: -3px;
+    float: left
+}
+
+.sports_score.result>dl>dt,.sports_score.result>.bet-history>dl>dt {
+}
+
+.sports_score.result>dl>dt.has-header {
+    margin-top: 8px
+}
+
+.sports_score.result>dl>dt.live-bet,.sports_score.result>.bet-history>dl>dt.live-bet {
+}
+
+.sports_score.video>dl>dt,.sports_score.video>.bet-history>dl>dt {
+    border: 1px solid #484848;
+    box-sizing: border-box
+}
+
+.sports_score>dl>dt>span>img,.sports_score>.bet-history>dl>dt>span>img {
+    margin-top: -2px
+}
+
+.sports_score>dl>dt>em,.sports_score .bet-history>dl>dt>em,.sports_score .bet-history>dl>dt>var {
+    position: relative;
+    display: inline-block;
+    line-height: 40px;
+    width: 22px;
+    overflow: hidden;
+    height: 38px;
+    float: left
+}
+
+.sports_score>dl.table-special-event-header>dt>em,.sports_score .bet-history>dl.dl>dt>em,.sports_score .bet-history>dl.dl>dt>var {
+    width: 43px
+}
+
+.sports_score>dl>dt>em>span,.sports_score>.bet-history>dl>dt>em>span,.sports_score dl>.header-selected-bet-history>em>span {
+    transform: scale(.70);
+    position: absolute;
+    left: 0;
+    margin-left: -5px;
+    top: 50%;
+    margin-top: -15px
+}
+
+.sports_score dl>.header-selected-bet-history>var>span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -9px
+}
+
+.sports_score dl>.header-selected-bet-history>var>span.sample {
+    background-image: url(/img/img_flag_sample.jpg);
+    width: 17px;
+    height: 17px;
+    border-radius: 50%
+}
+
+.sports_score>dl>dt>em>img,.sports_score>.bet-history>dl>dt>em>img {
+    width: 20px;
+    margin: -2px 2px 0 0
+}
+
+.sports_score>dl>dt>var,.sports_score>.bet-history>dl>dt>var>span {
+    position: relative;
+    width: 24px;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    float: left
+}
+
+.sports_score.result>dl>dt>span,.sports_score.result>.bet-history>dl>dt>span {
+    float: left;
+    transform: scale(.7);
+    margin-top: 6px
+}
+
+.sports_score>dl>dt>var>img,.sports_score>.bet-history>dl>dt>var>img {
+    width: 20px;
+    margin: -2px 5px 0 0
+}
+
+.sports_score>dl>dt>var>span,.sports_score>.bet-history>dl>dt>var>span {
+    position: absolute;
+    left: 0;
+    top: 50%
+}
+
+.sports_score>dl>dt>var>span {
+    margin-top: -8px
+}
+
+.sports_score>.bet-history>dl>dt>var>span {
+    margin-top: -7px
+}
+
+.sports_score>dl>dt>var>span.img-flag-sample {
+    background-image: url(/img/img_flag_sample.jpg);
+    background-position: center center;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-top: -10px
+}
+
+.sports_score>dl>dt>code,.sports_score>.bet-history>dl>dt>code {
+    margin-right: 8px;
+    margin-left: 11px;
+    font-size: 16px;
+    color: #fff
+}
+
+.sports_score>dl>dt>font,.sports_score>.bet-history>dl>dt>font {
+    padding-left: 20px;
+    background: url('/img/betclock.png') no-repeat left;
+    font-weight: 500;
+    color: #fff
+}
+
+.sports_score>dl>dt>font.live-score-bet {
+    background: none
+}
+
+.sports_score>dl>dt>div,.sports_score>.bet-history>dl>dt>div {
+    float: right;
+    height: 33px;
+    overflow: hidden
+}
+
+.sports_score>dl>dt>div>ul,.sports_score>.bet-history>dl>dt>div>ul {
+    float: left;
+    height: 18px;
+    margin-top: 7px;
+    overflow: hidden
+}
+
+.sports_score>dl>dt>div>ul>li,.sports_score>.bet-history>dl>dt>div>ul>li {
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 18px
+}
+
+.sports_score>dl>dt>div>ul>li.live,.sports_score>.bet-history>dl>dt>div>ul>li.live {
+    background: url('/img/img_live_icon.png') no-repeat
+}
+
+.sports_score>dl>dt>div>ul>li.signal,.sports_score>.bet-history>dl>dt>div>ul>li.signal {
+    background-image: url(/img/img_signal_icon.png);
+    background-position: center 0
+}
+
+.sports_score>dl>dt>div>ul>li.ground,.sports_score>.bet-history>dl>dt>div>ul>li.ground {
+    background-image: url(/img/img_ground_icon.png);
+    background-position: center 0
+}
+
+.sports_score>dl>dt>div>ul>li>img,.sports_score>.bet-history>dl>dt>div>ul>li>img {
+    margin-top: -3px;
+    opacity: 1;
+    cursor: pointer;
+    transition: .3s
+}
+
+.sports_score>dl>dt>div>ul>li:hover>img,.sports_score>.bet-history>dl>dt>div>ul>li:hover>img {
+    opacity: .75
+}
+
+.sports_score>dl>dt>div>ul>li.active>img,.sports_score>.bet-history>dl>dt>div>ul>li.active>img {
+    opacity: 1
+}
+
+.sports_score>dl>dt>div>var,.sports_score>.bet-history>dl>dt>div>var {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 18px;
+    margin: 7px 0 0 5px;
+    background: #595959
+}
+
+.sports_score>dl>dt>div>span,.sports_score>.bet-history>dl>dt>div>span {
+    float: left;
+    width: 19px;
+    height: 19px;
+    margin: 7px 10px;
+    text-align: center;
+    background: url('/img/img_favorite_icon.png') no-repeat;
+    cursor: pointer
+}
+
+.sports_score>dl>dt>div>span>img,.sports_score>.bet-history>dl>dt>div>span>img {
+    margin-top: -18px;
+    opacity: 0;
+    transition: .3s
+}
+
+.sports_score>dl>dt>div>span:hover>img,.sports_score>.bet-history>dl>dt>div>span:hover>img {
+    opacity: .75
+}
+
+.sports_score>dl>dt>div>span.active>img,.sports_score>.bet-history>dl>dt>div>span.active>img {
+    opacity: 1
+}
+
+.sports_score>dl>dd,.sports_score>.bet-history>dl>dd {
+    padding: 15px 0
+}
+
+.sports_score>dl>dd.event-special {
+    background-color: rgba(0,0,0,.2);
+    padding: 13px 0
+}
+
+.sports_score>dl>dd>table,.sports_score>.bet-history>dl>dd>table {
+    margin-top: 5px
+}
+
+.sports_score>dl>dd>table:first-child,.sports_score>.bet-history>dl>dd>table:first-child {
+    margin-top: 0;
+    margin: 0
+}
+
+.sports_score.result>dl>dd {
+}
+
+.results-page-container-new .sports_score>dl>dt {
+    margin: 10px 0 5px
+}
+
+.results-page-container-new .sports_score>dl:nth-child(2)>dt {
+    margin-top: 0
+}
+
+.results-page-container-new .sports_score>dl>dd {
+    padding: 5px 0 0
+}
+
+.results-page-container-new .paging_box {
+    margin-top: 10px
+}
+
+.sports_score>dl>dd>table:last-child>tbody>tr>td.score>table>tbody>tr>td,.sports_score>.bet-history>dl>dd>table:last-child>tbody>tr>td.score>table>tbody>tr>td {
+}
+
+.sports_score>dl>dd>table:last-child>tbody>tr>td.information>table>tbody>tr>td.cross,.sports_score>.bet-history>dl>dd>table:last-child>tbody>tr>td.information>table>tbody>tr>td.cross {
+}
+
+.sports_score.result table.sports_score>tbody>tr>td {
+    cursor: default
+}
+
+table.sports_score_list {
+    width: 100%;
+    table-layout: fixed
+}
+
+table.sports_score_list>tbody>tr>td {
+    text-align: center;
+    font-size: 13px
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap {
+    position: relative
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap .live-start-datetime {
+    background-color: #ABA9B4;
+    border: 1px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 16px;
+    height: 16px;
+    width: 16px
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap .live-start-datetime:hover+.live-start-datetime-description {
+    display: block
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap .live-start-datetime-description {
+    background-color: #191919;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+    font-size: 12px;
+    line-height: normal;
+    position: absolute;
+    min-width: 100px;
+    max-width: 150px;
+    padding: 5px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 1
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap .live-start-datetime-description:after {
+    content: '';
+    position: absolute;
+    border-bottom: 5px solid #191919;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap .live-start-datetime-description:before {
+    content: '';
+    position: absolute;
+    border-bottom: 6px solid #333;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+table.sports_score_list>tbody>tr>td.favorite {
+    width: 30px
+}
+
+table.sports_score_list>tbody>tr>td.favorite button {
+    background: none transparent;
+    border: none;
+    width: auto;
+    padding: 0;
+    margin: 0
+}
+
+table.sports_score_list>tbody>tr>td.favorite button.fav-btn {
+    background-image: url(/img/favorite_icon_off.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 19px 18px;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px
+}
+
+table.sports_score_list>tbody>tr>td.favorite button.fav-btn.active {
+    background-image: url(/img/favorite_icon.png)
+}
+
+table.sports_score_list>tbody>tr>td.type {
+    width: 50px;
+    color: #505050;
+    font-size: 13px
+}
+
+table.sports_score_list>tbody>tr>td.type>b {
+    font-size: 9px;
+    display: block
+}
+
+table.sports_score_list>tbody>tr>td.datetime {
+    width: 80px;
+    color: #505050;
+    font-family: "Malgun Gothic";
+    font-size: 14px;
+    font-weight: 600
+}
+
+table.sports_score_list>tbody>tr>td.datetime>strong {
+    font-weight: 600;
+    font-family: "Malgun Gothic"
+}
+
+table.sports_score_list>tbody>tr>td.live-start-datetime-wrap {
+    position: relative
+}
+
+table.sports_score_list>tbody>tr>td.score {
+    width: 654px
+}
+
+table.sports_score_list>tbody>tr>td.type1 {
+    width: 80px
+}
+
+table.sports_score_list>tbody>tr>td.type2 {
+    width: 60px
+}
+
+table.sports_score {
+    width: 100%
+}
+
+.sports_score_list .score>table.sports_score {
+    table-layout: fixed
+}
+
+table.sports_score>tbody>tr>td {
+    padding: 0 2px
+}
+
+table.sports_score>tbody>tr>td:first-child {
+    padding-left: 0;
+    position: relative
+}
+
+table.sports_score>tbody>tr>td:last-child {
+    padding-right: 0;
+    position: relative
+}
+
+table.sports_score>tbody>tr>td.disabled-odd {
+    position: relative;
+    pointer-events: none;
+    cursor: not-allowed
+}
+
+table.sports_score>tbody>tr>td.disabled-odd>table {
+    background-color: #646263
+}
+
+table.sports_score>tbody>tr>td.disabled-odd:before {
+    content: '';
+    background-image: url(/img/icon-odd-lock.png);
+    background-repeat: no-repeat;
+    background-position: left 7px;
+    background-size: 20px;
+    pointer-events: none;
+    margin-left: 22px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+table.sports_score>tbody>tr>td.left.disabled-odd:before {
+    background-position: right 7px;
+    margin-left: 0;
+    margin-right: 22px;
+    width: calc(100% - 22px)
+}
+
+table.sports_score>tbody>tr>td.center.disabled-odd:before {
+    margin: 0;
+    background-position: center center
+}
+
+table.sports_score>tbody>tr>td>table {
+    height: 35px;
+    font-size: 13px;
+    color: #e0e0e0;
+    background: linear-gradient(#181818 0,#252116);
+    border: 1px solid #181818;
+    border-collapse: separate;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 transparent;
+    cursor: pointer;
+    table-layout: fixed
+}
+
+table.sports_score>tbody>tr>td.special-event>table,table.sports_score>tbody>tr>td.special-event-center>table {
+    color: #fff;
+    background-color: #555;
+    border-color: #333;
+    box-shadow: inset 0 1px 0 rgba(151,151,151,.6);
+    text-shadow: 1px 1px 0 rgba(0,0,0,.42)
+}
+
+table.sports_score>tbody>tr>td.center>table>tbody>tr>td {
+    padding: 0;
+    text-align: center
+}
+
+@keyframes ratebetter {
+    from {
+        color: #fff
+    }
+
+    50% {
+        color: #fe3131
+    }
+
+    to {
+        color: #fff
+    }
+}
+
+@keyframes rateworse {
+    from {
+        color: #fff
+    }
+
+    50% {
+        color: #317efe
+    }
+
+    to {
+        color: #fff
+    }
+}
+
+.better {
+    -moz-animation: ratebetter 1s linear none 0s infinite;
+    -webkit-animation: ratebetter 1s linear none 0s infinite;
+    animation: ratebetter 1s linear none 0s infinite
+}
+
+.worse {
+    -moz-animation: rateworse 1s linear none 0s infinite;
+    -webkit-animation: rateworse 1s linear none 0s infinite;
+    animation: rateworse 1s linear none 0s infinite
+}
+
+table.sports_score>tbody>tr>td>table {
+    width: 100%
+}
+
+table.sports_score>tbody>tr>td>table>tbody>tr>td {
+    font-size: 13px
+}
+
+table.sports_score>tbody>tr>td>table>tbody>tr>td.team {
+    width: 140px;
+    padding: 0 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+[lang="OneBet/en"] table.sports_score>tbody>tr>td.right>table>tbody>tr>td.team {
+    padding: 0 10px 0 0
+}
+
+[lang="OneBet/en"] table.sports_score>tbody>tr>td.left>table>tbody>tr>td.team {
+    padding: 0 0 0 10px
+}
+
+[lang="OneBet/en"] table.sports_score>tbody>tr>td.right.special-event>table>tbody>tr>td.team {
+    font-size: 12px
+}
+
+[lang="OneBet/en"] table.sports_score>tbody>tr>td.left.special-event>table>tbody>tr>td.team {
+    font-size: 12px
+}
+
+table.sports_score>tbody>tr>td>table>tbody>tr>td.team>span {
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%
+}
+
+table.sports_score>tbody>tr>td.left>table>tbody>tr>td.team>span {
+    float: left
+}
+
+table.sports_score>tbody>tr>td.right>table>tbody>tr>td.team>span {
+    float: right
+}
+
+table.sports_score>tbody>tr>td.left>table>tbody>tr>td.team {
+    text-align: left
+}
+
+table.sports_score>tbody>tr>td.right>table>tbody>tr>td.team {
+    text-align: right
+}
+
+table.sports_score>tbody>tr>td.left>table>tbody>tr>td.rate {
+    text-align: right;
+    padding: 0 10px 0 0
+}
+
+table.sports_score>tbody>tr>td.right>table>tbody>tr>td.rate {
+    text-align: left;
+    padding: 0 0 0 10px
+}
+
+table.sports_score>tbody>tr>td>table>tbody>tr>td.rate {
+    width: 35px;
+    padding: 0 10px
+}
+
+[lang="OneBet/en"] table.sports_score>tbody>tr>td>table>tbody>tr>td.rate {
+    width: 30px
+}
+
+table.sports_score>tbody>tr>td>table:hover {
+    opacity: .75!important
+}
+
+table.sports_score>tbody>tr>td.active>table {
+    background-color: #ABA9B4;
+    border-color: #333;
+    box-shadow: inset 0 1px 0 rgba(151,151,151,.6);
+    color: #636363
+}
+
+table.sports_score>tbody>tr>td:not(.disabled):hover>table {
+    background: linear-gradient(#151212 0,#3e3725);
+    opacity: 1!important
+}
+
+table.sports_score>tbody>tr>td:not(.disabled).active:hover>table {
+    background: #d3d3d3
+}
+
+.bet_detail table.sports_score>tbody>tr>td.center:not(.disabled):hover>table,.bet_detail table.sports_score>tbody>tr>td.center:not(.disabled)>table {
+    background-color: transparent;
+    cursor: default
+}
+
+table.sports_score_list>tbody>tr>td.information {
+    width: 85px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td {
+    padding: 0 2px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td:first-child {
+    padding: 0 2px 0 4px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td:last-child {
+    padding: 0 0 0 4px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td:last-child>div.bet-text {
+    background-color: #333;
+    background-size: 100% 100%;
+    border: 1px solid #191919;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 #444;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.42);
+    cursor: pointer;
+    padding: 6px 0
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.alternate-option-container>div.alternate-link {
+    height: 33px;
+    color: #e0e0e0;
+    background: linear-gradient(#181818 0,#252116);
+    border: 1px solid #444;
+    box-shadow: inset 0 1px 0 rgba(151,151,151,.6);
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 33px;
+    font-size: 13px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.42);
+    width: 62px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.alternate-option-container>div.alternate-link:hover {
+    background: linear-gradient(#151212 0,#3e3725);
+    border-color: #333;
+    box-shadow: inset 0 1px 0 rgba(151,151,151,.3);
+    color: #f0f0f0;
+    text-shadow: 0 0 0 transparent
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.alternate-option-container>div.lc-option {
+    height: 33px;
+    color: #fff;
+    background-color: #d00707;
+    border: 1px solid #545353;
+    box-shadow: inset 0 1px 0 #fb3d3d;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 33px;
+    font-size: 13px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.42);
+    width: 62px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.alternate-option-container>div>span:hover {
+    opacity: .75!important
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.evet-status-container>div {
+    width: 40px;
+    height: 28px;
+    background: url(/img/bet_td.png) no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    font-size: 9px;
+    line-height: 28px
+}
+
+table.sports_score_list>tbody>tr>td.information>table tr>td.evet-status-container>div:hover {
+    opacity: .75!important
+}
+
+table.sports_score_list>tbody>tr>td.result {
+    width: 60px;
+    font-size: 13px
+}
+
+table.sports_score_list>tbody>tr>td.state {
+    width: 50px
+}
+
+table.sports_score_list>tbody>tr>td.empty {
+    width: 40px;
+    font-size: 12px
+}
+
+table.sports_score_list>tbody>tr>td.win {
+    color: #62b457
+}
+
+table.sports_score_list>tbody>tr>td.draw {
+    color: #54a9d0
+}
+
+table.sports_score_list>tbody>tr>td.lose {
+    color: #e94747
+}
+
+table.information_btn {
+    width: 100%
+}
+
+table.information_btn>tbody>tr>td {
+    text-align: center;
+    font-size: 13px;
+    color: #FFF
+}
+
+table.information_btn>tbody>tr>td.cross {
+    width: 43px;
+    height: 30px;
+    border-bottom: none;
+    border-left: none;
+    cursor: pointer;
+    transition: .5s
+}
+
+table.information_btn>tbody>tr>td.cross:hover {
+    background: #013a76
+}
+
+table.information_btn>tbody>tr>td.cross.active {
+    background: linear-gradient(to top,#125190,#2365a7)
+}
+
+table.information_btn>tbody>tr>td.stay {
+    color: #999
+}
+
+dfn.arr_wave {
+    margin: 0 5px;
+    font-size: 10px
+}
+
+dfn.arr_up {
+    color: #fe3131
+}
+
+dfn.arr_down {
+    color: #317efe
+}
+
+.bet_detail {
+    position: relative
+}
+
+[id*="extra-odds"] {
+    max-height: 0;
+    transition: .8s;
+    overflow: hidden
+}
+
+.bet_detail>var {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 20px;
+    cursor: pointer;
+    transition: .3s
+}
+
+.bet_detail>var:hover {
+    opacity: .75
+}
+
+.bet_detail>h1 {
+    display: table;
+    width: 100%
+}
+
+.bet_detail>h1>span {
+    display: table-cell;
+    width: 45%;
+    height: 48px;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 18px;
+    color: #595959
+}
+
+.bet_detail>h1>span.left {
+    text-align: right;
+    width: 48.5%
+}
+
+.bet_detail>h1>span.right {
+    width: 30%
+}
+
+.bet_detail>h1>span>font {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 10px;
+    color: #FFF;
+    line-height: 24px;
+    background: #0483bd;
+    border-radius: 12px
+}
+
+.bet_detail>h1>code {
+    display: table-cell;
+    width: 7%;
+    height: 48px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: #62b457
+}
+
+.bet_detail>h2 {
+    display: table;
+    width: 100%;
+    background: #fafafa;
+    border-top: 2px solid #858585
+}
+
+.bet_detail>h2>span {
+    display: table-cell;
+    width: 22.5%;
+    height: 23px;
+    text-align: center;
+    vertical-align: middle;
+    color: #777
+}
+
+.bet_detail>h2>span.left {
+    text-align: center;
+    width: 36%;
+    padding-left: 21%;
+    padding-right: 1%
+}
+
+.bet_detail>h2>code {
+    display: table-cell;
+    width: 5%;
+    height: 23px;
+    vertical-align: middle;
+    text-align: center;
+    color: #333
+}
+
+.bet_detail>table.sports_score_title {
+    width: 100%;
+    background: #FFF;
+    border: 1px solid #e7e7e7;
+    border-top: 2px solid #858585
+}
+
+.bet_detail table.sports_score_list .event-line {
+    border-top: 5px solid transparent
+}
+
+.bet_detail>table.sports_score_title>tbody>tr>td {
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.css-datetime {
+    color: #636363;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Malgun Gothic";
+    font-size: 14px;
+    font-weight: 600
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type {
+    color: #636363;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type>b {
+    display: block;
+    font-size: 9px
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type.blue {
+    color: #0583bd
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type.green {
+    color: #62b457
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type.red {
+    color: #ff1411
+}
+
+.bet_detail>table.sports_score_list>tbody>tr>td.type>font {
+    margin-left: 3px;
+    font-weight: 300;
+    font-size: 12px
+}
+
+table.sports_score.wide>tbody>tr>td>table>tbody>tr>td.team {
+    width: 252px;
+    padding: 0 10px
+}
+
+table.sports_score.long>tbody>tr>td>table>tbody>tr>td.team {
+    width: 135px;
+    padding: 0 5px
+}
+
+.betslip-wrap {
+    top: 157px!important;
+    margin-left: 15px;
+    position: fixed;
+    min-width: 251px;
+    max-width: 260px;
+    transition: .25s .1s;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    -webkit-scrollbar-width: thin;
+    max-height: 770px
+}
+
+.betslip-wrap::-webkit-scrollbar {
+    width: 1px
+}
+
+.betslip-wrap::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px transparent
+}
+
+.betslip-wrap::-webkit-scrollbar-thumb {
+    background-color: #21a3df;
+    height: 15px
+}
+
+#modal-betting_cart #betting_cart {
+    top: auto!important;
+    margin-left: 0;
+    position: relative
+}
+
+.loading-text {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(255,255,255,.8);
+    box-sizing: border-box;
+    padding: 50% 50px 0;
+    z-index: 1
+}
+
+.betslip-title-bar>ul {
+    float: right;
+    margin-right: 5px
+}
+
+.betslip-title-bar>ul>li {
+    display: inline-block;
+    line-height: 30px;
+    margin-left: 5px
+}
+
+.betslip-title-bar .tab-links {
+    background-color: #181818;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 25px 6px 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.betslip-title-bar .tab-links.active {
+    background-color: #423612
+}
+
+.betslip-title-bar .tab-links .betslip-counter,.betslip-title-bar .tab-links .betslip-history-counter {
+    background-color: #999;
+    border-radius: 3px;
+    color: #000;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 8px;
+    font-weight: 300;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    line-height: 12px;
+    text-align: center
+}
+
+.betslip-title-bar .tab-links.active .betslip-counter,.betslip-title-bar .tab-links.active .betslip-history-counter {
+    background: linear-gradient(0deg,#b49445,#fff6a5,#e2c365)
+}
+
+.betslip-bets-box-history {
+    padding: 5px;
+    background: #5D596F;
+    border: 1px solid #191919;
+    margin-bottom: 10px
+}
+
+.betslip-bets-box-history>ul>li {
+    position: relative;
+    margin-top: 5px;
+    padding: 5px 10px 5px 11px;
+    background: #ABA9B4;
+    border: 1px solid #333
+}
+
+.betslip-bets-box-history>ul>li.betslip-empty {
+    margin-top: 0
+}
+
+.betslip-bets-box-history>ul>li.betslip-empty+li {
+    margin-top: 0
+}
+
+.betslip-bets-box-history>ul>li>h1 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #505050
+}
+
+.betslip-bets-box-history>ul>li>h1.selected {
+    color: #ce2700
+}
+
+.betslip-bets-box-history>ul>li>h1.betlip-bets-league {
+    border-bottom: 1px solid #263b4f;
+    padding-bottom: 5px
+}
+
+.betslip-bets-box-history>ul>li>h2 {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 10px;
+    height: 9px;
+    transition: .2s
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-bets-alert {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-size: 10px;
+    right: auto;
+    top: auto;
+    padding: 0 5px;
+    color: red
+}
+
+.betslip-bets-box-history>ul>li>h2:hover {
+    opacity: .75
+}
+
+.betslip-bets-box-history>ul>li>h2.full.betslip-history-type {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    margin: 0 9px;
+    top: 2px;
+    padding: 0 0 3px;
+    color: #636363;
+    font-weight: normal
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option {
+    margin: 0 3%;
+    padding: 0;
+    position: absolute;
+    width: auto;
+    top: 95px;
+    right: 0;
+    color: #636363;
+    height: auto;
+    font-weight: 600;
+    font-size: 11px
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option>span {
+    color: #fff
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option>span.red {
+    color: #ed1c24;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option>span.blue {
+    color: #0583bd
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option>span.draw {
+    color: #58d340
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-type-option>span.betslip-odd-type {
+    margin-left: 2px
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-competition,.betslip-bets-box-history>ul>li>h2.betslip-history-selection-status,.betslip-bets-box-history>ul>li>h2.betslip-history-start-datetime {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    margin: 0 9px;
+    top: unset;
+    padding: 0 0 3px;
+    color: #fff;
+    font-weight: normal
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-selection-status {
+    color: #135577;
+    float: right;
+    margin: 0 -10px 0 0
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-competition {
+    background-color: #505050;
+    color: #fff;
+    font-size: 12px;
+    margin-left: -2px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    width: calc(100% - 3px);
+    padding: 5px 13px
+}
+
+.betslip-bets-box-history>ul>li>h2.betslip-history-competition:hover {
+    opacity: 1
+}
+
+.betslip-bets-box-history .betting-history-details {
+    background-color: #d3d3d3;
+    padding: 5px 12px;
+    margin-top: 5px
+}
+
+.betslip-bets-box-history .betting-history-details span {
+    color: #636363;
+    display: block;
+    padding: 0 0 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    position: relative
+}
+
+.betslip-bets-box-history .betting-history-details span:first-child {
+    padding-top: 5px
+}
+
+.betslip-bets-box-history .betting-history-details span:last-child {
+    margin-bottom: 0;
+    border-bottom: none
+}
+
+.betslip-bets-box-history .betting-history-details span b {
+    float: right;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 300
+}
+
+.betting-placed-bets {
+    display: none
+}
+
+.betting-placed-bets.active {
+    display: block
+}
+
+.betting_cart_con {
+    background-color: #181818;
+    border-bottom: 5px solid #252116;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: none
+}
+
+.betting_cart_con.active {
+    display: block
+}
+
+.betting_cart_con>h1 {
+    height: 39px;
+    padding: 0 4px;
+    line-height: 39px;
+    overflow: hidden
+}
+
+.betting_cart_con>h1>span {
+    font-size: 15px;
+    color: #454545;
+    font-weight: 500
+}
+
+.betting_cart_con>h1>span>img {
+    margin: -5px 9px 0 0
+}
+
+.betting_cart_con>h1>ul {
+    float: right;
+    overflow: hidden
+}
+
+.betting_cart_con>h1>ul>li {
+    float: left;
+    margin: 0 7px 0 4px;
+    cursor: pointer;
+    transition: .3s
+}
+
+.betting_cart_con>h1>ul>li.lock {
+    background: url(/img/img_lock_icon.png) no-repeat center 13px;
+    margin-right: 4px
+}
+
+.betting_cart_con>h1>ul>li.lock.active {
+    background: url('/img/img_unlock_icon.png') no-repeat center 13px
+}
+
+.betting_cart_con>h1>ul>li:hover {
+    opacity: .75
+}
+
+.betting_cart_con>h1>ul>li.lock>img,.betting_cart_con>h1>ul>li.betslip-bets-item-refresh>img {
+    opacity: 0
+}
+
+.betting_cart_con>h1>ul>li.betslip-bets-item-refresh {
+    background: url('/img/betslip_refresh.png') no-repeat center 13px
+}
+
+.realtime_display {
+    background: linear-gradient(#181818 0,#252116);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 14px;
+    height: 38px;
+    padding-left: 8px;
+    line-height: 38px
+}
+
+.realtime_display>code {
+    display: block;
+    height: 38px;
+    padding-left: 22px;
+    line-height: 38px;
+    background: url(/img/img_clock_icon.png) no-repeat left
+}
+
+.realtime_display>code>font {
+    color: #fff
+}
+
+.realtime_display>code>font>B {
+    margin-left: 3px;
+    color: #9be04a
+}
+
+.tab.betslip-title-bar {
+    background: #000
+}
+
+.betting_cart_con>ul {
+    background: #5D596F
+}
+
+.betting_cart_con>ul>li {
+    position: relative;
+    margin-top: 1px;
+    padding: 5px 10px 5px 11px;
+    background: #252116;
+    border: 1px solid #333333
+}
+
+.betting_cart_con>ul>li.betslip-empty {
+    margin-top: 0
+}
+
+.betting_cart_con>ul>li.betslip-empty+li {
+    margin-top: 0
+}
+
+.betting_cart_con>ul>li>h1 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e0e0e0
+}
+
+.betting_cart_con>ul>li>h1.selected {
+    color: #E74C3C
+}
+
+.betting_cart_con>ul>li>h1.betlip-bets-league {
+    border-bottom: 1px solid #263b4f;
+    padding-bottom: 5px
+}
+
+.betting_cart_con>ul>li>h2 {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 10px;
+    height: 9px;
+    transition: .2s
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-alert {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-size: 10px;
+    right: auto;
+    top: auto;
+    padding: 0 5px;
+    color: red
+}
+
+.betting_cart_con>ul>li>h2:hover {
+    opacity: .75
+}
+
+.betting_cart_con>ul>li>h2.full.betslip-bets-type {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    margin: 0 11px;
+    top: 2px;
+    padding: 0 0 3px;
+    color: #a0a0a0;
+    font-weight: normal;
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    top: 0;
+    left: 0;
+    color: #979797;
+    height: auto;
+    font-weight: 600;
+    font-size: 13px
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option>span {
+    color: #979797;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option>span.red {
+    color: #ed1c24;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option>span.blue {
+    color: #0583bd
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option>span.draw {
+    color: #58d340
+}
+
+.betting_cart_con>ul>li>h2.betslip-bets-type-option>span.betslip-odd-type {
+    margin-left: 2px
+}
+
+.betting_cart_con>ul>li>h3 {
+    position: absolute;
+    right: 10px;
+    bottom: 5px
+}
+
+.betting_cart_con>ul>li>h3>font {
+    color: #FFF
+}
+
+.betting_cart_con>ul>li>h3>font>B {
+    margin-left: 4px;
+    color: #58d340
+}
+
+.betting_cart_con>ul>li>h3.win>font>B {
+    margin-left: 4px;
+    color: #4aa4fd
+}
+
+.betting_cart_con>ul>li>h3.lose>font>B {
+    margin-left: 4px;
+    color: #fd4a4a
+}
+
+.betting_cart_con>dl {
+}
+
+.betting_cart_con>dl>dd {
+    height: 32px;
+    padding: 0 12px 0 10px;
+    line-height: 32px;
+    overflow: hidden
+}
+
+.betting_cart_con>dl>dd.betslip-estimate {
+    height: 30px;
+    line-height: 30px
+}
+
+.betting_cart_con>dl>dd.betslip-stake-row.betslip-sep {
+    border-top: 1px solid #191919;
+    height: 31px;
+    line-height: 31px
+}
+
+.betting_cart_con>dl>dd>span {
+    float: left;
+    color: #e0e0e0;
+    font-size: 13px;
+    font-weight: 500
+}
+
+.betting_cart_con>dl>dd.top>span {
+    color: #e0e0e0
+}
+
+.betting_cart_con>dl>dd>code {
+    float: right;
+    color: #e0e0e0;
+    font-size: 13px;
+    font-weight: 600
+}
+
+.betting_cart_con>dl>dd>code.min-bet-color {
+    color: #e0cb73;
+    font-weight: 500
+}
+
+.betting_cart_con>dl>dd>code.yellow {
+    color: #0d5a96;
+    font-size: 15px
+}
+
+.betting_cart_con>dl>dd>code.green {
+    color: #00FF00;
+    font-size: 14px;
+    font-weight: 400
+}
+
+.betting_cart_con>dl>dd>code.blue {
+    color: #0583bd
+}
+
+.betting_cart_con>dl>dd>code>input {
+    width: 135px!important;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 20px;
+    margin-top: -5px;
+    margin-right: -9px;
+    padding: 3px 8px;
+    text-align: right;
+    color: #e0cb73;
+    background: #000;
+    border: 1px solid #151515
+}
+
+.betting_cart_con>dl>dt {
+    padding: 7px 5px;
+    border-top: 1px solid #191919;
+    border-bottom: 1px solid #191919
+}
+
+.betting_cart_con>dl>dt>ul {
+    overflow: hidden
+}
+
+.betting_cart_con>dl>dt>ul>li {
+    background-color: #fdb721;
+    float: left;
+    width: calc((100% / 3) - 4px);
+    height: 29px;
+    margin: 0 0 3px 3px;
+    text-align: center;
+    color: #433412;
+    line-height: 29px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #ca8a00;
+    border-radius: 3px;
+    cursor: pointer
+}
+
+.betting_cart_con>dl>dt>ul>li:hover {
+    opacity: .75
+}
+
+.betting_cart_con>dl>dt>ul>li.green {
+    background-color: #4fa546;
+    color: #fff!important;
+    border: 1px solid #237717;
+    font-weight: 300
+}
+
+.betting_cart_con>dl>dt>ul>li.left,.betting_cart_con>dl>dt>ul>li:nth-child(7) {
+    margin-left: 0
+}
+
+.betting_cart_con>dl>dt>h1 {
+    background: linear-gradient(0deg,#b49445,#fff6a5,#e2c365);
+    height: 38px;
+    font-family: "Spoqa Han Sans";
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    letter-spacing: 1px;
+    line-height: 38px;
+    border: 1px solid #e6d579;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.betting_cart_con>dl>dt>h1:hover {
+    opacity: .9
+}
+
+.cscenter_cart {
+    display: none
+}
+
+.cscenter_cart>h1 {
+    padding: 10px 10px 0;
+    font-size: 20px;
+    text-align: center;
+    color: #FFF;
+    background: #141519
+}
+
+.cscenter_cart>h1>font {
+    border-bottom: 1px solid #413d45;
+    color: #ffde00;
+    display: block;
+    padding-bottom: 10px;
+    font-size: 20px
+}
+
+.cscenter_cart>h1>font>img {
+    width: 120px!important
+}
+
+.cscenter_cart>h2 {
+    padding: 10px
+}
+
+.cscenter_cart>h2>font {
+    color: #ffde00
+}
+
+.cscenter_cart>ul {
+    margin: 10px 0;
+    padding: 0 10px;
+    overflow: hidden
+}
+
+.cscenter_cart>ul>li {
+    float: left;
+    display: block;
+    width: 100%;
+    padding: 2.5px 10px
+}
+
+.cscenter_cart>ul>li>span>img {
+    width: 27px;
+    margin-right: 5px
+}
+
+.cscenter_cart>ul>li>var {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: 300
+}
+
+.cscenter_cart>ul>li>code {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,.92)
+}
+
+.cscenter_cart>h3 {
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 15.5px;
+    font-weight: 500;
+    margin-bottom: 6px
+}
+
+.cscenter_cart>h3>span {
+    background-repeat: no-repeat;
+    background-position: left center;
+    display: inline-block;
+    padding-left: 30px;
+    line-height: 31px;
+    color: #fff
+}
+
+.cscenter_cart>h3.contact-us {
+    background: linear-gradient(to top,#a72a02,#ce630a);
+    border: 1px solid #d66f20;
+    text-shadow: 0 0 1px #b23904
+}
+
+.cscenter_cart>h3.contact-us>span {
+    background-image: url('/img/icon-contact-us-min.png')
+}
+
+.cscenter_cart>h3.request-call {
+    background: linear-gradient(to top,#123b6a,#265c8c);
+    border: 1px solid #2d6ba7;
+    box-shadow: 0 0 1px #09234a;
+    margin-bottom: 0
+}
+
+.cscenter_cart>h3.request-call>span {
+    background-image: url('/img/icon-phone-request-min.png');
+    background-position: 9px center
+}
+
+#virtual {
+    display: table;
+    position: relative;
+    width: 1100px;
+    min-height: 850px;
+    overflow: hidden
+}
+
+.virtual_view {
+    width: 76.5%;
+    height: 615px;
+    background: #181818;
+    overflow: hidden;
+    margin-bottom: 20px
+}
+
+.virtual_view iframe {
+    border: medium none;
+    height: 615px;
+    margin: 0 4.5%;
+    width: 91%
+}
+
+.virtual_view.dogs,.virtual_view.horses,.css-tennis-container {
+    height: 404px
+}
+
+.virtual-game-iframe-wrap {
+    background-color: #2c2c2c;
+    padding: 0;
+    position: relative
+}
+
+.virtual-games-ajax-container {
+    position: relative
+}
+
+.virtual-games-ajax-container table.sports_score_list {
+    width: auto
+}
+
+#virtual table.sports_score>tbody>tr>td>table>tbody>tr>td.team>img,.result table.sports_score.long>tbody>tr>td>table>tbody>tr>td.team>img {
+    margin-top: -3px
+}
+
+.virtual-games-ajax-container table.sports_score_list>tbody>tr>td.runner {
+    width: 400px;
+    position: relative
+}
+
+.virtual-games-ajax-container table.sports_score_list>tbody>tr>td.runner .css-horses-position {
+    font-size: 11px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    left: 13px;
+    top: 50%;
+    transform: translate(0,-50%);
+    position: absolute;
+    text-align: center;
+    line-height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,.5)
+}
+
+.virtual-games-ajax-container table.sports_score_list>tbody>tr>td.runner>img {
+    width: 25px;
+    margin-right: 5px
+}
+
+.virtual-games-ajax-container table.sports_score_list>tbody>tr>td.runner>img.css-jersey {
+    margin-right: 10px
+}
+
+.virtual-games-ajax-container table.sports_score_list>tbody>tr>td.score {
+    width: 200px
+}
+
+#mini_boxwrap {
+    background: linear-gradient(#181818 0,#252116)
+}
+
+.powerball_bettingbtn>li {
+    background: #E0E0E0;
+    border-right: 1px solid #292929;
+    border-top: 1px solid #292929
+}
+
+.powerball_bettingbtn>li:hover {
+    background: #F5F5F5
+}
+
+.mini_bettingslip {
+    border-top: 2px solid #292929;
+    border-bottom: 1px solid #292929;
+    margin-bottom: 20px
+}
+
+.mini_bettingslip>dd,.mini_bettingslip>dt {
+    background: #E0E0E0
+}
+
+.mini_bettingslip>dt {
+    border-right: 1px solid #292929
+}
+
+.powerball_bettingbtn>li>dl>dd>dfn {
+    color: #979797
+}
+
+.powerball_bettingbtn>li>dl>dd>dfn {
+    margin-top: -17px
+}
+
+.mini_bettingslip>dd>ul>li>code {
+    width: 90px;
+    height: 27px;
+    background: linear-gradient(to top,#AAA,#888);
+    border: 2px solid #999;
+    border-radius: 5px;
+    padding-top: 6px
+}
+
+.mini_bettingslip>dd>ul>li>div>input {
+    border: 1px solid #737373;
+    width: 185px
+}
+
+.powerball_bettingbtn>li>span {
+    color: #979797
+}
+
+.mini_bettingslip>dd>ul>li>code.mini_betcalc_btn2 {
+    color: #FFF;
+    background: #62b457;
+    border: 2px solid #62b457
+}
+
+.mini_bettingslip>dd>ul>li>code.mini_betcalc_btn3 {
+    color: #FFF;
+    background: #3a9c2d;
+    border: 2px solid #3a9c2d
+}
+
+.powerball_bettingbtn>li.two {
+    border-top: 1px solid #292929;
+    width: calc(100% - 1px)
+}
+
+.mini_timecount {
+    background: inherit;
+    border-top: 2px solid #292929;
+    border-bottom: 1px solid #292929
+}
+
+.powerball_bettingbtn>li.one>dl>dd {
+    padding-top: 15px
+}
+
+.powerball_bettingbtn>li.one dl {
+    margin-bottom: -1px
+}
+
+.powerball_bettingbtn>li>dl>dd>label {
+    transform: scale(.77);
+    margin: -12px 0 5px -13px
+}
+
+.powerball_bettingbtn>li>dl>dd>label:hover {
+    opacity: .75
+}
+
+.powerball_bettingbtn>li {
+    padding-top: 21px;
+    height: 179px
+}
+
+.powerball_bettingbtn>li>dl {
+    margin-bottom: 13px
+}
+
+.powerball_bettingbtn>li>em {
+    background: #5D596F;
+    border: 2px solid #555;
+    color: #fff;
+    padding: 4px 10px
+}
+
+.powerball_bettingbtn>li.one {
+    border-top: 1px solid #292929
+}
+
+.mini_bettingslip>dd>h2 {
+    color: #979797;
+    margin: 22px 0 10px 0;
+    font-size: 14px
+}
+
+.mini_bettingslip>dd>div.mini_betting_confirm {
+    background: #0583bd;
+    border: 2px solid #0583bd;
+    border-radius: 5px;
+    width: 114px
+}
+
+dd.game-odd-active.pl-even {
+    margin-bottom: 4px
+}
+
+.mini_timecount>b {
+    color: #959595
+}
+
+.mini_bettingbtn>li>dl>dd>label {
+    display: block;
+    margin: -7px 0 5px 0;
+    cursor: pointer;
+    height: auto;
+    width: auto
+}
+
+.mini_bettingbtn>li>dl>dd {
+    padding-top: 46px
+}
+
+.mini_bettingbtn>li>dl.type4>dd {
+    padding-top: 11px
+}
+
+dd.game-odd-active.pl-line-even-right-4 {
+    margin-top: 1px
+}
+
+.powerball_bettingbtn>li>dl>dd {
+    opacity: inherit
+}
+
+.mini_bettingbtn>li>dl.type4>dd>label {
+    margin: -3px 0 0 0
+}
+
+.mini_bettingbtn>li>dl {
+    margin-bottom: 7px
+}
+
+ul.mini_bettingbtn li:first-child dl {
+    margin-bottom: 8px
+}
+
+.mini_bettingslip>dd>ul>li>div>input {
+    background: #fafafa
+}
+
+.mini_table>h2 {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #979797;
+    width: 100%
+}
+
+.mini_table {
+    padding: 0;
+    margin-bottom: 20px
+}
+
+.mini_table table {
+    width: 947px;
+    margin: 20px auto 0
+}
+
+.mini_table table>thead>tr {
+    border: 1px solid #292929;
+    border-top: 2px solid #333;
+    background: #E0E0E0
+}
+
+.mini_table table>thead>tr>td {
+    font-size: 13px;
+    color: #666
+}
+
+div#footer {
+    background: linear-gradient(#181818 0,#252116);
+    z-index: 1;
+    position: relative
+}
+
+.mini_bettingslip>dd>ul>li>div>input {
+    font-size: 13px
+}
+
+.mini_table table>tbody>tr {
+    border-bottom: 1px solid #292929
+}
+
+.mini_table table>tbody>tr>td {
+    background: inherit;
+    border: none;
+    color: #959595
+}
+
+.mini_bettingbtn>li>dl>dd>dfn {
+    margin-left: 2px
+}
+
+.powerladder-wrap .mini_bettingbtn>li>dl>dd>dfn {
+    margin-left: 0
+}
+
+.mini_bettingbtn>li.w3>dl>dd>dfn,.mini_bettingbtn>li.w3last>dl>dd>dfn {
+    margin-left: 0
+}
+
+.mini_table table>tbody.powerball>tr>td.oddeven {
+    color: #d20000
+}
+
+.mini_table table>tbody.powerball>tr>td.oddeven label img,.w3 dd.game-odd-active.pl-even label img {
+    height: 40px
+}
+
+.mini_table table>tbody.powerball>tr>td.pb_odev {
+    color: #0583bd
+}
+
+.mini_table table>tbody>tr>td>b {
+    color: #595959
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-odd-left-4.active.tx {
+    background: url(/games/img/powerladder/pl-line-odd-left-4-2.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-even-left-3.active.tx {
+    background: url(/games/img/powerladder/pl-line-even-left-3.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-odd-right-3.active.tx {
+    background: url(/games/img/powerladder/pl-line-odd-right-3.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-even-right-4.active.tx {
+    background: url(/games/img/powerladder/pl-line-even-right-4.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-3.active.tx {
+    background: url(/games/img/powerladder/pl-line-3.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-line-4.active.tx {
+    background: url(/games/img/powerladder/pl-line-4.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-odd.active.tx {
+    background: url(/games/img/powerladder/pl-odd.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-even.active.tx {
+    background: url(/games/img/powerladder/pl-even.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-left.active.tx {
+    background: url(/games/img/powerladder/pl-left.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-right.active.tx {
+    background: url(/games/img/powerladder/pl-right.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-even.active.tx {
+    background: url(/games/img/powerladder/pl-even.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.mini_bettingslip>dt div#selBet span.pl-over-5.active.tx {
+    background: url(/games/img/speedkeno/pl-over-5.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.kennoladder-wrap .mini_bettingbtn>li {
+    padding-top: 14px
+}
+
+.kennoladder-wrap .mini_bettingbtn>li>dl>dd>dfn {
+    margin-left: 0
+}
+
+.kennoladder-wrap .games-statistics {
+    margin: 30px 0 0
+}
+
+.w3 dd.game-odd-active.pl-odd {
+    margin-top: -9px
+}
+
+.w3 dd.game-odd-active.pl-even {
+    margin-top: -1px;
+    margin-bottom: 5px
+}
+
+.mini_footinfo {
+    background: inherit
+}
+
+.mini_footinfo>dt {
+    padding: 15px 35px;
+    font-size: 14px;
+    color: #979797;
+    margin-bottom: 20px;
+    border-top: 2px solid #292929;
+    border-bottom: 1px solid #292929;
+    background: inherit
+}
+
+.mini_footinfo>dd {
+    font-size: 13px;
+    color: #959595
+}
+
+.mini_bettingslip>dd>ul>li>div>span {
+    font-size: 14px;
+    top: 9px
+}
+
+.mini_bettingslip>dd>div.mini_betting_confirm:hover {
+    background: #0583bd;
+    opacity: .75
+}
+
+.mini_bettingslip>dt>div>em {
+    color: #959595;
+    font-size: 13px
+}
+
+.mini_bettingslip>dd>ul>li>code:hover {
+    background: linear-gradient(to top,#AAA,#888);
+    opacity: .75
+}
+
+.mini_bettingslip>dd>ul>li>code.mini_betcalc_btn2:hover {
+    background: #62b457;
+    opacity: .75
+}
+
+.mini_bettingslip>dd>ul>li>code.mini_betcalc_btn3:hover {
+    background: #3a9c2d
+}
+
+.mini_bettingbtn>li {
+    border-right: 1px solid #292929;
+    background: #E0E0E0
+}
+
+.mini_bettingbtn>li:hover {
+    background: #F0F0F0
+}
+
+.mini_bettingbtn>li>em {
+    background: #5D596F;
+    border: 2px solid #555;
+    color: #FFF;
+    padding: 4px 10px
+}
+
+.mini_bettingbtn>li>span {
+    color: #979797
+}
+
+.mini_bettingbtn>li>dl>dd:hover {
+    background: url(/img/mini_betbtn1_on.png) no-repeat;
+    background-size: 100% 100%
+}
+
+.mini_table>div.history_list>div>dl>dt {
+    background: #E0E0E0;
+    border-bottom: 1px solid #292929;
+    color: #979797;
+    font-size: 14px
+}
+
+.mini_table>div.history_list>div>dl {
+    background: inherit;
+    border-right: 1px solid #292929
+}
+
+.games-statistics-content .games-statistics-coll:first-child {
+    border-left: inherit!important
+}
+
+.mini_bettingslip>dt>div>span.f_yellow {
+    color: #979797!important;
+    font-size: 13px
+}
+
+.timer_box>em {
+    padding: 1px 10px;
+    color: #979797;
+    border: 2px solid #191919;
+    border-radius: 15px;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: inherit
+}
+
+.minigame_menu>.mini_list {
+    width: 860px;
+    height: 54px;
+    line-height: 54px;
+    border: none;
+    box-sizing: border-box;
+    text-align: right;
+    float: right
+}
+
+.minigame_menu {
+    border: inherit;
+    overflow: hidden
+}
+
+.minigame_menu>.mini_list>a {
+    display: inline-block;
+    float: left;
+    width: calc(100% / 5);
+    margin-left: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #5e7d9b
+}
+
+.minigame_menu>.mini_list>a.active {
+    color: #ca9423;
+    text-decoration: inherit
+}
+
+.minigame_menu .mini_list a div>span:last-child {
+    float: left;
+    line-height: 20px;
+    margin-top: 6px
+}
+
+.minigame_menu>.mini_list>a.disable {
+    pointer-events: none;
+    cursor: not-allowed
+}
+
+.minigame_menu>.mini_list>a>div {
+    background: #333;
+    border-top: 2px solid #333;
+    border-right: 1px solid #292929;
+    height: 52px
+}
+
+.minigame_menu>.mini_list>a.active>div {
+    background: #292929;
+    border-top-color: #292929
+}
+
+.minigame_menu>.mini_list>a>div>span:first-child {
+    background-image: url(/img/minigames-logo-icon01.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    height: 51px;
+    width: 45px;
+    margin-left: 5px;
+    margin-right: 5px
+}
+
+.minigame_menu>.mini_list>a>div>span.css-powerladder-img {
+    background-image: url(/img/minigames-logo-icon02.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-speedkeno-img {
+    background-image: url(/img/minigames-logo-icon03.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-kenoladder-img {
+    background-image: url(/img/minigames-logo-icon04.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-fx1-img {
+    background-image: url(/img/minigames-logo-icon05.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-fx-ladder1-img {
+    background-image: url(/img/minigames-logo-icon06.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-turtle-pick-img {
+    background-image: url(/img/minigames-logo-icon07.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-eos-powerball-1-img {
+    background-image: url(/img/minigames-logo-icon-1min.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-eos-powerball-3-img {
+    background-image: url(/img/minigames-logo-icon-3min.png)
+}
+
+.minigame_menu>.mini_list>a>div>span.css-eos-powerball-5-img {
+    background-image: url(/img/minigames-logo-icon-5min.png)
+}
+
+span[class*='js-countdown-'] {
+    background-image: url(/img/minigames-clock-icon.png);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    color: #fff600;
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 20px;
+    text-align: left;
+    margin-left: 0;
+    text-decoration: none;
+    width: auto;
+    height: 52px;
+    line-height: 50px
+}
+
+.minigame_menu .mini_list a div>span:last-child {
+    float: right;
+    line-height: 19px;
+    margin-top: 0
+}
+
+.minigame_menu>.mini_list>a>div[class*='-menu-container'] input[type="button"] {
+    background: #e94419;
+    background: -moz-linear-gradient(top,#f16c35 0%,#e94419 100%);
+    background: -webkit-linear-gradient(top,#f16c35 0%,#e94419 100%);
+    background: linear-gradient(to bottom,#f16c35 0%,#e94419 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e94419',endColorstr='#f16c35',GradientType=0);
+    border: 1px solid #ab3112;
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.3);
+    color: #fff;
+    font-size: 12px;
+    height: 50px;
+    text-align: center;
+    text-shadow: 0 1px 0 #000;
+    width: 50px;
+    padding: 0
+}
+
+.minigame_menu>.mini_list>a input:hover {
+    cursor: pointer
+}
+
+.minigame_menu>.mini_list>a.disable input {
+    background: linear-gradient(to bottom,#c1bab6 0%,#9a8984 100%);
+    border: 1px solid #6f6462;
+    pointer-events: none
+}
+
+.mini_bettingslip>dt>div {
+    margin-bottom: 15px
+}
+
+.bet-disable {
+    padding: 68px 0;
+    box-sizing: border-box
+}
+
+.timer_box h1 {
+    color: #979797;
+    margin-left: 5px
+}
+
+.mini_bettingbtn>li.w3last,.mini_bettingbtn>li.w3 {
+    height: 190px
+}
+
+li.w3last {
+    padding-top: 14px!important
+}
+
+.mini_bettingbtn>li>dl.type4>dd.active,.mini_bettingbtn>li>dl.type4>dd:hover {
+    background: url(/img/mini_betbtn2_hover.png)
+}
+
+.mini_bettingbtn>li>dl>dd:hover,.game-odd-active.pl-odd.active,.game-odd-active.pl-even.active,.game-odd-active.pl-left.active,.game-odd-active.pl-right.active,.game-odd-active.pl-line-3.active,.game-odd-active.pl-line-4.active,.game-odd-active.pl-under-5.active,.game-odd-active.pl-over-5.active {
+    background: url(/img/mini_betbtn1_hover.png)
+}
+
+.powerball_bettingbtn>li>dl>dd.active>label>div,.powerball_bettingbtn>li.one>dl>dd.active>label>div {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 98px;
+    height: 98px;
+    border: 8px solid #3a9c2d;
+    border-radius: 50%
+}
+
+.mini_bettingbtn>li {
+    padding-top: 15px;
+    height: 191px
+}
+
+.powerladder-wrap .mini_bettingbtn>li {
+    padding-top: 14px
+}
+
+.powerball_bettingbtn>li.one>dl>dd.active>label>div {
+    top: 0;
+    width: 96px;
+    height: 96px;
+    left: 0
+}
+
+.powerball_bettingbtn>li.two-half>dl>dd.active>label>div {
+    width: 96px;
+    height: 96px
+}
+
+.powerball_bettingbtn>li.two>dl>dd.active>label>div {
+    width: 82px;
+    height: 82px
+}
+
+.minigame_menu h1 {
+    float: left;
+    height: 56px;
+    padding: 0 25px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFF;
+    line-height: 56px;
+    background: #0583bd
+}
+
+.minigame_menu>h1>img {
+    width: 80px;
+    margin: -5px 10px 0 0
+}
+
+.fx-odds-ul {
+    overflow: hidden
+}
+
+.fx-odds-ul>li {
+    border-right: 1px solid #292929;
+    background: #333;
+    font-size: 14px;
+    width: 20%;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 15px
+}
+
+.fx-odds-ul>li:first-child {
+    border-left: 1px solid #292929
+}
+
+.fx-odds-ul>li>em {
+    display: inline-block;
+    padding: 4px 10px;
+    line-height: 100%;
+    border-radius: 20px;
+    background: #191919;
+    border: 2px solid #191919;
+    color: #FFF;
+    font-size: 12px;
+    margin-right: 5px
+}
+
+.fx-odds-ul>li>span {
+    color: #595959
+}
+
+.fx-odds-ul>li>dd {
+    padding-top: 11px;
+    box-sizing: border-box;
+    margin: 5px 0 5px 0;
+    width: 97px;
+    height: 137px;
+    cursor: pointer;
+    display: inline-block;
+    background-image: url(/img/sprite_games_min.png);
+    background-position: -3px -3302px;
+    background-repeat: no-repeat;
+    transform: scale(.8);
+    overflow: hidden;
+    float: left
+}
+
+.fx-odds-ul>li>dd.fx-buy {
+    float: right
+}
+
+.fx-odds-ul>li>dl.type4>dd {
+    padding-top: 11px
+}
+
+.fx-odds-ul>li>dd:hover,.fx-odds-ul>li>dd.active {
+    background: url(../img/mini_betbtn1_hover.png)
+}
+
+.fx-odds-ul>li>dd>dfn {
+    display: inline-block;
+    transform: scale(1.2);
+    width: 100%;
+    text-align: center
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-over-start-4 label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_over.png);
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-under-start-4 label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_under.png);
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-over-end-4 label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_over.png);
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-under-end-4 label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_under.png);
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-odd-start label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_odd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-even-start label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_even.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-odd-end label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_odd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-even-end label {
+    display: inline-block;
+    background-image: url(../img/mini_btn_even.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-buy label {
+    display: inline-block;
+    position: relative;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-buy label:before {
+    content: '매수';
+    text-shadow: -3px 2px 4px #fdd,0 0 0 #000,1px 3px 4px #fdd;
+    color: rgba(228,147,0,.8);
+    font-size: 39px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    letter-spacing: -2px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-sell label {
+    display: inline-block;
+    position: relative;
+    margin: 20px 13px;
+    width: 68px;
+    height: 39px
+}
+
+.fx-odds-ul>li>dd.game-odd-active.fx-sell label:before {
+    content: '매도';
+    text-shadow: -3px 2px 4px #def,0 0 0 #000,1px 3px 4px #def;
+    color: rgba(59,130,211,.8);
+    font-size: 39px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    letter-spacing: -2px
+}
+
+.mini_bettingslip>dt>div>span.fx-over-start-4 {
+    display: inline-block;
+    background-image: url(../img/mini_btn_over.png);
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-under-start-4 {
+    display: inline-block;
+    background-image: url(../img/mini_btn_under.png);
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-over-end-4 {
+    display: inline-block;
+    background-image: url(../img/mini_btn_over.png);
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-under-end-4 {
+    display: inline-block;
+    background-image: url(../img/mini_btn_under.png);
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-odd-start {
+    display: inline-block;
+    background-image: url(../img/mini_btn_odd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-even-start {
+    display: inline-block;
+    background-image: url(../img/mini_btn_even.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-odd-end {
+    display: inline-block;
+    background-image: url(../img/mini_btn_odd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-even-end {
+    display: inline-block;
+    background-image: url(../img/mini_btn_even.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-buy {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-buy:before {
+    content: '매수';
+    text-shadow: -3px 2px 4px #fdd,0 0 0 #000,1px 3px 4px #fdd;
+    color: rgba(228,147,0,.8);
+    font-size: 39px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    letter-spacing: -2px;
+    margin-top: -20px
+}
+
+.mini_bettingslip>dt>div>span.fx-sell {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    width: 68px;
+    height: 39px
+}
+
+.mini_bettingslip>dt>div>span.fx-sell:before {
+    content: '매도';
+    text-shadow: -3px 2px 4px #def,0 0 0 #000,1px 3px 4px #def;
+    color: rgba(59,130,211,.8);
+    font-size: 39px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    letter-spacing: -2px;
+    margin-top: -20px
+}
+
+.mini_bettingslip>dt>div>span[class*="fx"] {
+    transform: scale(.5);
+    margin-left: -18px
+}
+
+.body-wrap {
+    width: 1140px;
+    margin: 0 auto;
+    background: #9694A1;
+    border: 1px solid #000
+}
+
+#mini_wrap {
+    width: 1100px;
+    margin: 0 auto;
+    box-shadow: inherit
+}
+
+.mini_midwrapbox {
+    width: inherit;
+    background: inherit;
+    border-left: 1px solid #292929;
+    border-right: 1px solid #292929
+}
+
+.timer_box {
+    color: #666
+}
+
+.mini_table>h2 {
+    margin-bottom: 20px
+}
+
+#matchdayPickerLeagueView {
+    background-image: url(../img/mdp-background.png);
+    padding-left: 14px;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    width: 750px;
+    margin-left: -258px
+}
+
+#matchdayPickerLeagueView>* {
+    margin-top: 4px;
+    color: #999;
+    width: 16px;
+    height: 15px;
+    border-radius: 8px;
+    margin-left: 8px;
+    float: left;
+    text-align: center;
+    font-size: 10px;
+    line-height: 16px;
+    display: inline-block;
+    cursor: pointer
+}
+
+.mini_table table>thead>tr>td {
+    height: 46px
+}
+
+.mini_bettingslip>dd>ul>li>div>input.mini_betting_input_hit {
+    color: initial
+}
+
+.mini_bettingslip>dd>ul>li>div>input.select-amount-text::-webkit-input-placeholder {
+    color: #df6915
+}
+
+.mini_bettingslip>dd>ul>li>div>input.select-amount-text {
+    color: #df6915
+}
+
+.mini_table table>tbody.betting_history>tr>td {
+    padding: 10px 0;
+    font-size: 13px;
+    height: 38px
+}
+
+#matchdayPickerLeagueView .currentMatchday {
+    background-color: transparent;
+    border: 1px solid white;
+    color: #fff;
+    margin-top: 3px!important
+}
+
+#matchdayPickerLeagueView .selectedMatchday {
+    background-color: #FF6600;
+    color: white
+}
+
+#matchdayPickerLeagueView .nextMatchday {
+    color: #fff
+}
+
+.game_result_rotus {
+    width: 100%;
+    margin-bottom: 50px
+}
+
+.game_result_rotus thead tr td {
+    background-color: #000;
+    padding: 5px 0;
+    font-size: 14px;
+    border-top: 1px solid #292929;
+    text-align: center;
+    color: #fff
+}
+
+.game_result_rotus tbody tr td {
+    padding: 5px 0;
+    font-size: 13px;
+    border: 1px solid #292929;
+    text-align: center;
+    color: #000
+}
+
+.game_result_rotus tbody tr td:nth-child(3) {
+    color: blue
+}
+
+.mypage_sub_menu>ul>li {
+    width: auto;
+    padding: 0 8px
+}
+
+tr#empty-event,tr#empty-event>td {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 20px
+}
+
+tr#empty-event>td {
+    padding: 20px 0;
+    min-height: 300px
+}
+
+.ad,.ae,.af,.ag,.ai,.al,.am,.an,.ao,.aq,.ar,.as,.at,.au,.aw,.ax,.az,.ba,.bb,.bd,.be,.bf,.bg,.bh,.bi,.bj,.bm,.bn,.bo,.bq,.br,.bs,.bt,.bv,.bw,.by,.bz,.ca,.cc,.cd,.cf,.cg,.ci,.ck,.cl,.cm,.cn,.co,.cr,.cu,.cv,.cw,.cx,.cy,.cz,.de,.dj,.dk,.dm,.do,.dz,.ec,.ee,.eg,.en,.er,.es,.et,.fi,.fj,.fk,.fm,.fo,.ga,.gb,.gd,.ge,.gh,.gi,.gm,.gn,.gp,.gq,.gr,.gs,.gt,.gu,.gw,.gy,.hk,.hm,.hn,.hr,.ht,.hu,.honduras,.ie,.il,.im,.in,.io,.iq,.ir,.is,.it,.je,.jm,.jo,.jp,.ke,.kg,.kh,.ki,.km,.kn,.kp,.ks,.kw,.ky,.kz,.la,.lb,.lc,.li,.lk,.lr,.ls,.lt,.lu,.lv,.ly,.ma,.md,.me,.mg,.mh,.mk,.ml,.mm,.mn,.mo,.mp,.mr,.ms,.mt,.mu,.mv,.mw,.mx,.my,.mz,.na,.nc,.ne,.nf,.ng,.ni,.nl,.no,.nr,.nu,.nz,.om,.pa,.pe,.pf,.pg,.ph,.pk,.pl,.pm,.pn,.pr,.ps,.pt,.pw,.py,.qa,.ro,.rs,.ru,.rw,.sa,.sb,.sc,.sd,.se,.sh,.si,.sj,.sk,.sl,.sn,.so,.sr,.ss,.st,.sv,.sy,.sz,.tc,.td,.tf,.tg,.th,.tj,.tk,.tl,.tm,.tn,.to,.tr,.tt,.tv,.tz,.ua,.ug,.um,.us,.uy,.uz,.vc,.ve,.vg,.vi,.vn,.vu,.ws,.ye,.za,.zm,.zw,.zz,.bundesliga,.bundesliga-de,.champions-league,.champions-league-zz,.epl,.europa-league-zz,.kbo,.korea-professional-baseball---first-runs-zz,.korea-professional-baseball-kr,.korea-republic---k-league-classic-kr,.la-liga,.la-liga-es,.ligue-1,.ligue-1-fr,.mlb,.mlb---hits---runs---errors-us,.mlb---to-score-first-us,.mlb-us,.nba-us,.nba-summer-league-zz,.nba,.nhl,.nippon-professional-baseball-jp,.npb,.npb---hits---runs---errors-us,.npb---hits---runs---errors-zz,.npb---to-score-first-us,.npb---to-score-first-zz,.serie-a,.serie-a-it,.uefa---champions-league-zz,.uefa---europa-league-zz,.bl,.fr,.gf,.gg,.gl,.id,.kr,.mc,.mf,.mq,.re,.sg,.sx,.tw,.wf,.xk,.yt,.ch,.sm,.np,.va,.fifa---world-cup-zz,.england-championship-league,.sf,.england-premiere-league,.wales-league,.europa_league_zz,.uefa_-_europa_league_zz,.asian-games,.libertadores-cup,.uefa-nations-league,.uefa-u21,.hits---runs---errors-us,.kovo-cup-volleyball,.nhl-hockey,.afc-champions-league,.uefa-youth-league,.afccup,.eredivise,.jleague,.korea-basketball-league,.korea-volley-ball,.wkbl,.ufc,.wnba,.fifa-world-cup-u20,.uefa-euro-soccer,.conmebol-copa-america-2019,.fifa-women-world-cup-france-2019,.korea-republic-k-league-challenge,.concacaf-gold-cup,.women-volley-ball-nations-league,.volley-ball-pan-american-cup,.caf-africa-cup-of-nations,.volley-ball-european-silver-league,.volley-ball-european-gold-league,.conmebol-copa-sudamericana-2019,.uefa-u19-european-championship,.conmebol-copa-libertadores,.international-champions-cup,.olympics-qualification-men,.fiba-world-cup,.fifa-world-cup,.fifa-world-cup-advance-lines,.fifa-world-cup-extra-time,.fifa-world-cup-qualifier,.fifa-world-cup-qualifiers-africa,.fifa-world-cup-qualifiers-asia,.fifa-world-cup-qualifiers-europe,.fifa-world-cup-qualifiers-europe-ii,.fifa-world-cup-qualifiers-intercontinental,.fifa-world-cup-qualifiers-north-america,.fifa-world-cup-qualifiers-oceania,.fifa-world-cup-qualifiers-south-america,.fifa-world-cup-qualifiers-women {
+    display: inline-block;
+    background: url('/img/flag-sprite.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left
+}
+
+.ad {
+    background-position: -1px -0px;
+    width: 22px;
+    height: 15px
+}
+
+.ae {
+    background-position: -1px -16px;
+    width: 22px;
+    height: 11px
+}
+
+.af {
+    background-position: -1px -28px;
+    width: 22px;
+    height: 15px
+}
+
+.ag {
+    background-position: -1px -44px;
+    width: 22px;
+    height: 15px
+}
+
+.ai {
+    background-position: -1px -60px;
+    width: 22px;
+    height: 11px
+}
+
+.al {
+    background-position: -1px -72px;
+    width: 22px;
+    height: 16px
+}
+
+.am {
+    background-position: -1px -89px;
+    width: 22px;
+    height: 11px
+}
+
+.an {
+    background-position: -1px -101px;
+    width: 22px;
+    height: 15px
+}
+
+.ao {
+    background-position: -1px -117px;
+    width: 22px;
+    height: 15px
+}
+
+.aq {
+    background-position: -1px -133px;
+    width: 22px;
+    height: 15px
+}
+
+.ar {
+    background-position: -1px -149px;
+    width: 22px;
+    height: 14px
+}
+
+.as {
+    background-position: -1px -164px;
+    width: 22px;
+    height: 11px
+}
+
+.at {
+    background-position: -1px -176px;
+    width: 22px;
+    height: 15px
+}
+
+.au {
+    background-position: -1px -192px;
+    width: 22px;
+    height: 11px
+}
+
+.aw {
+    background-position: -1px -204px;
+    width: 22px;
+    height: 15px
+}
+
+.ax {
+    background-position: -1px -220px;
+    width: 22px;
+    height: 14px
+}
+
+.az {
+    background-position: -1px -235px;
+    width: 22px;
+    height: 11px
+}
+
+.ba {
+    background-position: -1px -247px;
+    width: 22px;
+    height: 11px
+}
+
+.bb {
+    background-position: -1px -259px;
+    width: 22px;
+    height: 15px
+}
+
+.bd {
+    background-position: -1px -275px;
+    width: 22px;
+    height: 13px
+}
+
+.be {
+    background-position: -1px -289px;
+    width: 22px;
+    height: 15px
+}
+
+.bf {
+    background-position: -1px -305px;
+    width: 22px;
+    height: 15px
+}
+
+.bg {
+    background-position: -1px -321px;
+    width: 22px;
+    height: 13px
+}
+
+.bh {
+    background-position: -1px -335px;
+    width: 22px;
+    height: 13px
+}
+
+.bi {
+    background-position: -1px -349px;
+    width: 22px;
+    height: 13px
+}
+
+.bj {
+    background-position: -1px -363px;
+    width: 22px;
+    height: 15px
+}
+
+.bm {
+    background-position: -1px -379px;
+    width: 22px;
+    height: 11px
+}
+
+.bn {
+    background-position: -1px -391px;
+    width: 22px;
+    height: 11px
+}
+
+.bo {
+    background-position: -1px -403px;
+    width: 22px;
+    height: 15px
+}
+
+.bq {
+    background-position: -1px -419px;
+    width: 22px;
+    height: 15px
+}
+
+.br {
+    background-position: -1px -435px;
+    width: 22px;
+    height: 15px
+}
+
+.bs {
+    background-position: -1px -451px;
+    width: 22px;
+    height: 11px
+}
+
+.bt {
+    background-position: -1px -463px;
+    width: 22px;
+    height: 15px
+}
+
+.bv {
+    background-position: -1px -479px;
+    width: 22px;
+    height: 16px
+}
+
+.bw {
+    background-position: -1px -496px;
+    width: 22px;
+    height: 15px
+}
+
+.by {
+    background-position: -1px -512px;
+    width: 22px;
+    height: 11px
+}
+
+.bz {
+    background-position: -1px -524px;
+    width: 22px;
+    height: 15px
+}
+
+.ca {
+    background-position: -1px -540px;
+    width: 22px;
+    height: 11px
+}
+
+.cc {
+    background-position: -1px -552px;
+    width: 22px;
+    height: 11px
+}
+
+.cd {
+    background-position: -1px -564px;
+    width: 22px;
+    height: 17px
+}
+
+.cf {
+    background-position: -1px -582px;
+    width: 22px;
+    height: 15px
+}
+
+.cg {
+    background-position: -1px -598px;
+    width: 22px;
+    height: 15px
+}
+
+.ci {
+    background-position: -1px -614px;
+    width: 22px;
+    height: 15px
+}
+
+.ck {
+    background-position: -1px -630px;
+    width: 22px;
+    height: 11px
+}
+
+.cl {
+    background-position: -1px -642px;
+    width: 22px;
+    height: 15px
+}
+
+.cm {
+    background-position: -1px -658px;
+    width: 22px;
+    height: 15px
+}
+
+.cn {
+    background-position: -1px -674px;
+    width: 22px;
+    height: 15px
+}
+
+.co {
+    background-position: -1px -690px;
+    width: 22px;
+    height: 15px
+}
+
+.cr {
+    background-position: -1px -706px;
+    width: 22px;
+    height: 13px
+}
+
+.cu {
+    background-position: -1px -720px;
+    width: 22px;
+    height: 11px
+}
+
+.cv {
+    background-position: -1px -732px;
+    width: 22px;
+    height: 13px
+}
+
+.cw {
+    background-position: -1px -746px;
+    width: 22px;
+    height: 15px
+}
+
+.cx {
+    background-position: -1px -762px;
+    width: 22px;
+    height: 11px
+}
+
+.cy {
+    background-position: -1px -774px;
+    width: 22px;
+    height: 15px
+}
+
+.cz {
+    background-position: -1px -790px;
+    width: 22px;
+    height: 15px
+}
+
+.de {
+    background-position: -1px -806px;
+    width: 22px;
+    height: 13px
+}
+
+.dj {
+    background-position: -1px -820px;
+    width: 22px;
+    height: 15px
+}
+
+.dk {
+    background-position: -1px -836px;
+    width: 22px;
+    height: 17px
+}
+
+.dm {
+    background-position: -1px -854px;
+    width: 22px;
+    height: 11px
+}
+
+.do {
+    background-position: -1px -866px;
+    width: 22px;
+    height: 14px
+}
+
+.dz {
+    background-position: -1px -881px;
+    width: 22px;
+    height: 15px
+}
+
+.ec {
+    background-position: -1px -897px;
+    width: 22px;
+    height: 11px
+}
+
+.ee {
+    background-position: -1px -909px;
+    width: 22px;
+    height: 14px
+}
+
+.eg {
+    background-position: -1px -924px;
+    width: 22px;
+    height: 15px
+}
+
+.en {
+    background-position: -1px -940px;
+    width: 22px;
+    height: 11px
+}
+
+.er {
+    background-position: -1px -952px;
+    width: 22px;
+    height: 11px
+}
+
+.es {
+    background-position: -1px -964px;
+    width: 22px;
+    height: 15px
+}
+
+.et {
+    background-position: -1px -980px;
+    width: 22px;
+    height: 11px
+}
+
+.fi {
+    background-position: -1px -992px;
+    width: 22px;
+    height: 13px
+}
+
+.fj {
+    background-position: -1px -1006px;
+    width: 22px;
+    height: 11px
+}
+
+.fk {
+    background-position: -1px -1018px;
+    width: 22px;
+    height: 11px
+}
+
+.fm {
+    background-position: -1px -1030px;
+    width: 22px;
+    height: 12px
+}
+
+.fo {
+    background-position: -1px -1043px;
+    width: 22px;
+    height: 16px
+}
+
+.ga {
+    background-position: -1px -1060px;
+    width: 22px;
+    height: 17px
+}
+
+.gb {
+    background-position: -1px -1078px;
+    width: 22px;
+    height: 11px
+}
+
+.gd {
+    background-position: -1px -1090px;
+    width: 22px;
+    height: 13px
+}
+
+.ge {
+    background-position: -1px -1104px;
+    width: 22px;
+    height: 15px
+}
+
+.gh {
+    background-position: -1px -1120px;
+    width: 22px;
+    height: 15px
+}
+
+.gi {
+    background-position: -1px -1136px;
+    width: 22px;
+    height: 12px
+}
+
+.gm {
+    background-position: -1px -1149px;
+    width: 22px;
+    height: 15px
+}
+
+.gn {
+    background-position: -1px -1165px;
+    width: 22px;
+    height: 15px
+}
+
+.gp {
+    background-position: -1px -1181px;
+    width: 22px;
+    height: 15px
+}
+
+.gq {
+    background-position: -1px -1197px;
+    width: 22px;
+    height: 15px
+}
+
+.gr {
+    background-position: -1px -1213px;
+    width: 22px;
+    height: 15px
+}
+
+.gs {
+    background-position: -1px -1229px;
+    width: 22px;
+    height: 11px
+}
+
+.gt {
+    background-position: -1px -1241px;
+    width: 22px;
+    height: 14px
+}
+
+.gu {
+    background-position: -1px -1256px;
+    width: 22px;
+    height: 13px
+}
+
+.gw {
+    background-position: -1px -1270px;
+    width: 22px;
+    height: 11px
+}
+
+.gy {
+    background-position: -1px -1282px;
+    width: 22px;
+    height: 13px
+}
+
+.hk {
+    background-position: -1px -1296px;
+    width: 22px;
+    height: 15px
+}
+
+.hm {
+    background-position: -1px -1312px;
+    width: 22px;
+    height: 11px
+}
+
+.hn {
+    background-position: -1px -1324px;
+    width: 22px;
+    height: 11px
+}
+
+.hr {
+    background-position: -1px -1336px;
+    width: 22px;
+    height: 11px
+}
+
+.ht {
+    background-position: -1px -1348px;
+    width: 22px;
+    height: 13px
+}
+
+.hu {
+    background-position: -1px -1362px;
+    width: 22px;
+    height: 11px
+}
+
+.honduras {
+    background-position: -1px -1374px;
+    width: 22px;
+    height: 11px
+}
+
+.ie {
+    background-position: -1px -1386px;
+    width: 22px;
+    height: 11px
+}
+
+.il {
+    background-position: -1px -1398px;
+    width: 22px;
+    height: 16px
+}
+
+.im {
+    background-position: -1px -1415px;
+    width: 22px;
+    height: 11px
+}
+
+.in {
+    background-position: -1px -1427px;
+    width: 22px;
+    height: 15px
+}
+
+.io {
+    background-position: -1px -1443px;
+    width: 22px;
+    height: 11px
+}
+
+.iq {
+    background-position: -1px -1455px;
+    width: 22px;
+    height: 15px
+}
+
+.ir {
+    background-position: -1px -1471px;
+    width: 22px;
+    height: 13px
+}
+
+.is {
+    background-position: -1px -1485px;
+    width: 22px;
+    height: 16px
+}
+
+.it {
+    background-position: -1px -1502px;
+    width: 22px;
+    height: 15px
+}
+
+.je {
+    background-position: -1px -1518px;
+    width: 22px;
+    height: 15px
+}
+
+.jm {
+    background-position: -1px -1534px;
+    width: 22px;
+    height: 11px
+}
+
+.jo {
+    background-position: -1px -1546px;
+    width: 22px;
+    height: 11px
+}
+
+.jp {
+    background-position: -1px -1558px;
+    width: 22px;
+    height: 15px
+}
+
+.ke {
+    background-position: -1px -1574px;
+    width: 22px;
+    height: 15px
+}
+
+.kg {
+    background-position: -1px -1590px;
+    width: 22px;
+    height: 13px
+}
+
+.kh {
+    background-position: -1px -1604px;
+    width: 22px;
+    height: 15px
+}
+
+.ki {
+    background-position: -1px -1620px;
+    width: 22px;
+    height: 11px
+}
+
+.km {
+    background-position: -1px -1632px;
+    width: 22px;
+    height: 13px
+}
+
+.kn {
+    background-position: -1px -1646px;
+    width: 22px;
+    height: 15px
+}
+
+.kp {
+    background-position: -1px -1662px;
+    width: 22px;
+    height: 11px
+}
+
+.ks {
+    background-position: -1px -1674px;
+    width: 22px;
+    height: 15px
+}
+
+.kw {
+    background-position: -1px -1690px;
+    width: 22px;
+    height: 11px
+}
+
+.ky {
+    background-position: -1px -1702px;
+    width: 22px;
+    height: 11px
+}
+
+.kz {
+    background-position: -1px -1714px;
+    width: 22px;
+    height: 11px
+}
+
+.la {
+    background-position: -1px -1726px;
+    width: 22px;
+    height: 15px
+}
+
+.lb {
+    background-position: -1px -1742px;
+    width: 22px;
+    height: 15px
+}
+
+.lc {
+    background-position: -1px -1758px;
+    width: 22px;
+    height: 11px
+}
+
+.li {
+    background-position: -1px -1770px;
+    width: 22px;
+    height: 13px
+}
+
+.lk {
+    background-position: -1px -1784px;
+    width: 22px;
+    height: 11px
+}
+
+.lr {
+    background-position: -1px -1796px;
+    width: 22px;
+    height: 12px
+}
+
+.ls {
+    background-position: -1px -1809px;
+    width: 22px;
+    height: 15px
+}
+
+.lt {
+    background-position: -1px -1825px;
+    width: 22px;
+    height: 13px
+}
+
+.lu {
+    background-position: -1px -1839px;
+    width: 22px;
+    height: 13px
+}
+
+.lv {
+    background-position: -1px -1853px;
+    width: 22px;
+    height: 11px
+}
+
+.ly {
+    background-position: -1px -1865px;
+    width: 22px;
+    height: 11px
+}
+
+.ma {
+    background-position: -1px -1877px;
+    width: 22px;
+    height: 15px
+}
+
+.md {
+    background-position: -1px -1893px;
+    width: 22px;
+    height: 11px
+}
+
+.me {
+    background-position: -1px -1905px;
+    width: 22px;
+    height: 11px
+}
+
+.mg {
+    background-position: -1px -1917px;
+    width: 22px;
+    height: 15px
+}
+
+.mh {
+    background-position: -1px -1933px;
+    width: 22px;
+    height: 12px
+}
+
+.mk {
+    background-position: -1px -1946px;
+    width: 22px;
+    height: 11px
+}
+
+.ml {
+    background-position: -1px -1958px;
+    width: 22px;
+    height: 15px
+}
+
+.mm {
+    background-position: -1px -1974px;
+    width: 22px;
+    height: 12px
+}
+
+.mn {
+    background-position: -1px -1987px;
+    width: 22px;
+    height: 11px
+}
+
+.mo {
+    background-position: -1px -1999px;
+    width: 22px;
+    height: 15px
+}
+
+.mp {
+    background-position: -1px -2015px;
+    width: 22px;
+    height: 11px
+}
+
+.mr {
+    background-position: -1px -2027px;
+    width: 22px;
+    height: 15px
+}
+
+.ms {
+    background-position: -1px -2043px;
+    width: 22px;
+    height: 11px
+}
+
+.mt {
+    background-position: -1px -2055px;
+    width: 22px;
+    height: 15px
+}
+
+.mu {
+    background-position: -1px -2071px;
+    width: 22px;
+    height: 15px
+}
+
+.mv {
+    background-position: -1px -2087px;
+    width: 22px;
+    height: 15px
+}
+
+.mw {
+    background-position: -1px -2103px;
+    width: 22px;
+    height: 15px
+}
+
+.mx {
+    background-position: -1px -2119px;
+    width: 22px;
+    height: 13px
+}
+
+.my {
+    background-position: -1px -2133px;
+    width: 22px;
+    height: 11px
+}
+
+.mz {
+    background-position: -1px -2145px;
+    width: 22px;
+    height: 15px
+}
+
+.na {
+    background-position: -1px -2161px;
+    width: 22px;
+    height: 15px
+}
+
+.nc {
+    background-position: -1px -2177px;
+    width: 22px;
+    height: 11px
+}
+
+.ne {
+    background-position: -1px -2189px;
+    width: 22px;
+    height: 19px
+}
+
+.nf {
+    background-position: -1px -2209px;
+    width: 22px;
+    height: 11px
+}
+
+.ng {
+    background-position: -1px -2221px;
+    width: 22px;
+    height: 11px
+}
+
+.ni {
+    background-position: -1px -2233px;
+    width: 22px;
+    height: 13px
+}
+
+.nl {
+    background-position: -1px -2247px;
+    width: 22px;
+    height: 15px
+}
+
+.no {
+    background-position: -1px -2263px;
+    width: 22px;
+    height: 16px
+}
+
+.nr {
+    background-position: -1px -2280px;
+    width: 22px;
+    height: 11px
+}
+
+.nu {
+    background-position: -1px -2292px;
+    width: 22px;
+    height: 11px
+}
+
+.nz {
+    background-position: -1px -2304px;
+    width: 22px;
+    height: 11px
+}
+
+.om {
+    background-position: -1px -2316px;
+    width: 22px;
+    height: 11px
+}
+
+.pa {
+    background-position: -1px -2328px;
+    width: 22px;
+    height: 15px
+}
+
+.pe {
+    background-position: -1px -2344px;
+    width: 22px;
+    height: 15px
+}
+
+.pf {
+    background-position: -1px -2360px;
+    width: 22px;
+    height: 15px
+}
+
+.pg {
+    background-position: -1px -2376px;
+    width: 22px;
+    height: 17px
+}
+
+.ph {
+    background-position: -1px -2394px;
+    width: 22px;
+    height: 11px
+}
+
+.pk {
+    background-position: -1px -2406px;
+    width: 22px;
+    height: 15px
+}
+
+.pl {
+    background-position: -1px -2422px;
+    width: 22px;
+    height: 14px
+}
+
+.pm {
+    background-position: -1px -2437px;
+    width: 22px;
+    height: 15px
+}
+
+.pn {
+    background-position: -1px -2453px;
+    width: 22px;
+    height: 11px
+}
+
+.pr {
+    background-position: -1px -2465px;
+    width: 22px;
+    height: 15px
+}
+
+.ps {
+    background-position: -1px -2481px;
+    width: 22px;
+    height: 11px
+}
+
+.pt {
+    background-position: -1px -2493px;
+    width: 22px;
+    height: 15px
+}
+
+.pw {
+    background-position: -1px -2509px;
+    width: 22px;
+    height: 14px
+}
+
+.py {
+    background-position: -1px -2524px;
+    width: 22px;
+    height: 13px
+}
+
+.qa {
+    background-position: -1px -2538px;
+    width: 22px;
+    height: 9px
+}
+
+.ro {
+    background-position: -1px -2548px;
+    width: 22px;
+    height: 15px
+}
+
+.rs {
+    background-position: -1px -2564px;
+    width: 22px;
+    height: 15px
+}
+
+.ru {
+    background-position: -1px -2580px;
+    width: 22px;
+    height: 15px
+}
+
+.rw {
+    background-position: -1px -2596px;
+    width: 22px;
+    height: 15px
+}
+
+.sa {
+    background-position: -1px -2612px;
+    width: 22px;
+    height: 15px
+}
+
+.sb {
+    background-position: -1px -2628px;
+    width: 22px;
+    height: 11px
+}
+
+.sc {
+    background-position: -1px -2640px;
+    width: 22px;
+    height: 11px
+}
+
+.sd {
+    background-position: -1px -2652px;
+    width: 22px;
+    height: 11px
+}
+
+.se {
+    background-position: -1px -2664px;
+    width: 22px;
+    height: 14px
+}
+
+.sh {
+    background-position: -1px -2679px;
+    width: 22px;
+    height: 11px
+}
+
+.si {
+    background-position: -1px -2691px;
+    width: 22px;
+    height: 12px
+}
+
+.sj {
+    background-position: -1px -2704px;
+    width: 22px;
+    height: 16px
+}
+
+.sk {
+    background-position: -1px -2721px;
+    width: 22px;
+    height: 15px
+}
+
+.sl {
+    background-position: -1px -2737px;
+    width: 22px;
+    height: 15px
+}
+
+.sn {
+    background-position: -1px -2753px;
+    width: 22px;
+    height: 15px
+}
+
+.so {
+    background-position: -1px -2769px;
+    width: 22px;
+    height: 15px
+}
+
+.sr {
+    background-position: -1px -2785px;
+    width: 22px;
+    height: 15px
+}
+
+.ss {
+    background-position: -1px -2801px;
+    width: 22px;
+    height: 11px
+}
+
+.st {
+    background-position: -1px -2813px;
+    width: 22px;
+    height: 11px
+}
+
+.sv {
+    background-position: -1px -2825px;
+    width: 22px;
+    height: 12px
+}
+
+.sy {
+    background-position: -1px -2838px;
+    width: 22px;
+    height: 15px
+}
+
+.sz {
+    background-position: -1px -2854px;
+    width: 22px;
+    height: 15px
+}
+
+.tc {
+    background-position: -1px -2870px;
+    width: 22px;
+    height: 11px
+}
+
+.td {
+    background-position: -1px -2882px;
+    width: 22px;
+    height: 15px
+}
+
+.tf {
+    background-position: -1px -2898px;
+    width: 22px;
+    height: 15px
+}
+
+.tg {
+    background-position: -1px -2914px;
+    width: 22px;
+    height: 14px
+}
+
+.th {
+    background-position: -1px -2929px;
+    width: 22px;
+    height: 15px
+}
+
+.tj {
+    background-position: -1px -2945px;
+    width: 22px;
+    height: 11px
+}
+
+.tk {
+    background-position: -1px -2957px;
+    width: 22px;
+    height: 11px
+}
+
+.tl {
+    background-position: -1px -2969px;
+    width: 22px;
+    height: 11px
+}
+
+.tm {
+    background-position: -1px -2981px;
+    width: 22px;
+    height: 15px
+}
+
+.tn {
+    background-position: -1px -2997px;
+    width: 22px;
+    height: 15px
+}
+
+.to {
+    background-position: -1px -3013px;
+    width: 22px;
+    height: 11px
+}
+
+.tr {
+    background-position: -1px -3025px;
+    width: 22px;
+    height: 15px
+}
+
+.tt {
+    background-position: -1px -3041px;
+    width: 22px;
+    height: 13px
+}
+
+.tv {
+    background-position: -1px -3055px;
+    width: 22px;
+    height: 11px
+}
+
+.tz {
+    background-position: -1px -3067px;
+    width: 22px;
+    height: 15px
+}
+
+.ua {
+    background-position: -1px -3083px;
+    width: 22px;
+    height: 15px
+}
+
+.ug {
+    background-position: -1px -3099px;
+    width: 22px;
+    height: 15px
+}
+
+.um {
+    background-position: -1px -3115px;
+    width: 22px;
+    height: 12px
+}
+
+.us {
+    background-position: -1px -3128px;
+    width: 22px;
+    height: 12px
+}
+
+.uy {
+    background-position: -1px -3141px;
+    width: 22px;
+    height: 15px
+}
+
+.uz {
+    background-position: -1px -3157px;
+    width: 22px;
+    height: 11px
+}
+
+.vc {
+    background-position: -1px -3169px;
+    width: 22px;
+    height: 15px
+}
+
+.ve {
+    background-position: -1px -3185px;
+    width: 22px;
+    height: 15px
+}
+
+.vg {
+    background-position: -1px -3201px;
+    width: 22px;
+    height: 11px
+}
+
+.vi {
+    background-position: -1px -3213px;
+    width: 22px;
+    height: 15px
+}
+
+.vn {
+    background-position: -1px -3229px;
+    width: 22px;
+    height: 15px
+}
+
+.vu {
+    background-position: -1px -3245px;
+    width: 22px;
+    height: 13px
+}
+
+.ws {
+    background-position: -1px -3259px;
+    width: 22px;
+    height: 11px
+}
+
+.ye {
+    background-position: -1px -3271px;
+    width: 22px;
+    height: 15px
+}
+
+.za {
+    background-position: -1px -3287px;
+    width: 22px;
+    height: 15px
+}
+
+.zm {
+    background-position: -1px -3303px;
+    width: 22px;
+    height: 15px
+}
+
+.zw {
+    background-position: -1px -3319px;
+    width: 22px;
+    height: 11px
+}
+
+.zz {
+    background-position: -1px -3331px;
+    width: 22px;
+    height: 15px
+}
+
+.bundesliga {
+    background-position: -1px -3347px;
+    width: 22px;
+    height: 15px
+}
+
+.bundesliga-de {
+    background-position: -1px -3363px;
+    width: 22px;
+    height: 15px
+}
+
+.champions-league,champions-league-zz {
+    background-position: -1px -3379px;
+    width: 22px;
+    height: 15px
+}
+
+.epl {
+    background-position: -1px -3395px;
+    width: 22px;
+    height: 15px
+}
+
+.europa-league-zz {
+    background-position: -1px -3411px;
+    width: 22px;
+    height: 15px
+}
+
+.kbo {
+    background-position: -1px -3427px;
+    width: 22px;
+    height: 15px
+}
+
+.korea-professional-baseball---first-runs-zz {
+    background-position: -1px -3443px;
+    width: 22px;
+    height: 15px
+}
+
+.korea-professional-baseball-kr {
+    background-position: -1px -3459px;
+    width: 22px;
+    height: 15px
+}
+
+.korea-republic---k-league-classic-kr {
+    background-position: -1px -3475px;
+    width: 22px;
+    height: 15px
+}
+
+.la-liga {
+    background-position: -1px -3491px;
+    width: 22px;
+    height: 15px
+}
+
+.la-liga-es {
+    background-position: -1px -3507px;
+    width: 22px;
+    height: 15px
+}
+
+.ligue-1 {
+    background-position: -1px -3523px;
+    width: 22px;
+    height: 15px
+}
+
+.ligue-1-fr {
+    background-position: -1px -3539px;
+    width: 22px;
+    height: 15px
+}
+
+.mlb {
+    background-position: -1px -3555px;
+    width: 22px;
+    height: 15px
+}
+
+.mlb-hits-runs-errors-us,.hits---runs---errors-us {
+    background-position: -1px -3571px;
+    width: 22px;
+    height: 15px
+}
+
+.mlb---to-score-first-us {
+    background-position: -1px -3587px;
+    width: 22px;
+    height: 15px
+}
+
+.mlb-us {
+    background-position: -1px -3603px;
+    width: 22px;
+    height: 15px
+}
+
+.nba-us {
+    background-position: -1px -3619px;
+    width: 22px;
+    height: 15px
+}
+
+.nba-summer-league-zz {
+    background-position: -1px -3635px;
+    width: 22px;
+    height: 15px
+}
+
+.nba {
+    background-position: -1px -3619px;
+    width: 22px;
+    height: 15px
+}
+
+.nhl {
+    background-position: -1px -3651px;
+    width: 22px;
+    height: 15px
+}
+
+.nippon-professional-baseball-jp {
+    background-position: -1px -3667px;
+    width: 22px;
+    height: 15px
+}
+
+.npb {
+    background-position: -1px -3683px;
+    width: 22px;
+    height: 15px
+}
+
+.npb---hits---runs---errors-us {
+    background-position: -1px -3699px;
+    width: 22px;
+    height: 15px
+}
+
+.npb---hits---runs---errors-zz {
+    background-position: -1px -3715px;
+    width: 22px;
+    height: 15px
+}
+
+.npb---to-score-first-us {
+    background-position: -1px -3731px;
+    width: 22px;
+    height: 15px
+}
+
+.npb---to-score-first-zz {
+    background-position: -1px -3747px;
+    width: 22px;
+    height: 15px
+}
+
+.serie-a {
+    background-position: -1px -3763px;
+    width: 22px;
+    height: 15px
+}
+
+.serie-a-it {
+    background-position: -1px -3779px;
+    width: 22px;
+    height: 15px
+}
+
+.uefa---champions-league-zz {
+    background-position: -1px -3795px;
+    width: 22px;
+    height: 15px
+}
+
+.europa_league_zz,.uefa_-_europa_league_zz,.uefa---europa-league-zz {
+    background-position: -1px -4241px;
+    height: 15px;
+    width: 22px
+}
+
+.bl {
+    background-position: -1px -3827px;
+    width: 21px;
+    height: 14px
+}
+
+.fr {
+    background-position: -1px -3842px;
+    width: 21px;
+    height: 14px
+}
+
+.gf {
+    background-position: -1px -3857px;
+    width: 21px;
+    height: 14px
+}
+
+.gg {
+    background-position: -1px -3872px;
+    width: 21px;
+    height: 15px
+}
+
+.gl {
+    background-position: -1px -3888px;
+    width: 21px;
+    height: 14px
+}
+
+.id {
+    background-position: -1px -3903px;
+    width: 21px;
+    height: 14px
+}
+
+.kr {
+    background-position: -1px -3918px;
+    width: 21px;
+    height: 14px
+}
+
+.mc {
+    background-position: -1px -3933px;
+    width: 21px;
+    height: 14px
+}
+
+.mf {
+    background-position: -1px -3948px;
+    width: 21px;
+    height: 14px
+}
+
+.mq {
+    background-position: -1px -3963px;
+    width: 21px;
+    height: 14px
+}
+
+.re {
+    background-position: -1px -3978px;
+    width: 21px;
+    height: 14px
+}
+
+.sg {
+    background-position: -1px -3993px;
+    width: 21px;
+    height: 14px
+}
+
+.sx {
+    background-position: -1px -4008px;
+    width: 21px;
+    height: 14px
+}
+
+.tw {
+    background-position: -1px -4023px;
+    width: 21px;
+    height: 14px
+}
+
+.wf {
+    background-position: -1px -4038px;
+    width: 21px;
+    height: 14px
+}
+
+.xk {
+    background-position: -1px -4053px;
+    width: 21px;
+    height: 15px
+}
+
+.yt {
+    background-position: -1px -4069px;
+    width: 21px;
+    height: 14px
+}
+
+.ch {
+    background-position: -1px -4084px;
+    width: 20px;
+    height: 20px
+}
+
+.sm {
+    background-position: -1px -4105px;
+    width: 20px;
+    height: 15px
+}
+
+.np {
+    background-position: -1px -4121px;
+    width: 16px;
+    height: 20px
+}
+
+.va {
+    background-position: -1px -4142px;
+    width: 16px;
+    height: 15px
+}
+
+.fifa---world-cup-zz {
+    background-position: -1px -4158px;
+    width: 21px;
+    height: 14px
+}
+
+.england-championship-league {
+    background-position: -1px -4173px;
+    width: 22px;
+    height: 13px
+}
+
+.england-premiere-league {
+    background-position: -1px -4187px;
+    height: 12px;
+    width: 22px
+}
+
+.sf {
+    background-position: -1px -4200px;
+    height: 13px;
+    width: 22px
+}
+
+.serie-a-it {
+    background-position: -1px -4214px;
+    height: 12px;
+    width: 22px
+}
+
+.wales-league {
+    background-position: -1px -4227px;
+    height: 13px;
+    width: 22px
+}
+
+.asian-games {
+    background-position: -1px -4257px;
+    height: 12px;
+    width: 22px
+}
+
+.libertadores-cup {
+    background-position: -1px -4270px;
+    height: 13px;
+    width: 22px
+}
+
+.uefa-nations-league {
+    background-position: -1px -4284px;
+    height: 13px;
+    width: 22px
+}
+
+.uefa-u21 {
+    background-position: -1px -4408px;
+    height: 13px;
+    width: 22px
+}
+
+.kovo-cup-volleyball {
+    background-position: -1px -4312px;
+    height: 13px;
+    width: 22px
+}
+
+.nhl-hockey {
+    background-position: -1px -4326px;
+    height: 13px;
+    width: 22px
+}
+
+.afc-champions-league {
+    background-position: -1px -4340px;
+    height: 12px;
+    width: 22px
+}
+
+.uefa-youth-league {
+    background-position: -1px -4353px;
+    height: 13px;
+    width: 22px
+}
+
+.afccup {
+    background-position: -1px -4366px;
+    height: 13px;
+    width: 22px
+}
+
+.eredivise {
+    background-position: -1px -4380px;
+    height: 13px;
+    width: 22px
+}
+
+.jleague {
+    background-position: -1px -4394px;
+    height: 13px;
+    width: 22px
+}
+
+.korea-basketball-league {
+    background-position: -1px -4422px;
+    height: 13px;
+    width: 22px
+}
+
+.korea-volley-ball {
+    background-position: -1px -4436px;
+    height: 13px;
+    width: 22px
+}
+
+.wkbl {
+    background-position: -1px -4450px;
+    height: 13px;
+    width: 22px
+}
+
+.ufc {
+    background-position: -1px -4464px;
+    height: 13px;
+    width: 22px
+}
+
+.wnba {
+    background-position: -1px -4478px;
+    height: 11px;
+    width: 22px
+}
+
+.fifa-world-cup-u20 {
+    background-position: -1px -4490px;
+    height: 13px;
+    width: 22px
+}
+
+.uefa-euro-soccer {
+    background-position: -1px -4504px;
+    height: 12px;
+    width: 22px
+}
+
+.conmebol-copa-america-2019 {
+    background-position: -1px -4517px;
+    height: 13px;
+    width: 22px
+}
+
+.fifa-women-world-cup-france-2019 {
+    background-position: -1px -4531px;
+    height: 13px;
+    width: 22px
+}
+
+.korea-republic-k-league-challenge {
+    background-position: -1px -4545px;
+    height: 13px;
+    width: 22px
+}
+
+.concacaf-gold-cup {
+    background-position: -1px -4559px;
+    height: 13px;
+    width: 22px
+}
+
+.women-volley-ball-nations-league {
+    background-position: -1px -4573px;
+    height: 13px;
+    width: 22px
+}
+
+.volley-ball-pan-american-cup {
+    background-position: -1px -4587px;
+    height: 13px;
+    width: 22px
+}
+
+.caf-africa-cup-of-nations {
+    background-position: -1px -4601px;
+    height: 13px;
+    width: 22px
+}
+
+.volley-ball-european-silver-league {
+    background-position: -1px -4615px;
+    height: 13px;
+    width: 22px
+}
+
+.volley-ball-european-gold-league {
+    background-position: -1px -4629px;
+    height: 13px;
+    width: 22px
+}
+
+.conmebol-copa-sudamericana-2019 {
+    background-position: -1px -4643px;
+    height: 13px;
+    width: 22px
+}
+
+.uefa-u19-european-championship {
+    background-position: -1px -4657px;
+    height: 13px;
+    width: 22px
+}
+
+.conmebol-copa-libertadores {
+    background-position: -1px -4671px;
+    height: 13px;
+    width: 22px
+}
+
+.international-champions-cup {
+    background-position: -1px -4685px;
+    height: 13px;
+    width: 22px
+}
+
+.olympics-qualification-men {
+    background-position: -1px -4699px;
+    height: 13px;
+    width: 22px
+}
+
+.fiba-world-cup {
+    background-position: -1px -4712px;
+    height: 13px;
+    width: 22px
+}
+
+.fifa-world-cup,.fifa-world-cup-advance-lines,.fifa-world-cup-extra-time,.fifa-world-cup-qualifier,.fifa-world-cup-qualifiers-africa,.fifa-world-cup-qualifiers-asia,.fifa-world-cup-qualifiers-europe,.fifa-world-cup-qualifiers-europe-ii,.fifa-world-cup-qualifiers-intercontinental,.fifa-world-cup-qualifiers-north-america,.fifa-world-cup-qualifiers-oceania,.fifa-world-cup-qualifiers-south-america,.fifa-world-cup-qualifiers-women {
+    background-position: -1px -4725px;
+    height: 13px;
+    width: 22px
+}
+
+.img-bonus-event,.img-sports-bonus,.img-sports-all,.img-sports-badminton,.img-sports-base,.img-sports-baseball,.img-sports-basket,.img-sports-basketball,.img-sports-esports,.img-sports-favorite,.img-sports-hand,.img-sports-hockey,.img-sports-rugby,.img-sports-soccer,.img-sports-tennis,.img-sports-volley,.img-sports-mixed_martial_arts,.img-sports-dogs,.img-sports-horses {
+    display: inline-block;
+    background: url('/img/sports-sprite1.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left
+}
+
+.img-bonus-event,.img-sports-bonus {
+    background-position: -1px -0px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-all {
+    background-position: -32px -0px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-badminton {
+    background-position: -63px -0px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-base,.img-sports-baseball {
+    background-position: -1px -31px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-basket {
+    background-position: -32px -31px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-basketball {
+    background-position: -63px -31px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-esports {
+    background-position: -1px -62px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-favorite {
+    background-position: -32px -62px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-hand {
+    background-position: -63px -62px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-hockey {
+    background-position: -1px -93px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-rugby {
+    background-position: -32px -93px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-soccer {
+    background-position: -63px -93px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-tennis {
+    background-position: -1px -124px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-volley {
+    background-position: -32px -124px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-mixed_martial_arts {
+    background-position: -63px -123px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-dogs {
+    background-position: -32px -152px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-horses {
+    background-position: -1px -152px;
+    width: 30px;
+    height: 30px
+}
+
+.img-sports-e.sports {
+    background-position: -1px -62px;
+    height: 30px;
+    width: 30px
+}
+
+span.img-bonus-event {
+    background-position: 4px 0;
+    background-image: url(/img/img_event_icon.png);
+    background-size: auto;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    margin-top: -15px!important;
+    transform: scale(1)!important
+}
+
+.sports_category>ul>li>a>span>span.img-sports-all {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon0.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-badminton {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon9.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-base {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon3.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-basket {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon2.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-basketball {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon3.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-esports {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon9.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-favorite {
+    background-position: 0 0;
+    background-image: url(/img/img_sports_favorite_new.png);
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-hand {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon4.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-hockey {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon7.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.img-sports-foot {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon8.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-rugby,.sports_category>ul>li>a>span>span.img-sports-foot {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon8.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-mma,.sports_category>ul>li>a>span>span.img-sports-mixed-martial-arts {
+    background-position: center center;
+    background-image: url(/img/ufc-png.png);
+    background-size: auto 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 58px;
+    height: 20px;
+    margin-left: -29px;
+    margin-top: 4px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-soccer {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon1.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-olympic {
+    background-position: center;
+    background-image: url(/img/cate_icon10.png);
+    background-repeat: no-repeat;
+    background-size: auto 22px;
+    display: inline-block;
+    margin-left: 0;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 22px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-tennis {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon5-1.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.sports_category>ul>li>a>span>span.img-sports-volley {
+    background-position: 0 0;
+    background-image: url(/img/cate_icon4.png);
+    background-size: cover;
+    display: inline-block;
+    width: 24px;
+    height: 24px
+}
+
+.close-sub-users,.close-sub-users-turnover-win-lose-details {
+    float: right;
+    margin-right: 5px
+}
+
+.scroll-table-wrap {
+    width: 1100px;
+    overflow-x: auto;
+    margin: 5px 0
+}
+
+.table-black.table-black-secondary,.table-black.membership-win-lose-turnover {
+    margin-bottom: 0
+}
+
+.table-black.table-black-secondary>tbody>tr>td,.table-black.table-black-secondary tr th {
+    background: transparent
+}
+
+.table-black.table-black-secondary tr th {
+    border-top: 2px solid #979797
+}
+
+.table-black.membership-win-lose-turnover>thead {
+    background: transparent;
+    border: 1px solid #efefef;
+    border-top: 2px solid #979797
+}
+
+.table-black.membership-win-lose-turnover>thead>tr {
+    height: 30px;
+    border-top: none
+}
+
+.table-black.membership-win-lose-turnover>thead>tr>td {
+    background: transparent;
+    padding: 0 5px;
+    font-size: 13px;
+    white-space: nowrap
+}
+
+.table-black.membership-win-lose-turnover>tbody>tr>td {
+    background: transparent
+}
+
+.table-black.membership-win-lose-turnover>tbody>tr>td>a {
+    display: block;
+    color: #0483bd;
+    text-decoration: underline
+}
+
+.show-sub-users,.show-rolling-rate,.show-t-w-l-details {
+    border-radius: 4px;
+    border: 2px solid #62b457;
+    padding: 5px 10px;
+    color: #62b457;
+    font-size: 12px;
+    background: transparent;
+    position: relative;
+    border-radius: 5px
+}
+
+.show-sub-users {
+    padding: 1px 2px
+}
+
+.show-rolling-rate.open-button,.show-t-w-l-details.open-button {
+    border-color: #0583bd;
+    color: #0583bd
+}
+
+.show-rolling-rate span,.show-t-w-l-details span {
+    font-size: 9px;
+    display: inline-block;
+    margin-top: 3px;
+    float: right;
+    margin-left: 5px
+}
+
+.show-rolling-rate.open-button span,.show-t-w-l-details.open-button span {
+    transform: rotate(180deg);
+    text-shadow: 0 -1px rgba(0,0,0,.43)
+}
+
+span[class*="rollingBonus-value-"],span[class*="advanced-mini-games-value-"] {
+    display: block;
+    color: #0583bd;
+    font-size: 8px
+}
+
+span[class*='rollingBonus-value-'] input.rb-value {
+    width: 100%;
+    box-sizing: border-box
+}
+
+.rolling-bonus-select,.advanced-mini-games-rolling-bonus-select {
+    border-color: #2482bc;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: baseline;
+    padding: 0 4px;
+    margin-top: 1px;
+    font-size: 10px
+}
+
+.open-rate .save-rolling-bonus {
+    border-radius: 4px;
+    background: transparent;
+    color: #62b457;
+    font-size: 12px;
+    padding: 2px 6px;
+    border: 2px solid #62b457;
+    margin: 4px auto
+}
+
+.edit-rolling-bonus,.cancel-rolling-bonus,.save-rolling-bonus {
+    background-color: #999999;
+    color: #fff;
+    padding: 0 5px;
+    border: none;
+    height: 24px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-size: 11px
+}
+
+.edit-rolling-bonus {
+    background-color: #0583bd
+}
+
+.save-rolling-bonus {
+    background-color: #62b457
+}
+
+.affiliates-username {
+    font-size: 19px;
+    display: inline-block;
+    font-weight: bold;
+    color: #636363;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    letter-spacing: -1px
+}
+
+.affiliates-username-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -1px;
+    color: #636363
+}
+
+.favorite_con {
+    border-top: 2px solid #474747
+}
+
+.favorite_con>h1 {
+    height: 40px;
+    padding: 0 7px;
+    line-height: 40px;
+    border-bottom: 1px solid #dedede;
+    overflow: hidden
+}
+
+.favorite_con>h1>span {
+    font-size: 13px;
+    color: #505050
+}
+
+.favorite_con>h1>span>img {
+    margin: -2px 9px 0 0
+}
+
+.favorite_con>h1>em {
+    float: right;
+    transition: .3s
+}
+
+.favorite_con>h1>em.active {
+    transform: rotate(180deg)
+}
+
+.favorite_con>ul {
+    padding: 10px 5px
+}
+
+.favorite_con>ul>li {
+    position: relative;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border: 2px solid #62b457;
+    border-radius: 5px
+}
+
+.favorite_con>ul>li:first-child {
+    margin-top: 0
+}
+
+.favorite_con>ul>li>h1 {
+    width: 200px;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.favorite_con>ul>li>h2 {
+    color: #b6b6b6
+}
+
+.favorite_con>ul>li>h3 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -9px;
+    cursor: pointer
+}
+
+.favorite_con>ul>li>h3:hover {
+    opacity: .75
+}
+
+.sports_score.result .header-selected-bet-history {
+    height: 33px;
+    padding-left: 12px;
+    line-height: 33px;
+    background: linear-gradient(to top,#FFF,#effaff);
+    border-top: 2px solid #54a9d0;
+    border-bottom: 1px solid #d8d8d8;
+    overflow: hidden
+}
+
+.css-virtual-dogs-horses-results {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    width: 100%
+}
+
+.css-virtual-dogs-horses-results thead td {
+    background: #2f2f2f;
+    line-height: 38px;
+    height: 38px;
+    color: #fff;
+    text-align: center
+}
+
+.css-virtual-dogs-horses-results tbody td {
+    border: 1px solid #cccc;
+    padding: 5px;
+    text-align: center
+}
+
+.css-virtual-dogs-horses-results tbody td.win {
+    color: #20ce0d
+}
+
+.css-virtual-dogs-horses-results tbody tr:nth-child(even) {
+    background-color: #f0f0f0
+}
+
+.css-virtual-dogs-horses-results tbody tr:hover {
+    background-color: #eee
+}

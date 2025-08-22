@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom body background color */
+body {
+  background-color: #000418;
+}
